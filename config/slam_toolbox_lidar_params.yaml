@@ -1,0 +1,29 @@
+slam_toolbox:
+  ros__parameters:
+    # LiDAR-only baseline for board mapping.
+    solver_plugin: solver_plugins::CeresSolver
+
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /scan
+    mode: mapping
+    publish_tf: true
+    use_odometry: true
+    use_map_saver: true
+
+    debug_logging: false
+    throttle_scans: 1
+    transform_publish_period: 0.02
+    map_update_interval: 2.0
+    resolution: 0.05
+    max_laser_range: 30.0
+    minimum_time_interval: 0.2
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+
+    use_scan_matching: true
+    use_scan_barycenter: true
+    do_loop_closing: true
+    minimum_travel_distance: 0.2
+    minimum_travel_heading: 0.2

@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-90eac278f53279b806ff.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lidar_processor_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lidar_processor_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lidar_processor_cpp_uninstall-d4fb91bc79c13d875667.json",
+					"name" : "lidar_processor_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lidar_to_pointcloud_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lidar_to_pointcloud_node-100f4431228189c7294d.json",
+					"name" : "lidar_to_pointcloud_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pointcloud_aggregator_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pointcloud_aggregator_node-8e32ba483a98e102ad4f.json",
+					"name" : "pointcloud_aggregator_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-f407b7286008eff13ed4.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/workspace/repo/build_container/lidar_processor_cpp",
+		"source" : "/workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

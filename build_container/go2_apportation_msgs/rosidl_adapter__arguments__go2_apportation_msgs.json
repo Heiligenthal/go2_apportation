@@ -1,0 +1,11 @@
+{
+  "package_name": "go2_apportation_msgs",
+  "non_idl_tuples": [
+    "/workspace/repo/src/go2_apportation_msgs:msg/Detection3D.msg",
+    "/workspace/repo/src/go2_apportation_msgs:msg/Detection3DArray.msg",
+    "/workspace/repo/src/go2_apportation_msgs:msg/ObjectState.msg",
+    "/workspace/repo/src/go2_apportation_msgs:msg/ThrowStatus.msg",
+    "/workspace/repo/src/go2_apportation_msgs:action/PickObject.action",
+    "/workspace/repo/src/go2_apportation_msgs:srv/ReleaseObject.srv"
+  ]
+}

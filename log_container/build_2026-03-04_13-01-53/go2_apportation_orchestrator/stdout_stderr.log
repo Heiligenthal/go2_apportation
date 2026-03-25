@@ -1,0 +1,20 @@
+running egg_info
+writing ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/PKG-INFO
+writing dependency_links to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/dependency_links.txt
+writing entry points to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/entry_points.txt
+writing requirements to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/requires.txt
+writing top-level names to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/top_level.txt
+reading manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'
+writing manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info to /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator-0.0.0-py3.10.egg-info
+running install_scripts
+Installing orchestrator_runtime script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator
+Installing orchestrator_stub script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator
+writing list of installed files to '/workspace/repo/build_container/go2_apportation_orchestrator/install.log'

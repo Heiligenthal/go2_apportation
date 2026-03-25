@@ -1,0 +1,15 @@
+setup.py
+go2_apportation_msgs/__init__.py
+go2_apportation_msgs.egg-info/PKG-INFO
+go2_apportation_msgs.egg-info/SOURCES.txt
+go2_apportation_msgs.egg-info/dependency_links.txt
+go2_apportation_msgs.egg-info/top_level.txt
+go2_apportation_msgs/action/__init__.py
+go2_apportation_msgs/action/_pick_object.py
+go2_apportation_msgs/msg/__init__.py
+go2_apportation_msgs/msg/_detection3_d.py
+go2_apportation_msgs/msg/_detection3_d_array.py
+go2_apportation_msgs/msg/_object_state.py
+go2_apportation_msgs/msg/_throw_status.py
+go2_apportation_msgs/srv/__init__.py
+go2_apportation_msgs/srv/_release_object.py

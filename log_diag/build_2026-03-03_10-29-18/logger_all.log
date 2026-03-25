@@ -1,0 +1,538 @@
+[0.285s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', '--log-base', 'log_diag', 'build', '--build-base', 'build_diag', '--install-base', 'install_diag']
+[0.285s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base='log_diag', log_level=None, verb_name='build', build_base='/workspace/repo/build_diag', install_base='/workspace/repo/install_diag', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=6, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffb9301b40>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffb9426920>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffb9426920>>, mixin_verb=('build',))
+[0.563s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.565s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/Gazebo.meta'
+[0.566s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastdds.meta'
+[0.567s] INFO:colcon.colcon_metadata.package_discovery.colcon_meta:Using configuration from '/root/.colcon/metadata/default/fastrtps.meta'
+[0.567s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.567s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.567s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.567s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.568s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.568s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/workspace/repo'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.597s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.597s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.597s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.597s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['ignore', 'ignore_ament_install']
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'ignore'
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'ignore_ament_install'
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['colcon_pkg']
+[0.598s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'colcon_pkg'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['colcon_meta']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'colcon_meta'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['ros']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'ros'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['cmake', 'python']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'cmake'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'python'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extensions ['python_setup_py']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts) by extension 'python_setup_py'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['ignore', 'ignore_ament_install']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'ignore'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'ignore_ament_install'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['colcon_pkg']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'colcon_pkg'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['colcon_meta']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'colcon_meta'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['ros']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'ros'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['cmake', 'python']
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'cmake'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'python'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extensions ['python_setup_py']
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks) by extension 'python_setup_py'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['ignore', 'ignore_ament_install']
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'ignore'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'ignore_ament_install'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['colcon_pkg']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'colcon_pkg'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['colcon_meta']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'colcon_meta'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['ros']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'ros'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['cmake', 'python']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'cmake'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'python'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extensions ['python_setup_py']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182530) by extension 'python_setup_py'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['ignore', 'ignore_ament_install']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'ignore'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'ignore_ament_install'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['colcon_pkg']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'colcon_pkg'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['colcon_meta']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'colcon_meta'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['ros']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'ros'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['cmake', 'python']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'cmake'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'python'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extensions ['python_setup_py']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182614) by extension 'python_setup_py'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['ignore', 'ignore_ament_install']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'ignore'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'ignore_ament_install'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['colcon_pkg']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'colcon_pkg'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['colcon_meta']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'colcon_meta'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['ros']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'ros'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['cmake', 'python']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'cmake'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'python'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extensions ['python_setup_py']
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182717) by extension 'python_setup_py'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['ignore', 'ignore_ament_install']
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'ignore'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'ignore_ament_install'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['colcon_pkg']
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'colcon_pkg'
+[0.606s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['colcon_meta']
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'colcon_meta'
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['ros']
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'ros'
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['cmake', 'python']
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'cmake'
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'python'
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extensions ['python_setup_py']
+[0.607s] Level 1:colcon.colcon_core.package_identification:_identify(artifacts/checks/20260303_182757) by extension 'python_setup_py'
+[0.608s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.608s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.608s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.608s] Level 1:colcon.colcon_core.package_identification:_identify(build_container) by extensions ['ignore', 'ignore_ament_install']
+[0.608s] Level 1:colcon.colcon_core.package_identification:_identify(build_container) by extension 'ignore'
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(build_container) ignored
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(build_diag) by extensions ['ignore', 'ignore_ament_install']
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(build_diag) by extension 'ignore'
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(build_diag) ignored
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ignore', 'ignore_ament_install']
+[0.609s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ignore_ament_install'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_pkg']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_pkg'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['colcon_meta']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'colcon_meta'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['ros']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'ros'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['cmake', 'python']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'cmake'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extensions ['python_setup_py']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(config) by extension 'python_setup_py'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore_ament_install'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_pkg']
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_pkg'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_meta']
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_meta'
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ros']
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ros'
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['cmake', 'python']
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'cmake'
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python'
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['python_setup_py']
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python_setup_py'
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install_container) by extensions ['ignore', 'ignore_ament_install']
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install_container) by extension 'ignore'
+[0.614s] Level 1:colcon.colcon_core.package_identification:_identify(install_container) ignored
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(install_diag) by extensions ['ignore', 'ignore_ament_install']
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(install_diag) by extension 'ignore'
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(install_diag) ignored
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['ignore', 'ignore_ament_install']
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ignore'
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ignore_ament_install'
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['colcon_pkg']
+[0.615s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'colcon_pkg'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['colcon_meta']
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'colcon_meta'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['ros']
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'ros'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['cmake', 'python']
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'cmake'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'python'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extensions ['python_setup_py']
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch) by extension 'python_setup_py'
+[0.616s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ignore'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ignore_ament_install'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['colcon_pkg']
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'colcon_pkg'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['colcon_meta']
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'colcon_meta'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['ros']
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'ros'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['cmake', 'python']
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'cmake'
+[0.617s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'python'
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extensions ['python_setup_py']
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(launch/__pycache__) by extension 'python_setup_py'
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(log_container) by extensions ['ignore', 'ignore_ament_install']
+[0.618s] Level 1:colcon.colcon_core.package_identification:_identify(log_container) by extension 'ignore'
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(log_container) ignored
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(log_diag) by extensions ['ignore', 'ignore_ament_install']
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(log_diag) by extension 'ignore'
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(log_diag) ignored
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.619s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'python']
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.620s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'ignore'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'ignore_ament_install'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['colcon_pkg']
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'colcon_pkg'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['colcon_meta']
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'colcon_meta'
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['ros']
+[0.621s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'ros'
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['cmake', 'python']
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'cmake'
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'python'
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extensions ['python_setup_py']
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bringup) by extension 'python_setup_py'
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'ignore'
+[0.622s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'ignore_ament_install'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['colcon_pkg']
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'colcon_pkg'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['colcon_meta']
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'colcon_meta'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['ros']
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'ros'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['cmake', 'python']
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'cmake'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'python'
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extensions ['python_setup_py']
+[0.623s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/docker) by extension 'python_setup_py'
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['ignore', 'ignore_ament_install']
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'ignore'
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'ignore_ament_install'
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['colcon_pkg']
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'colcon_pkg'
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['colcon_meta']
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'colcon_meta'
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['ros']
+[0.624s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'ros'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['cmake', 'python']
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'cmake'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'python'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extensions ['python_setup_py']
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/rtabmap) by extension 'python_setup_py'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extensions ['ignore', 'ignore_ament_install']
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extension 'ignore'
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extension 'ignore_ament_install'
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extensions ['colcon_pkg']
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extension 'colcon_pkg'
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extensions ['colcon_meta']
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extension 'colcon_meta'
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extensions ['ros']
+[0.627s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_mocks) by extension 'ros'
+[0.633s] DEBUG:colcon.colcon_core.package_identification:Package 'src/go2_apportation_mocks' with type 'ros.ament_python' and name 'go2_apportation_mocks'
+[0.634s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.634s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extension 'ignore'
+[0.634s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extension 'ignore_ament_install'
+[0.634s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extensions ['colcon_pkg']
+[0.634s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extension 'colcon_pkg'
+[0.635s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extensions ['colcon_meta']
+[0.635s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extension 'colcon_meta'
+[0.635s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extensions ['ros']
+[0.635s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_msgs) by extension 'ros'
+[0.637s] DEBUG:colcon.colcon_core.package_identification:Package 'src/go2_apportation_msgs' with type 'ros.catkin' and name 'go2_apportation_msgs'
+[0.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extensions ['ignore', 'ignore_ament_install']
+[0.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extension 'ignore'
+[0.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extension 'ignore_ament_install'
+[0.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extensions ['colcon_pkg']
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extension 'colcon_pkg'
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extensions ['colcon_meta']
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extension 'colcon_meta'
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extensions ['ros']
+[0.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_apportation_orchestrator) by extension 'ros'
+[0.639s] DEBUG:colcon.colcon_core.package_identification:Package 'src/go2_apportation_orchestrator' with type 'ros.ament_python' and name 'go2_apportation_orchestrator'
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extensions ['ignore', 'ignore_ament_install']
+[0.639s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extension 'ignore'
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extension 'ignore_ament_install'
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extensions ['colcon_pkg']
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extension 'colcon_pkg'
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extensions ['colcon_meta']
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extension 'colcon_meta'
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extensions ['ros']
+[0.640s] Level 1:colcon.colcon_core.package_identification:_identify(src/go2_tf_tools) by extension 'ros'
+[0.641s] DEBUG:colcon.colcon_core.package_identification:Package 'src/go2_tf_tools' with type 'ros.ament_python' and name 'go2_tf_tools'
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['ignore', 'ignore_ament_install']
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'ignore'
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'ignore_ament_install'
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['colcon_pkg']
+[0.642s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'colcon_pkg'
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['colcon_meta']
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'colcon_meta'
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['ros']
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'ros'
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['cmake', 'python']
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'cmake'
+[0.643s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'python'
+[0.644s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extensions ['python_setup_py']
+[0.644s] Level 1:colcon.colcon_core.package_identification:_identify(tests) by extension 'python_setup_py'
+[0.644s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.644s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'ignore'
+[0.644s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'ignore_ament_install'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['colcon_pkg']
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'colcon_pkg'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['colcon_meta']
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'colcon_meta'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['ros']
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'ros'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['cmake', 'python']
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'cmake'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'python'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extensions ['python_setup_py']
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(tests/__pycache__) by extension 'python_setup_py'
+[0.646s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.646s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.646s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.646s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.646s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_args' from command line to 'None'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_target' from command line to 'None'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.692s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.692s] DEBUG:colcon.colcon_core.verb:Building package 'go2_apportation_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/workspace/repo/build_diag/go2_apportation_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/workspace/repo/install_diag/go2_apportation_msgs', 'merge_install': False, 'path': '/workspace/repo/src/go2_apportation_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_args' from command line to 'None'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_target' from command line to 'None'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_clean_cache' from command line to 'False'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_clean_first' from command line to 'False'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'cmake_force_configure' from command line to 'False'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'ament_cmake_args' from command line to 'None'
+[0.693s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'catkin_cmake_args' from command line to 'None'
+[0.694s] Level 5:colcon.colcon_core.verb:set package 'go2_tf_tools' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.694s] DEBUG:colcon.colcon_core.verb:Building package 'go2_tf_tools' with the following arguments: {'ament_cmake_args': None, 'build_base': '/workspace/repo/build_diag/go2_tf_tools', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/workspace/repo/install_diag/go2_tf_tools', 'merge_install': False, 'path': '/workspace/repo/src/go2_tf_tools', 'symlink_install': False, 'test_result_base': None}
+[0.694s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_args' from command line to 'None'
+[0.694s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_target' from command line to 'None'
+[0.694s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_clean_cache' from command line to 'False'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_clean_first' from command line to 'False'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'cmake_force_configure' from command line to 'False'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'ament_cmake_args' from command line to 'None'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'catkin_cmake_args' from command line to 'None'
+[0.695s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_mocks' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.695s] DEBUG:colcon.colcon_core.verb:Building package 'go2_apportation_mocks' with the following arguments: {'ament_cmake_args': None, 'build_base': '/workspace/repo/build_diag/go2_apportation_mocks', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/workspace/repo/install_diag/go2_apportation_mocks', 'merge_install': False, 'path': '/workspace/repo/src/go2_apportation_mocks', 'symlink_install': False, 'test_result_base': None}
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_args' from command line to 'None'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_target' from command line to 'None'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_clean_first' from command line to 'False'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'cmake_force_configure' from command line to 'False'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'ament_cmake_args' from command line to 'None'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.696s] Level 5:colcon.colcon_core.verb:set package 'go2_apportation_orchestrator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.696s] DEBUG:colcon.colcon_core.verb:Building package 'go2_apportation_orchestrator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/workspace/repo/build_diag/go2_apportation_orchestrator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/workspace/repo/install_diag/go2_apportation_orchestrator', 'merge_install': False, 'path': '/workspace/repo/src/go2_apportation_orchestrator', 'symlink_install': False, 'test_result_base': None}
+[0.696s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.699s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.700s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/workspace/repo/src/go2_apportation_msgs' with build type 'catkin'
+[0.701s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/workspace/repo/src/go2_apportation_msgs'
+[0.706s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.707s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.707s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.715s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/workspace/repo/src/go2_tf_tools' with build type 'ament_python'
+[0.716s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_tf_tools', 'ament_prefix_path')
+[0.716s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/ament_prefix_path.ps1'
+[0.718s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/ament_prefix_path.dsv'
+[0.719s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/ament_prefix_path.sh'
+[0.721s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.721s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.731s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake /workspace/repo/src/go2_apportation_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_diag/go2_apportation_msgs
+[1.226s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/workspace/repo/src/go2_tf_tools'
+[1.227s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.227s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.834s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/src/go2_tf_tools': PYTHONPATH=/workspace/repo/build_diag/go2_tf_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_tf_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_tf_tools build --build-base /workspace/repo/build_diag/go2_tf_tools/build install --record /workspace/repo/build_diag/go2_tf_tools/install.log --single-version-externally-managed install_data
+[2.371s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/src/go2_tf_tools' returned '0': PYTHONPATH=/workspace/repo/build_diag/go2_tf_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_tf_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_tf_tools build --build-base /workspace/repo/build_diag/go2_tf_tools/build install --record /workspace/repo/build_diag/go2_tf_tools/install.log --single-version-externally-managed install_data
+[2.376s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools' for CMake module files
+[2.377s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools' for CMake config files
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools/lib'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools/bin'
+[2.378s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools/lib/pkgconfig/go2_tf_tools.pc'
+[2.379s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools/lib/python3.10/site-packages'
+[2.379s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_tf_tools', 'pythonpath')
+[2.380s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/pythonpath.ps1'
+[2.381s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/pythonpath.dsv'
+[2.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/hook/pythonpath.sh'
+[2.383s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_tf_tools/bin'
+[2.383s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_tf_tools)
+[2.383s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/package.ps1'
+[2.385s] INFO:colcon.colcon_core.shell:Creating package descriptor '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/package.dsv'
+[2.386s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/package.sh'
+[2.388s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/package.bash'
+[2.389s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_tf_tools/share/go2_tf_tools/package.zsh'
+[2.391s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/workspace/repo/install_diag/go2_tf_tools/share/colcon-core/packages/go2_tf_tools)
+[4.173s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake /workspace/repo/src/go2_apportation_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_diag/go2_apportation_msgs
+[4.176s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake --build /workspace/repo/build_diag/go2_apportation_msgs -- -j6 -l6
+[17.137s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake --build /workspace/repo/build_diag/go2_apportation_msgs -- -j6 -l6
+[17.158s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake --install /workspace/repo/build_diag/go2_apportation_msgs
+[17.352s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake --install /workspace/repo/build_diag/go2_apportation_msgs
+[17.353s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'ros_package_path')
+[17.354s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ros_package_path.ps1'
+[17.355s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ros_package_path.dsv'
+[17.355s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ros_package_path.sh'
+[17.357s] Level 1:colcon.colcon_ros.task.catkin:checking '/workspace/repo/install_diag/go2_apportation_msgs/local/lib/python3.10/dist-packages'
+[17.357s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'catkin_pythonpath')
+[17.357s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/catkin_pythonpath.ps1'
+[17.358s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/catkin_pythonpath.dsv'
+[17.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/catkin_pythonpath.sh'
+[17.359s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'pkg_config_path')
+[17.360s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path.ps1'
+[17.360s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path.dsv'
+[17.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path.sh'
+[17.364s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'pkg_config_path_multiarch')
+[17.365s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path_multiarch.ps1'
+[17.366s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path_multiarch.dsv'
+[17.366s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/pkg_config_path_multiarch.sh'
+[17.368s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_apportation_msgs)
+[17.369s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs' for CMake module files
+[17.370s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs' for CMake config files
+[17.372s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'cmake_prefix_path')
+[17.372s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/cmake_prefix_path.ps1'
+[17.373s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/cmake_prefix_path.dsv'
+[17.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/cmake_prefix_path.sh'
+[17.375s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs/lib'
+[17.375s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_msgs', 'ld_library_path_lib')
+[17.375s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ld_library_path_lib.ps1'
+[17.376s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ld_library_path_lib.dsv'
+[17.377s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/hook/ld_library_path_lib.sh'
+[17.377s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs/bin'
+[17.377s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs/lib/pkgconfig/go2_apportation_msgs.pc'
+[17.378s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs/lib/python3.10/site-packages'
+[17.379s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_msgs/bin'
+[17.379s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/package.ps1'
+[17.381s] INFO:colcon.colcon_core.shell:Creating package descriptor '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/package.dsv'
+[17.382s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/package.sh'
+[17.383s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/package.bash'
+[17.384s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_msgs/share/go2_apportation_msgs/package.zsh'
+[17.385s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/workspace/repo/install_diag/go2_apportation_msgs/share/colcon-core/packages/go2_apportation_msgs)
+[17.386s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/workspace/repo/src/go2_apportation_mocks' with build type 'ament_python'
+[17.386s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_mocks', 'ament_prefix_path')
+[17.387s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/ament_prefix_path.ps1'
+[17.389s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/ament_prefix_path.dsv'
+[17.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/ament_prefix_path.sh'
+[17.390s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.391s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.395s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/workspace/repo/src/go2_apportation_orchestrator' with build type 'ament_python'
+[17.396s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_orchestrator', 'ament_prefix_path')
+[17.396s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/ament_prefix_path.ps1'
+[17.398s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/ament_prefix_path.dsv'
+[17.398s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/ament_prefix_path.sh'
+[17.400s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.400s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.833s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/workspace/repo/src/go2_apportation_mocks'
+[17.834s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[17.834s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[18.282s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/workspace/repo/src/go2_apportation_orchestrator'
+[18.283s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[18.283s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[18.889s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/src/go2_apportation_mocks': CMAKE_PREFIX_PATH=/workspace/repo/install_diag/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag/go2_apportation_mocks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_apportation_mocks/lib/python3.10/site-packages:/workspace/repo/install_diag/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_apportation_mocks build --build-base /workspace/repo/build_diag/go2_apportation_mocks/build install --record /workspace/repo/build_diag/go2_apportation_mocks/install.log --single-version-externally-managed install_data
+[18.906s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/workspace/repo/src/go2_apportation_orchestrator': CMAKE_PREFIX_PATH=/workspace/repo/install_diag/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag/go2_apportation_orchestrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_apportation_orchestrator/lib/python3.10/site-packages:/workspace/repo/install_diag/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_apportation_orchestrator build --build-base /workspace/repo/build_diag/go2_apportation_orchestrator/build install --record /workspace/repo/build_diag/go2_apportation_orchestrator/install.log --single-version-externally-managed install_data
+[19.408s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks' for CMake module files
+[19.409s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/src/go2_apportation_mocks' returned '0': CMAKE_PREFIX_PATH=/workspace/repo/install_diag/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag/go2_apportation_mocks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_apportation_mocks/lib/python3.10/site-packages:/workspace/repo/install_diag/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_apportation_mocks build --build-base /workspace/repo/build_diag/go2_apportation_mocks/build install --record /workspace/repo/build_diag/go2_apportation_mocks/install.log --single-version-externally-managed install_data
+[19.410s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks' for CMake config files
+[19.411s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks/lib'
+[19.412s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks/bin'
+[19.412s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks/lib/pkgconfig/go2_apportation_mocks.pc'
+[19.412s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks/lib/python3.10/site-packages'
+[19.412s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_mocks', 'pythonpath')
+[19.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/pythonpath.ps1'
+[19.414s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/pythonpath.dsv'
+[19.415s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/hook/pythonpath.sh'
+[19.417s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_mocks/bin'
+[19.417s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_apportation_mocks)
+[19.418s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/package.ps1'
+[19.419s] INFO:colcon.colcon_core.shell:Creating package descriptor '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/package.dsv'
+[19.421s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/package.sh'
+[19.422s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/package.bash'
+[19.423s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_mocks/share/go2_apportation_mocks/package.zsh'
+[19.423s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/workspace/repo/install_diag/go2_apportation_mocks/share/colcon-core/packages/go2_apportation_mocks)
+[19.488s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator' for CMake module files
+[19.491s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/workspace/repo/src/go2_apportation_orchestrator' returned '0': CMAKE_PREFIX_PATH=/workspace/repo/install_diag/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag/go2_apportation_orchestrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag/go2_apportation_orchestrator/lib/python3.10/site-packages:/workspace/repo/install_diag/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag/go2_apportation_orchestrator build --build-base /workspace/repo/build_diag/go2_apportation_orchestrator/build install --record /workspace/repo/build_diag/go2_apportation_orchestrator/install.log --single-version-externally-managed install_data
+[19.491s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator' for CMake config files
+[19.493s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator/lib'
+[19.493s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator/bin'
+[19.493s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator/lib/pkgconfig/go2_apportation_orchestrator.pc'
+[19.494s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator/lib/python3.10/site-packages'
+[19.494s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_apportation_orchestrator', 'pythonpath')
+[19.494s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/pythonpath.ps1'
+[19.496s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/pythonpath.dsv'
+[19.497s] INFO:colcon.colcon_core.shell:Creating environment hook '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/hook/pythonpath.sh'
+[19.499s] Level 1:colcon.colcon_core.environment:checking '/workspace/repo/install_diag/go2_apportation_orchestrator/bin'
+[19.499s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_apportation_orchestrator)
+[19.500s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/package.ps1'
+[19.502s] INFO:colcon.colcon_core.shell:Creating package descriptor '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/package.dsv'
+[19.504s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/package.sh'
+[19.505s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/package.bash'
+[19.506s] INFO:colcon.colcon_core.shell:Creating package script '/workspace/repo/install_diag/go2_apportation_orchestrator/share/go2_apportation_orchestrator/package.zsh'
+[19.507s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/workspace/repo/install_diag/go2_apportation_orchestrator/share/colcon-core/packages/go2_apportation_orchestrator)
+[19.508s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[19.509s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[19.509s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[19.510s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[19.522s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[19.522s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[19.523s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[19.523s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[19.523s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[19.523s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[19.524s] INFO:colcon.colcon_core.shell:Creating prefix script '/workspace/repo/install_diag/local_setup.ps1'
+[19.526s] INFO:colcon.colcon_core.shell:Creating prefix util module '/workspace/repo/install_diag/_local_setup_util_ps1.py'
+[19.530s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/workspace/repo/install_diag/setup.ps1'
+[19.532s] INFO:colcon.colcon_core.shell:Creating prefix script '/workspace/repo/install_diag/local_setup.sh'
+[19.533s] INFO:colcon.colcon_core.shell:Creating prefix util module '/workspace/repo/install_diag/_local_setup_util_sh.py'
+[19.535s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/workspace/repo/install_diag/setup.sh'
+[19.538s] INFO:colcon.colcon_core.shell:Creating prefix script '/workspace/repo/install_diag/local_setup.bash'
+[19.539s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/workspace/repo/install_diag/setup.bash'
+[19.541s] INFO:colcon.colcon_core.shell:Creating prefix script '/workspace/repo/install_diag/local_setup.zsh'
+[19.542s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/workspace/repo/install_diag/setup.zsh'

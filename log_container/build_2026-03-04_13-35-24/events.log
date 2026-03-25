@@ -1,0 +1,448 @@
+[0.000000] (-) TimerEvent: {}
+[0.000261] (go2_apportation_msgs) JobQueued: {'identifier': 'go2_apportation_msgs', 'dependencies': OrderedDict()}
+[0.000576] (go2_description) JobQueued: {'identifier': 'go2_description', 'dependencies': OrderedDict()}
+[0.001190] (go2_tf_tools) JobQueued: {'identifier': 'go2_tf_tools', 'dependencies': OrderedDict()}
+[0.001472] (go2_apportation_mocks) JobQueued: {'identifier': 'go2_apportation_mocks', 'dependencies': OrderedDict([('go2_apportation_msgs', '/workspace/repo/install_container/go2_apportation_msgs')])}
+[0.001695] (go2_apportation_orchestrator) JobQueued: {'identifier': 'go2_apportation_orchestrator', 'dependencies': OrderedDict([('go2_apportation_msgs', '/workspace/repo/install_container/go2_apportation_msgs')])}
+[0.001803] (go2_apportation_msgs) JobStarted: {'identifier': 'go2_apportation_msgs'}
+[0.014969] (go2_description) JobStarted: {'identifier': 'go2_description'}
+[0.020925] (go2_tf_tools) JobStarted: {'identifier': 'go2_tf_tools'}
+[0.034265] (go2_apportation_msgs) JobProgress: {'identifier': 'go2_apportation_msgs', 'progress': 'cmake'}
+[0.036302] (go2_apportation_msgs) JobProgress: {'identifier': 'go2_apportation_msgs', 'progress': 'build'}
+[0.037830] (go2_apportation_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/workspace/repo/build_container/go2_apportation_msgs', '--', '-j6', '-l6'], 'cwd': '/workspace/repo/build_container/go2_apportation_msgs', 'env': OrderedDict([('HOSTNAME', 'ubuntu'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/tmp'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/workspace/repo/build_container/go2_apportation_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1')]), 'shell': False}
+[0.040237] (go2_description) JobProgress: {'identifier': 'go2_description', 'progress': 'cmake'}
+[0.041666] (go2_description) JobProgress: {'identifier': 'go2_description', 'progress': 'build'}
+[0.042048] (go2_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/workspace/repo/build_container/go2_description', '--', '-j6', '-l6'], 'cwd': '/workspace/repo/build_container/go2_description', 'env': OrderedDict([('HOSTNAME', 'ubuntu'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/tmp'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/workspace/repo/build_container/go2_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099319] (-) TimerEvent: {}
+[0.199691] (-) TimerEvent: {}
+[0.300086] (-) TimerEvent: {}
+[0.400475] (-) TimerEvent: {}
+[0.500956] (-) TimerEvent: {}
+[0.527500] (go2_apportation_msgs) StdoutLine: {'line': b'[  1%] Built target go2_apportation_msgs__cpp\n'}
+[0.528034] (go2_apportation_msgs) StdoutLine: {'line': b'[ 12%] Built target go2_apportation_msgs__rosidl_generator_c\n'}
+[0.528208] (go2_apportation_msgs) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_go2_apportation_msgs\n'}
+[0.528353] (go2_apportation_msgs) StdoutLine: {'line': b'[ 23%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.528489] (go2_apportation_msgs) StdoutLine: {'line': b'[ 35%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.528620] (go2_apportation_msgs) StdoutLine: {'line': b'[ 56%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.528779] (go2_apportation_msgs) StdoutLine: {'line': b'[ 57%] Built target go2_apportation_msgs__rosidl_typesupport_cpp\n'}
+[0.528907] (go2_apportation_msgs) StdoutLine: {'line': b'[ 69%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c\n'}
+[0.530279] (go2_apportation_msgs) StdoutLine: {'line': b'[ 80%] Built target go2_apportation_msgs__rosidl_typesupport_c\n'}
+[0.530733] (go2_apportation_msgs) StdoutLine: {'line': b'[ 80%] Built target go2_apportation_msgs\n'}
+[0.531087] (go2_apportation_msgs) StdoutLine: {'line': b'[ 81%] Built target go2_apportation_msgs__py\n'}
+[0.531309] (go2_apportation_msgs) StdoutLine: {'line': b'[ 91%] Built target go2_apportation_msgs__rosidl_generator_py\n'}
+[0.532587] (go2_apportation_msgs) StdoutLine: {'line': b'[100%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.532872] (go2_apportation_msgs) StdoutLine: {'line': b'[100%] Built target go2_apportation_msgs__rosidl_typesupport_c__pyext\n'}
+[0.533026] (go2_apportation_msgs) StdoutLine: {'line': b'[100%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.533171] (go2_description) CommandEnded: {'returncode': 0}
+[0.533699] (go2_description) JobProgress: {'identifier': 'go2_description', 'progress': 'install'}
+[0.547293] (go2_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/workspace/repo/build_container/go2_description'], 'cwd': '/workspace/repo/build_container/go2_description', 'env': OrderedDict([('HOSTNAME', 'ubuntu'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/tmp'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/workspace/repo/build_container/go2_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.563361] (go2_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.564851] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/urdf\n'}
+[0.566544] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/urdf/go2.urdf\n'}
+[0.566732] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes\n'}
+[0.566869] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/hip.dae\n'}
+[0.566994] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/calf_mirror.dae\n'}
+[0.567116] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/thigh.dae\n'}
+[0.567234] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/trunk.dae\n'}
+[0.567348] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/foot.dae\n'}
+[0.567467] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/calf.dae\n'}
+[0.567628] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/thigh_mirror.dae\n'}
+[0.567856] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae\n'}
+[0.568239] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/hip.dae\n'}
+[0.568464] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/calf_mirror.dae\n'}
+[0.568618] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/base.dae\n'}
+[0.568750] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/thigh.dae\n'}
+[0.568874] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/foot.dae\n'}
+[0.568998] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/calf.dae\n'}
+[0.569117] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/thigh_mirror.dae\n'}
+[0.569231] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro\n'}
+[0.569342] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/materials.xacro\n'}
+[0.569455] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/robot.xacro\n'}
+[0.569566] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/transmission.xacro\n'}
+[0.569679] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/const.xacro\n'}
+[0.569792] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/gazebo.xacro\n'}
+[0.569905] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/leg.xacro\n'}
+[0.570017] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch\n'}
+[0.570126] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/base_link_bridge.launch.py\n'}
+[0.570239] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__\n'}
+[0.570349] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__/robot_state_publisher.launch.cpython-38.pyc\n'}
+[0.570465] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__/base_link_bridge.launch.cpython-38.pyc\n'}
+[0.570580] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/robot_state_publisher.launch.py\n'}
+[0.570718] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/package_run_dependencies/go2_description\n'}
+[0.570840] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/parent_prefix_path/go2_description\n'}
+[0.570954] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/ament_prefix_path.sh\n'}
+[0.571066] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/ament_prefix_path.dsv\n'}
+[0.571178] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/path.sh\n'}
+[0.571316] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/path.dsv\n'}
+[0.571432] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.bash\n'}
+[0.571622] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.sh\n'}
+[0.571749] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.zsh\n'}
+[0.571866] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.dsv\n'}
+[0.571984] (go2_description) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_description/share/go2_description/package.dsv\n'}
+[0.572414] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/packages/go2_description\n'}
+[0.572574] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/cmake/go2_descriptionConfig.cmake\n'}
+[0.573670] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/cmake/go2_descriptionConfig-version.cmake\n'}
+[0.574029] (go2_description) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/package.xml\n'}
+[0.575176] (go2_description) CommandEnded: {'returncode': 0}
+[0.600989] (-) TimerEvent: {}
+[0.612376] (go2_description) JobEnded: {'identifier': 'go2_description', 'rc': 0}
+[0.675007] (go2_apportation_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.676522] (go2_apportation_msgs) StdoutLine: {'line': b'writing go2_apportation_msgs.egg-info/PKG-INFO\n'}
+[0.677042] (go2_apportation_msgs) StdoutLine: {'line': b'writing dependency_links to go2_apportation_msgs.egg-info/dependency_links.txt\n'}
+[0.677483] (go2_apportation_msgs) StdoutLine: {'line': b'writing top-level names to go2_apportation_msgs.egg-info/top_level.txt\n'}
+[0.683186] (go2_apportation_msgs) StdoutLine: {'line': b"reading manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'\n"}
+[0.687121] (go2_apportation_msgs) StdoutLine: {'line': b"writing manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'\n"}
+[0.701207] (-) TimerEvent: {}
+[0.765866] (go2_apportation_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_go2_apportation_msgs_egg\n'}
+[0.789015] (go2_apportation_msgs) CommandEnded: {'returncode': 0}
+[0.790971] (go2_apportation_msgs) JobProgress: {'identifier': 'go2_apportation_msgs', 'progress': 'install'}
+[0.791674] (go2_apportation_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/workspace/repo/build_container/go2_apportation_msgs'], 'cwd': '/workspace/repo/build_container/go2_apportation_msgs', 'env': OrderedDict([('HOSTNAME', 'ubuntu'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/tmp'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/workspace/repo/build_container/go2_apportation_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1')]), 'shell': False}
+[0.801329] (-) TimerEvent: {}
+[0.808139] (go2_apportation_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.808776] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/rosidl_interfaces/go2_apportation_msgs\n'}
+[0.809235] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.809661] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.810121] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.h\n'}
+[0.810510] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.810807] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.810938] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.h\n'}
+[0.811059] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.c\n'}
+[0.811268] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.h\n'}
+[0.811390] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.h\n'}
+[0.811776] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.h\n'}
+[0.811909] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.h\n'}
+[0.812035] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.h\n'}
+[0.812188] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.c\n'}
+[0.812318] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.h\n'}
+[0.812446] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.h\n'}
+[0.812572] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.h\n'}
+[0.812687] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.h\n'}
+[0.812863] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.c\n'}
+[0.812986] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.h\n'}
+[0.813130] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.h\n'}
+[0.813259] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.c\n'}
+[0.813381] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.h\n'}
+[0.813503] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.h\n'}
+[0.813621] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.h\n'}
+[0.813738] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.813857] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.h\n'}
+[0.813973] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.814090] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.c\n'}
+[0.814205] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.h\n'}
+[0.814321] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.h\n'}
+[0.814437] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.h\n'}
+[0.814550] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.814664] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.h\n'}
+[0.814779] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.814894] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.h\n'}
+[0.815008] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.h\n'}
+[0.815124] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.h\n'}
+[0.815236] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.c\n'}
+[0.815373] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.sh\n'}
+[0.815589] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.dsv\n'}
+[0.815744] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_c.so\n'}
+[0.815866] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.815990] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.817288] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.817889] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.818752] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_c.h\n'}
+[0.819065] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_c.h\n'}
+[0.819209] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_c.h\n'}
+[0.819339] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_c.h\n'}
+[0.819461] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.819623] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.819748] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_c.h\n'}
+[0.819869] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.819991] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.820109] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_c.h\n'}
+[0.820228] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[0.820344] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.820459] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.820576] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.820743] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_c.h\n'}
+[0.820871] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_c.h\n'}
+[0.820995] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.c\n'}
+[0.821113] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_c.h\n'}
+[0.821258] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.c\n'}
+[0.821384] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_c.h\n'}
+[0.821504] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.c\n'}
+[0.821622] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.c\n'}
+[0.821737] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.821852] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.821970] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.822085] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_c.h\n'}
+[0.822244] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.c\n'}
+[0.822370] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.822487] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.822604] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_c.h\n'}
+[0.822720] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.c\n'}
+[0.822837] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_c.so\n'}
+[0.822993] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_c.so\n'}
+[0.823117] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.823234] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.823352] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.hpp\n'}
+[0.823470] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.hpp\n'}
+[0.823621] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.823751] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.hpp\n'}
+[0.823872] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.hpp\n'}
+[0.824004] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.hpp\n'}
+[0.824121] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__builder.hpp\n'}
+[0.824237] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.hpp\n'}
+[0.825422] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__builder.hpp\n'}
+[0.826085] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.hpp\n'}
+[0.826256] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.hpp\n'}
+[0.826401] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__traits.hpp\n'}
+[0.829103] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__traits.hpp\n'}
+[0.829327] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__builder.hpp\n'}
+[0.829479] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.hpp\n'}
+[0.829616] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.hpp\n'}
+[0.829836] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__traits.hpp\n'}
+[0.830020] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__builder.hpp\n'}
+[0.830153] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__traits.hpp\n'}
+[0.830321] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.hpp\n'}
+[0.830466] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.hpp\n'}
+[0.830595] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.830714] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.830831] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.hpp\n'}
+[0.830949] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.831064] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__builder.hpp\n'}
+[0.831180] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.hpp\n'}
+[0.831294] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__traits.hpp\n'}
+[0.831409] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.hpp\n'}
+[0.831557] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.831687] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.831806] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__traits.hpp\n'}
+[0.831920] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__builder.hpp\n'}
+[0.832034] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.hpp\n'}
+[0.832175] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.hpp\n'}
+[0.832335] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.hpp\n'}
+[0.832509] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.832641] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.832761] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.832878] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.832993] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.833106] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.833219] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/dds_fastrtps\n'}
+[0.833331] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.833445] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.833603] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.833724] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.833841] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.833957] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/dds_fastrtps\n'}
+[0.834073] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.834189] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.834305] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/dds_fastrtps\n'}
+[0.834419] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.834538] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.834651] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs\n'}
+[0.834787] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg\n'}
+[0.834905] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail\n'}
+[0.835023] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.cpp\n'}
+[0.835140] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.835259] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.cpp\n'}
+[0.835388] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.835558] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.cpp\n'}
+[0.835704] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.cpp\n'}
+[0.835829] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.835949] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.836069] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv\n'}
+[0.836188] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail\n'}
+[0.836302] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.cpp\n'}
+[0.836417] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.836536] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action\n'}
+[0.836652] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail\n'}
+[0.836765] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.836924] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.cpp\n'}
+[0.837047] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[0.837180] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_cpp.so\n'}
+[0.837296] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.sh\n'}
+[0.837409] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.dsv\n'}
+[0.837526] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info\n'}
+[0.837640] (go2_apportation_msgs) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[0.837754] (go2_apportation_msgs) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[0.837868] (go2_apportation_msgs) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.837980] (go2_apportation_msgs) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.838095] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs\n'}
+[0.838208] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[0.838322] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.838458] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.838577] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/__init__.py\n'}
+[0.838694] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg\n'}
+[0.838809] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status_s.c\n'}
+[0.838923] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array.py\n'}
+[0.839036] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array_s.c\n'}
+[0.839147] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status.py\n'}
+[0.839260] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/__init__.py\n'}
+[0.839396] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d.py\n'}
+[0.839530] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state.py\n'}
+[0.839664] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_s.c\n'}
+[0.839783] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state_s.c\n'}
+[0.839897] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.840011] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv\n'}
+[0.840154] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object_s.c\n'}
+[0.840272] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object.py\n'}
+[0.840395] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/__init__.py\n'}
+[0.840512] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/libgo2_apportation_msgs__rosidl_generator_py.so\n'}
+[0.840627] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.840743] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.840857] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action\n'}
+[0.840969] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object.py\n'}
+[0.841080] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/__init__.py\n'}
+[0.841191] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object_s.c\n'}
+[0.889026] (go2_apportation_msgs) StdoutLine: {'line': b"Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs'...\n"}
+[0.889423] (go2_apportation_msgs) StdoutLine: {'line': b"Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action'...\n"}
+[0.889587] (go2_apportation_msgs) StdoutLine: {'line': b"Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg'...\n"}
+[0.889723] (go2_apportation_msgs) StdoutLine: {'line': b"Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv'...\n"}
+[0.900619] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.901260] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.901572] (-) TimerEvent: {}
+[0.901621] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[0.902114] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_py.so\n'}
+[0.902472] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.idl\n'}
+[0.903178] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.idl\n'}
+[0.903968] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.idl\n'}
+[0.904641] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.idl\n'}
+[0.905176] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.idl\n'}
+[0.905342] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.idl\n'}
+[0.905487] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.msg\n'}
+[0.905697] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.msg\n'}
+[0.905834] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.msg\n'}
+[0.906136] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.msg\n'}
+[0.906480] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.action\n'}
+[0.906704] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.srv\n'}
+[0.906928] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Request.msg\n'}
+[0.907213] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Response.msg\n'}
+[0.907435] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/package_run_dependencies/go2_apportation_msgs\n'}
+[0.907774] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/parent_prefix_path/go2_apportation_msgs\n'}
+[0.908114] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.sh\n'}
+[0.908337] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.dsv\n'}
+[0.908554] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.sh\n'}
+[0.908848] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.dsv\n'}
+[0.909291] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.bash\n'}
+[0.909830] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.sh\n'}
+[0.910049] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.zsh\n'}
+[0.910181] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.dsv\n'}
+[0.910305] (go2_apportation_msgs) StdoutLine: {'line': b'-- Installing: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/package.dsv\n'}
+[0.910430] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/packages/go2_apportation_msgs\n'}
+[0.910553] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport.cmake\n'}
+[0.910674] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.910792] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.910913] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.911031] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.911148] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.911262] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport.cmake\n'}
+[0.911376] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.911493] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cppExport.cmake\n'}
+[0.911643] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.911797] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.916557] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.917965] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.918760] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[0.920409] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.921239] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport.cmake\n'}
+[0.921546] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.921793] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[0.922378] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.922876] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.923133] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.923341] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.923832] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.924429] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.924701] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig.cmake\n'}
+[0.924944] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig-version.cmake\n'}
+[0.925219] (go2_apportation_msgs) StdoutLine: {'line': b'-- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/package.xml\n'}
+[0.925819] (go2_apportation_msgs) CommandEnded: {'returncode': 0}
+[0.958990] (go2_apportation_msgs) JobEnded: {'identifier': 'go2_apportation_msgs', 'rc': 0}
+[0.964104] (go2_apportation_mocks) JobStarted: {'identifier': 'go2_apportation_mocks'}
+[0.970390] (go2_apportation_orchestrator) JobStarted: {'identifier': 'go2_apportation_orchestrator'}
+[1.001780] (-) TimerEvent: {}
+[1.102147] (-) TimerEvent: {}
+[1.202518] (-) TimerEvent: {}
+[1.302895] (-) TimerEvent: {}
+[1.403268] (-) TimerEvent: {}
+[1.503697] (-) TimerEvent: {}
+[1.604234] (-) TimerEvent: {}
+[1.704751] (-) TimerEvent: {}
+[1.805216] (-) TimerEvent: {}
+[1.900735] (go2_tf_tools) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build_container/go2_tf_tools', 'build', '--build-base', '/workspace/repo/build_container/go2_tf_tools/build', 'install', '--record', '/workspace/repo/build_container/go2_tf_tools/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/repo/src/go2_tf_tools', 'env': {'HOSTNAME': 'ubuntu', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/tmp', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/repo/build_container/go2_tf_tools', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/repo/build_container/go2_tf_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1'}, 'shell': False}
+[1.905358] (-) TimerEvent: {}
+[2.005696] (-) TimerEvent: {}
+[2.106064] (-) TimerEvent: {}
+[2.206427] (-) TimerEvent: {}
+[2.301523] (go2_tf_tools) StdoutLine: {'line': b'running egg_info\n'}
+[2.302908] (go2_tf_tools) StdoutLine: {'line': b'writing ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/PKG-INFO\n'}
+[2.303571] (go2_tf_tools) StdoutLine: {'line': b'writing dependency_links to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/dependency_links.txt\n'}
+[2.303986] (go2_tf_tools) StdoutLine: {'line': b'writing entry points to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/entry_points.txt\n'}
+[2.304318] (go2_tf_tools) StdoutLine: {'line': b'writing requirements to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/requires.txt\n'}
+[2.304573] (go2_tf_tools) StdoutLine: {'line': b'writing top-level names to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/top_level.txt\n'}
+[2.306482] (-) TimerEvent: {}
+[2.308038] (go2_tf_tools) StdoutLine: {'line': b"reading manifest file '../../build_container/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'\n"}
+[2.310076] (go2_tf_tools) StdoutLine: {'line': b"writing manifest file '../../build_container/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'\n"}
+[2.310350] (go2_tf_tools) StdoutLine: {'line': b'running build\n'}
+[2.310572] (go2_tf_tools) StdoutLine: {'line': b'running build_py\n'}
+[2.311071] (go2_tf_tools) StdoutLine: {'line': b'running install\n'}
+[2.311769] (go2_tf_tools) StdoutLine: {'line': b'running install_lib\n'}
+[2.314977] (go2_tf_tools) StdoutLine: {'line': b'running install_data\n'}
+[2.315296] (go2_tf_tools) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.318882] (go2_tf_tools) StdoutLine: {'line': b"removing '/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.319921] (go2_tf_tools) StdoutLine: {'line': b'Copying ../../build_container/go2_tf_tools/go2_tf_tools.egg-info to /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info\n'}
+[2.322049] (go2_tf_tools) StdoutLine: {'line': b'running install_scripts\n'}
+[2.368649] (go2_tf_tools) StdoutLine: {'line': b'Installing odom_to_tf_broadcaster script to /workspace/repo/install_container/go2_tf_tools/lib/go2_tf_tools\n'}
+[2.369577] (go2_tf_tools) StdoutLine: {'line': b"writing list of installed files to '/workspace/repo/build_container/go2_tf_tools/install.log'\n"}
+[2.406653] (-) TimerEvent: {}
+[2.444888] (go2_tf_tools) CommandEnded: {'returncode': 0}
+[2.461070] (go2_tf_tools) JobEnded: {'identifier': 'go2_tf_tools', 'rc': 0}
+[2.506846] (-) TimerEvent: {}
+[2.519967] (go2_apportation_orchestrator) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build_container/go2_apportation_orchestrator', 'build', '--build-base', '/workspace/repo/build_container/go2_apportation_orchestrator/build', 'install', '--record', '/workspace/repo/build_container/go2_apportation_orchestrator/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/repo/src/go2_apportation_orchestrator', 'env': {'HOSTNAME': 'ubuntu', 'ROS_PACKAGE_PATH': '/workspace/repo/install_container/go2_apportation_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/workspace/repo/install_container/go2_apportation_msgs/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/tmp', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/workspace/repo/install_container/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_container/go2_apportation_msgs/lib/pkgconfig', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/repo/build_container/go2_apportation_orchestrator', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/repo/build_container/go2_apportation_orchestrator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages:/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/workspace/repo/install_container/go2_apportation_msgs'}, 'shell': False}
+[2.567618] (go2_apportation_mocks) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build_container/go2_apportation_mocks', 'build', '--build-base', '/workspace/repo/build_container/go2_apportation_mocks/build', 'install', '--record', '/workspace/repo/build_container/go2_apportation_mocks/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/workspace/repo/src/go2_apportation_mocks', 'env': {'HOSTNAME': 'ubuntu', 'ROS_PACKAGE_PATH': '/workspace/repo/install_container/go2_apportation_msgs/share', 'SHLVL': '0', 'LD_LIBRARY_PATH': '/workspace/repo/install_container/go2_apportation_msgs/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/tmp', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/workspace/repo/install_container/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_container/go2_apportation_msgs/lib/pkgconfig', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'PWD': '/workspace/repo/build_container/go2_apportation_mocks', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/workspace/repo/build_container/go2_apportation_mocks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages:/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/workspace/repo/install_container/go2_apportation_msgs'}, 'shell': False}
+[2.606998] (-) TimerEvent: {}
+[2.707405] (-) TimerEvent: {}
+[2.807885] (-) TimerEvent: {}
+[2.908339] (-) TimerEvent: {}
+[2.925467] (go2_apportation_orchestrator) StdoutLine: {'line': b'running egg_info\n'}
+[2.926823] (go2_apportation_orchestrator) StdoutLine: {'line': b'writing ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/PKG-INFO\n'}
+[2.927362] (go2_apportation_orchestrator) StdoutLine: {'line': b'writing dependency_links to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/dependency_links.txt\n'}
+[2.928063] (go2_apportation_orchestrator) StdoutLine: {'line': b'writing entry points to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/entry_points.txt\n'}
+[2.928530] (go2_apportation_orchestrator) StdoutLine: {'line': b'writing requirements to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/requires.txt\n'}
+[2.928787] (go2_apportation_orchestrator) StdoutLine: {'line': b'writing top-level names to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/top_level.txt\n'}
+[2.932292] (go2_apportation_orchestrator) StdoutLine: {'line': b"reading manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'\n"}
+[2.935603] (go2_apportation_orchestrator) StdoutLine: {'line': b"writing manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'\n"}
+[2.936053] (go2_apportation_orchestrator) StdoutLine: {'line': b'running build\n'}
+[2.936210] (go2_apportation_orchestrator) StdoutLine: {'line': b'running build_py\n'}
+[2.938775] (go2_apportation_orchestrator) StdoutLine: {'line': b'running install\n'}
+[2.939413] (go2_apportation_orchestrator) StdoutLine: {'line': b'running install_lib\n'}
+[2.943976] (go2_apportation_orchestrator) StdoutLine: {'line': b'running install_data\n'}
+[2.944324] (go2_apportation_orchestrator) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.948066] (go2_apportation_orchestrator) StdoutLine: {'line': b"removing '/workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.948822] (go2_apportation_orchestrator) StdoutLine: {'line': b'Copying ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info to /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator-0.0.0-py3.10.egg-info\n'}
+[2.951023] (go2_apportation_orchestrator) StdoutLine: {'line': b'running install_scripts\n'}
+[2.968013] (go2_apportation_mocks) StdoutLine: {'line': b'running egg_info\n'}
+[2.969652] (go2_apportation_mocks) StdoutLine: {'line': b'writing ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/PKG-INFO\n'}
+[2.970372] (go2_apportation_mocks) StdoutLine: {'line': b'writing dependency_links to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/dependency_links.txt\n'}
+[2.971241] (go2_apportation_mocks) StdoutLine: {'line': b'writing entry points to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/entry_points.txt\n'}
+[2.971486] (go2_apportation_mocks) StdoutLine: {'line': b'writing requirements to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/requires.txt\n'}
+[2.971758] (go2_apportation_mocks) StdoutLine: {'line': b'writing top-level names to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/top_level.txt\n'}
+[2.974735] (go2_apportation_mocks) StdoutLine: {'line': b"reading manifest file '../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'\n"}
+[2.977038] (go2_apportation_mocks) StdoutLine: {'line': b"writing manifest file '../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'\n"}
+[2.977528] (go2_apportation_mocks) StdoutLine: {'line': b'running build\n'}
+[2.977821] (go2_apportation_mocks) StdoutLine: {'line': b'running build_py\n'}
+[2.978183] (go2_apportation_mocks) StdoutLine: {'line': b'running install\n'}
+[2.978827] (go2_apportation_mocks) StdoutLine: {'line': b'running install_lib\n'}
+[2.982252] (go2_apportation_mocks) StdoutLine: {'line': b'running install_data\n'}
+[2.982579] (go2_apportation_mocks) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.986084] (go2_apportation_mocks) StdoutLine: {'line': b"removing '/workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[2.987048] (go2_apportation_mocks) StdoutLine: {'line': b'Copying ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info to /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks-0.0.0-py3.10.egg-info\n'}
+[2.989226] (go2_apportation_mocks) StdoutLine: {'line': b'running install_scripts\n'}
+[2.997853] (go2_apportation_orchestrator) StdoutLine: {'line': b'Installing orchestrator_runtime script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator\n'}
+[2.998634] (go2_apportation_orchestrator) StdoutLine: {'line': b'Installing orchestrator_stub script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator\n'}
+[2.999784] (go2_apportation_orchestrator) StdoutLine: {'line': b"writing list of installed files to '/workspace/repo/build_container/go2_apportation_orchestrator/install.log'\n"}
+[3.008432] (-) TimerEvent: {}
+[3.038725] (go2_apportation_mocks) StdoutLine: {'line': b'Installing mock_manipulation_server script to /workspace/repo/install_container/go2_apportation_mocks/lib/go2_apportation_mocks\n'}
+[3.039343] (go2_apportation_mocks) StdoutLine: {'line': b'Installing mock_nav2_server script to /workspace/repo/install_container/go2_apportation_mocks/lib/go2_apportation_mocks\n'}
+[3.040033] (go2_apportation_mocks) StdoutLine: {'line': b"writing list of installed files to '/workspace/repo/build_container/go2_apportation_mocks/install.log'\n"}
+[3.081286] (go2_apportation_orchestrator) CommandEnded: {'returncode': 0}
+[3.104045] (go2_apportation_orchestrator) JobEnded: {'identifier': 'go2_apportation_orchestrator', 'rc': 0}
+[3.108549] (-) TimerEvent: {}
+[3.118648] (go2_apportation_mocks) CommandEnded: {'returncode': 0}
+[3.141564] (go2_apportation_mocks) JobEnded: {'identifier': 'go2_apportation_mocks', 'rc': 0}
+[3.143319] (-) EventReactorShutdown: {}

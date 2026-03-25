@@ -1,0 +1,94 @@
+running egg_info
+creating ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info
+writing ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/PKG-INFO
+writing dependency_links to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/dependency_links.txt
+writing entry points to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/entry_points.txt
+writing requirements to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/requires.txt
+writing top-level names to ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/top_level.txt
+writing manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'
+reading manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'
+writing manifest file '../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/repo/build_container/go2_apportation_orchestrator/build
+creating /workspace/repo/build_container/go2_apportation_orchestrator/build/lib
+creating /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/transition_engine_pure.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/state_contracts.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/__init__.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/transition_resolver.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/orchestrator_runtime_core.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/transition_spec.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/transition_context.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/orchestrator_node.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/action_token_dispatcher.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+copying go2_apportation_orchestrator/orchestrator_runtime_node.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator
+creating /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/nav2_skill_ros_client.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/nav2_skill_real_client.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/release_mode_constants.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/nav2_skill_stub.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/real_backend_placeholder.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/__init__.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/manipulation_skill_stub.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/manipulation_skill_ros_client.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/skill_bundle.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+copying go2_apportation_orchestrator/skills/interfaces.py -> /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills
+running install
+running install_lib
+creating /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/transition_engine_pure.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/state_contracts.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/__init__.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/transition_resolver.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/orchestrator_runtime_core.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/transition_spec.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/transition_context.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/orchestrator_node.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+creating /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/nav2_skill_ros_client.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/nav2_skill_real_client.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/release_mode_constants.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/nav2_skill_stub.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/real_backend_placeholder.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/__init__.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/manipulation_skill_stub.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/manipulation_skill_ros_client.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/skill_bundle.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/skills/interfaces.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/action_token_dispatcher.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+copying /workspace/repo/build_container/go2_apportation_orchestrator/build/lib/go2_apportation_orchestrator/orchestrator_runtime_node.py -> /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/transition_engine_pure.py to transition_engine_pure.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/state_contracts.py to state_contracts.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/__init__.py to __init__.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/transition_resolver.py to transition_resolver.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/orchestrator_runtime_core.py to orchestrator_runtime_core.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/transition_spec.py to transition_spec.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/transition_context.py to transition_context.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/orchestrator_node.py to orchestrator_node.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/nav2_skill_ros_client.py to nav2_skill_ros_client.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/nav2_skill_real_client.py to nav2_skill_real_client.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/release_mode_constants.py to release_mode_constants.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/nav2_skill_stub.py to nav2_skill_stub.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/real_backend_placeholder.py to real_backend_placeholder.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/__init__.py to __init__.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/manipulation_skill_stub.py to manipulation_skill_stub.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/manipulation_skill_ros_client.py to manipulation_skill_ros_client.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/skill_bundle.py to skill_bundle.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/skills/interfaces.py to interfaces.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/action_token_dispatcher.py to action_token_dispatcher.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator/orchestrator_runtime_node.py to orchestrator_runtime_node.cpython-310.pyc
+running install_data
+creating /workspace/repo/install_container/go2_apportation_orchestrator/share/ament_index
+creating /workspace/repo/install_container/go2_apportation_orchestrator/share/ament_index/resource_index
+creating /workspace/repo/install_container/go2_apportation_orchestrator/share/ament_index/resource_index/packages
+copying resource/go2_apportation_orchestrator -> /workspace/repo/install_container/go2_apportation_orchestrator/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/repo/install_container/go2_apportation_orchestrator/share/go2_apportation_orchestrator
+creating /workspace/repo/install_container/go2_apportation_orchestrator/share/go2_apportation_orchestrator/behavior_trees
+copying behavior_trees/mission_flow_stub.xml -> /workspace/repo/install_container/go2_apportation_orchestrator/share/go2_apportation_orchestrator/behavior_trees
+running install_egg_info
+Copying ../../build_container/go2_apportation_orchestrator/go2_apportation_orchestrator.egg-info to /workspace/repo/install_container/go2_apportation_orchestrator/lib/python3.10/site-packages/go2_apportation_orchestrator-0.0.0-py3.10.egg-info
+running install_scripts
+Installing orchestrator_runtime script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator
+Installing orchestrator_stub script to /workspace/repo/install_container/go2_apportation_orchestrator/lib/go2_apportation_orchestrator
+writing list of installed files to '/workspace/repo/build_container/go2_apportation_orchestrator/install.log'

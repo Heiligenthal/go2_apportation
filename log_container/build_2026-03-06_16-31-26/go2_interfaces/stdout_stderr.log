@@ -1,0 +1,795 @@
+[  0%] Built target go2_interfaces__cpp
+[  0%] Built target ament_cmake_python_copy_go2_interfaces
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_generator_c
+[ 12%] Built target go2_interfaces__rosidl_generator_c
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_fastrtps_cpp
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_cpp
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_introspection_cpp
+[ 24%] Built target go2_interfaces__rosidl_typesupport_fastrtps_cpp
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_introspection_c
+[ 36%] Built target go2_interfaces__rosidl_typesupport_cpp
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_fastrtps_c
+[ 49%] Built target go2_interfaces__rosidl_typesupport_introspection_cpp
+[ 62%] Built target go2_interfaces__rosidl_typesupport_introspection_c
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_c
+[ 74%] Built target go2_interfaces__rosidl_typesupport_fastrtps_c
+[ 86%] Built target go2_interfaces__rosidl_typesupport_c
+[ 86%] Built target go2_interfaces
+[ 86%] Built target go2_interfaces__py
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_generator_py
+running egg_info
+writing go2_interfaces.egg-info/PKG-INFO
+writing dependency_links to go2_interfaces.egg-info/dependency_links.txt
+[ 98%] Built target go2_interfaces__rosidl_generator_py
+writing top-level names to go2_interfaces.egg-info/top_level.txt
+reading manifest file 'go2_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'go2_interfaces.egg-info/SOURCES.txt'
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_c__pyext
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_introspection_c__pyext
+Consolidate compiler generated dependencies of target go2_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[ 99%] Built target go2_interfaces__rosidl_typesupport_c__pyext
+[ 99%] Built target ament_cmake_python_build_go2_interfaces_egg
+[100%] Built target go2_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[100%] Built target go2_interfaces__rosidl_typesupport_introspection_c__pyext
+-- Install configuration: ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/ament_index/resource_index/rosidl_interfaces/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/sport_mode_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/path_point.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/lidar_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/time_spec.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/low_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/interface_config.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_move.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/voxel_height_map_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/bms_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/req.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/audio_data.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_states.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__functions.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__struct.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__type_support.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__functions.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/web_rtc_req.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_cmds.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/low_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_rpy_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/uwb_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_front_video_data.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/bms_cmd.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/imu.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/sport_mode_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/error.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_state.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/res.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/wireless_controller.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/uwb_switch.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/voxel_map_compressed.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/height_map.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/library_path.sh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/library_path.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_generator_c.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_generator_c.so" to ""
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/audio_data.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_rpy_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/voxel_height_map_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/time_spec.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/bms_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/low_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_cmds.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/height_map.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_front_video_data.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/error.hpp
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__type_support.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__builder.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__traits.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__struct.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/voxel_map_compressed.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/res.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/uwb_switch.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/motor_states.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/sport_mode_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/uwb_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/go2_move.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/bms_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/lidar_state.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/sport_mode_cmd.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/path_point.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/interface_config.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/wireless_controller.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/imu.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/web_rtc_req.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/req.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/low_state.hpp
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/dds_fastrtps
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__type_support.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_c.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg
+-- Up-to-date: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/lidar_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/time_spec__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/interface_config__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/web_rtc_req__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmds__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_switch__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/sport_mode_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_move__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/req__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/error__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/imu__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/res__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_front_video_data__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/low_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/audio_data__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_map_compressed__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/motor_states__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/uwb_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/bms_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/wireless_controller__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/voxel_height_map_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/path_point__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/height_map__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_rpy_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_cmd__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/include/go2_interfaces/go2_interfaces/msg/detail/go2_state__type_support.cpp
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_cpp.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_typesupport_cpp.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/pythonpath.sh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/pythonpath.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces-0.0.0-py3.10.egg-info
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/_go2_interfaces_s.ep.rosidl_typesupport_c.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/libgo2_interfaces__rosidl_generator_py.so
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/_go2_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/_go2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/__init__.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_interface_config_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_wireless_controller.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_height_map_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_imu_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_time_spec.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_audio_data_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_front_video_data_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmds.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_error_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_lidar_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_map_compressed.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_req.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_switch.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_lidar_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmds_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_path_point_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_web_rtc_req_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_web_rtc_req.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_res_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/__init__.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_imu.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_res.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_time_spec_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_states.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_move.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_switch_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_height_map_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_front_video_data.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_path_point.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_height_map_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_wireless_controller_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_interface_config.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_req_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_state.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_map_compressed_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_height_map.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_states_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_rpy_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_audio_data.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_move_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_rpy_cmd_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmd.py
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_state_s.c
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_error.py
+Listing '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/__init__.py'...
+Listing '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/__init__.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_audio_data.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_bms_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_error.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_front_video_data.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_move.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_rpy_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_go2_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_height_map.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_imu.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_interface_config.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_lidar_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_low_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_cmds.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_motor_states.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_path_point.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_req.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_res.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_cmd.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_sport_mode_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_time_spec.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_uwb_switch.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_height_map_state.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_voxel_map_compressed.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_web_rtc_req.py'...
+Compiling '/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/msg/_wireless_controller.py'...
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/local/lib/python3.10/dist-packages/go2_interfaces/go2_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_generator_py.so
+-- Set runtime path of "/workspace/repo/install_container/go2_interfaces/lib/libgo2_interfaces__rosidl_generator_py.so" to ""
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2Cmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2State.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2Move.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2RpyCmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/IMU.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/AudioData.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/BmsCmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/BmsState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Error.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2FrontVideoData.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/HeightMap.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/InterfaceConfig.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LidarState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LowCmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LowState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorCmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorCmds.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorStates.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/PathPoint.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Req.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Res.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/SportModeCmd.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/SportModeState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/TimeSpec.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/UwbState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/UwbSwitch.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/VoxelMapCompressed.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/VoxelHeightMapState.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/WebRtcReq.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/WirelessController.idl
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2Cmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2State.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2Move.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2RpyCmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/IMU.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/AudioData.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/BmsCmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/BmsState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Error.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Go2FrontVideoData.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/HeightMap.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/InterfaceConfig.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LidarState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LowCmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/LowState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorCmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorCmds.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/MotorStates.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/PathPoint.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Req.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/Res.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/SportModeCmd.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/SportModeState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/TimeSpec.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/UwbState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/UwbSwitch.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/VoxelMapCompressed.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/VoxelHeightMapState.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/WebRtcReq.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/msg/WirelessController.msg
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/ament_index/resource_index/package_run_dependencies/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/ament_index/resource_index/parent_prefix_path/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/ament_prefix_path.sh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/ament_prefix_path.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/path.sh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/environment/path.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/local_setup.bash
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/local_setup.sh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/local_setup.zsh
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/local_setup.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/package.dsv
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/ament_index/resource_index/packages/go2_interfaces
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_generator_cExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_generator_cppExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_cExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_cppExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_generator_pyExport.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/export_go2_interfaces__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/rosidl_cmake-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfacesConfig.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/cmake/go2_interfacesConfig-version.cmake
+-- Installing: /workspace/repo/install_container/go2_interfaces/share/go2_interfaces/package.xml

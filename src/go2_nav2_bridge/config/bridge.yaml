@@ -1,0 +1,35 @@
+go2_nav2_bridge:
+  ros__parameters:
+    cmd_vel_topic: /cmd_vel_nav2
+    sport_state_topic: lf/sportmodestate
+    control_mode_topic: /control_mode_cmd
+    look_yaw_delta_topic: /look_yaw_delta
+    balance_rpy_topic: /balance_rpy_cmd
+
+    real_base_frame: base_link
+    nav2_base_frame: base_link_nav2
+    publish_virtual_base_tf: true
+
+    # Legacy/debug only. Productive Nav2 uses odom -> base_link_nav2 via TF composition,
+    # not a separate odom_nav2 world.
+    publish_legacy_nav2_odom: false
+    legacy_nav2_odom_topic: /odom_nav2
+    legacy_nav2_odom_frame: odom_nav2
+
+    watchdog_timeout_sec: 0.30
+    sport_state_timeout_sec: 0.50
+    startup_state_warn_delay_sec: 2.0
+    diagnostics_period_sec: 1.0
+    command_publish_rate_hz: 20.0
+
+    max_vx: 0.40
+    max_vy: 0.25
+    max_wz: 0.60
+    look_yaw_kp: 1.5
+
+    # Productive default: Nav2 is configured as non-holonomic.
+    nav2_linear_y_enabled: false
+
+    require_standup_on_start: false
+    enable_joystick_override: false
+    gait_mode: no_change

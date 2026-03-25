@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "go2_apportation_msgs__py",
+		"source" : "/workspace/repo/build_diag2/go2_apportation_msgs/go2_apportation_msgs__py"
+	}
+}

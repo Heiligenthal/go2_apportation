@@ -1,0 +1,2 @@
+# Exclude external SDK package from default workspace builds.
+# Remove this file for explicit standalone SDK builds.

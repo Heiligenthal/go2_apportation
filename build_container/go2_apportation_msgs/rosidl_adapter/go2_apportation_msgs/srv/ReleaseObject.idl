@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from go2_apportation_msgs/srv/ReleaseObject.srv
+// generated code does not contain a copyright notice
+
+
+module go2_apportation_msgs {
+  module srv {
+    module ReleaseObject_Request_Constants {
+      const uint8 OPEN_GRIPPER = 0;
+      const uint8 DROP_SAFE = 1;
+      const uint8 HANDOVER_RELEASE = 2;
+    };
+    struct ReleaseObject_Request {
+      uint8 release_mode;
+
+      boolean verify_open;
+    };
+    struct ReleaseObject_Response {
+      boolean success;
+
+      uint16 result_code;
+
+      string message;
+    };
+  };
+};

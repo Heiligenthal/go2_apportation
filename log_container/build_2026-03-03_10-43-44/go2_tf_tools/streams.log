@@ -1,0 +1,37 @@
+[1.117s] Invoking command in '/workspace/repo/src/go2_tf_tools': PYTHONPATH=/workspace/repo/build_container/go2_tf_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_container/go2_tf_tools build --build-base /workspace/repo/build_container/go2_tf_tools/build install --record /workspace/repo/build_container/go2_tf_tools/install.log --single-version-externally-managed install_data
+[1.506s] running egg_info
+[1.507s] creating ../../build_container/go2_tf_tools/go2_tf_tools.egg-info
+[1.507s] writing ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/PKG-INFO
+[1.508s] writing dependency_links to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/dependency_links.txt
+[1.508s] writing entry points to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/entry_points.txt
+[1.509s] writing requirements to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/requires.txt
+[1.509s] writing top-level names to ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/top_level.txt
+[1.509s] writing manifest file '../../build_container/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+[1.513s] reading manifest file '../../build_container/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+[1.515s] writing manifest file '../../build_container/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+[1.515s] running build
+[1.515s] running build_py
+[1.515s] creating /workspace/repo/build_container/go2_tf_tools/build
+[1.516s] creating /workspace/repo/build_container/go2_tf_tools/build/lib
+[1.516s] creating /workspace/repo/build_container/go2_tf_tools/build/lib/go2_tf_tools
+[1.517s] copying go2_tf_tools/odom_to_tf_broadcaster.py -> /workspace/repo/build_container/go2_tf_tools/build/lib/go2_tf_tools
+[1.517s] copying go2_tf_tools/__init__.py -> /workspace/repo/build_container/go2_tf_tools/build/lib/go2_tf_tools
+[1.517s] running install
+[1.517s] running install_lib
+[1.520s] creating /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+[1.520s] copying /workspace/repo/build_container/go2_tf_tools/build/lib/go2_tf_tools/odom_to_tf_broadcaster.py -> /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+[1.520s] copying /workspace/repo/build_container/go2_tf_tools/build/lib/go2_tf_tools/__init__.py -> /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+[1.521s] byte-compiling /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/odom_to_tf_broadcaster.py to odom_to_tf_broadcaster.cpython-310.pyc
+[1.523s] byte-compiling /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__init__.py to __init__.cpython-310.pyc
+[1.524s] running install_data
+[1.524s] creating /workspace/repo/install_container/go2_tf_tools/share/ament_index
+[1.524s] creating /workspace/repo/install_container/go2_tf_tools/share/ament_index/resource_index
+[1.524s] creating /workspace/repo/install_container/go2_tf_tools/share/ament_index/resource_index/packages
+[1.525s] copying resource/go2_tf_tools -> /workspace/repo/install_container/go2_tf_tools/share/ament_index/resource_index/packages
+[1.525s] copying package.xml -> /workspace/repo/install_container/go2_tf_tools/share/go2_tf_tools
+[1.525s] running install_egg_info
+[1.529s] Copying ../../build_container/go2_tf_tools/go2_tf_tools.egg-info to /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info
+[1.531s] running install_scripts
+[1.577s] Installing odom_to_tf_broadcaster script to /workspace/repo/install_container/go2_tf_tools/lib/go2_tf_tools
+[1.578s] writing list of installed files to '/workspace/repo/build_container/go2_tf_tools/install.log'
+[1.657s] Invoked command in '/workspace/repo/src/go2_tf_tools' returned '0': PYTHONPATH=/workspace/repo/build_container/go2_tf_tools/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_container/go2_tf_tools build --build-base /workspace/repo/build_container/go2_tf_tools/build install --record /workspace/repo/build_container/go2_tf_tools/install.log --single-version-externally-managed install_data

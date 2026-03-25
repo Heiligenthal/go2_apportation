@@ -1,0 +1,2699 @@
+% file: main.tex
+\documentclass[12pt,oneside]{scrreprt} % KOMA-Script für saubere Gliederung
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{listings}
+% =========================================================
+% Runtime-Contracts (Topics/Frames) als LaTeX-Makros
+% - Makros liefern reinen Text (YAML-safe) via \detokenize
+% - Werte später zentral austauschbar
+% =========================================================
+\newcommand{\OdomTopic}{\detokenize{/odom}}
+\newcommand{\CmdVelTopic}{\detokenize{/cmd_vel}}
+\newcommand{\CmdVelNavTopic}{\detokenize{/nav2/cmd_vel}}
+\newcommand{\LidarCloudTopic}{\detokenize{/lidar/points}}
+\newcommand{\RgbTopic}{\detokenize{/camera/color/image_raw}}
+\newcommand{\DepthTopic}{\detokenize{/camera/aligned_depth_to_color/image_raw}}
+\newcommand{\CameraInfoTopic}{\detokenize{/camera/color/camera_info}}
+\newcommand{\ImuTopic}{\detokenize{}}
+
+\newcommand{\FrameMap}{\detokenize{map}}
+\newcommand{\FrameOdom}{\detokenize{odom}}
+\newcommand{\FrameBase}{\detokenize{base_link}}
+\newcommand{\FrameCamera}{\detokenize{camera_link}}
+\newcommand{\FrameLidar}{\detokenize{lidar_frame}}
+\newcommand{\FrameImu}{\detokenize{imu_link}}
+
+% =========================================================
+% Listings: eigener Stil, damit Makros NUR dort expandieren,
+% wo wir es explizit wollen (escapeinside).
+% =========================================================
+\lstdefinestyle{yamlcontracts}{language=yaml,
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  rulecolor=\color{black},
+  numbers=left,
+  numberstyle=\tiny,
+  xleftmargin=2em,
+  framexleftmargin=1.5em,
+  escapeinside={(*@}{@*)} % Makro-Expansion nur in diesen Bereichen
+}
+
+\usepackage{enumitem}
+\usepackage[acronym]{glossaries}
+\usepackage{verbatim}
+
+\lstset{basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  rulecolor=\color{black},
+  numbers=left,
+  numberstyle=\tiny,
+  xleftmargin=2em,
+  framexleftmargin=1.5em
+}
+
+
+
+\makeglossaries
+
+\title{Projektarbeit GO2 Apportation - ROS~2 Humble}
+\author{Team XY}
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagenumbering{Roman}
+\tableofcontents
+\listoffigures
+\listoftables
+
+% =========================================================
+% Glossar / Abkürzungen: Platzhalter, wird später befüllt
+% =========================================================
+% Hinweis: Einträge (Objekt, Nav2, SLAM, TF, etc.) werden später ergänzt.
+% Beispiele:
+% \newacronym{nav2}{Nav2}{Navigation2 Stack für ROS2}
+% \newglossaryentry{objekt}{name={Objekt}, description={Das zu apportierende Zielobjekt (Ball/Würfel/Knochen/Hantel).}}
+
+
+\chapter*{Abkürzungen}
+\addcontentsline{toc}{chapter}{Abkürzungen}
+\printglossary[type=\acronymtype]
+
+\chapter*{Glossar}
+\addcontentsline{toc}{chapter}{Glossar}
+\printglossary
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+% ================== Hauptteil ==================
+\chapter{Einleitung}
+\section{Zielsetzung und Scope}
+Ziel ist ein autonomer mobiler Manipulator auf Basis Unitree Go2 EDU (ROS~2 Humble), der ein Spielobjekt
+(anfangs Ball, später robustere Geometrien wie Würfel/Hantel/Knochen) erkennt, verfolgt, aufnimmt und zur
+Person zurückbringt. Die Dokumentation dient zugleich als Theorie-, Teile- und Implementierungsanleitung
+(Bringup, Datenflüsse, Zustandslogik, Recovery). Baseline ist ein Indoor-Setup mit RGB-D SLAM (RTAB-Map) und
+Nav2 Navigation.
+
+\section{Systemüberblick auf einen Blick}
+Die Zielarchitektur folgt einer klaren Verarbeitungskette:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Sensing:} RGB-D, LiDAR, Odometrie liefern Rohdaten.
+  \item \textbf{TF-Backbone:} \texttt{map->odom->base\_link->sensor\_frames} bildet den verbindlichen räumlichen Contract.
+  \item \textbf{Mapping/Localization:} RTAB-Map erzeugt Mapping-Artefakte und liefert im Lokalisierungsbetrieb \texttt{map->odom}.
+  \item \textbf{Navigation:} Nav2 plant/regelt auf Basis von \texttt{/map}, \texttt{/scan} und TF.
+  \item \textbf{Motion Command Path:} Nav2 schreibt auf \texttt{/nav2/cmd\_vel}; der finale Bewegungsoutput \texttt{/cmd\_vel} wird über Mux/Safety-Gate arbitriert.
+  \item \textbf{Orchestrierung:} Der Orchestrator steuert Missionsfluss und ruft Navigation/Manipulation deterministisch über Actions auf.
+\end{enumerate}
+
+\section{Leseführung dieses Dokuments}
+Der Hauptteil beschreibt die \textbf{Zielarchitektur} und ihre verbindlichen Schnittstellen.
+Der tatsächliche Integrationsstand, Debug-Pfade und temporäre Workarounds sind ausschließlich im Abschlusskapitel
+\glqq Derzeitiger Implementierungsstand \& Debug-Pfade\grqq{} dokumentiert.
+
+\chapter{System übersicht}
+
+\section{Aufgabenübersicht}
+\begin{itemize}
+  \item \textbf{Sprachstart / Moduswahl:} ``lets play'' (Objekt in Hand), ``search'' (Objekt liegt irgendwo).
+  \item \textbf{Person finden (FIND PERSON):} Person lokalisieren, in sicherem Abstand positionieren.
+  \item \textbf{Wahrnehmen (OBSERVE):} Objekt/Hand-Szene beobachten, Objekt im FOV halten.
+  \item \textbf{Prädiktive Positionierung (INTERCEPT):} Nicht echtes Abfangen, sondern zügige Re-Positionierung zur Reakquisition.
+  \item \textbf{Aufnehmen (PICK):} Greifen mit kontrollierter Annäherung, Retries, Fail-Safe.
+  \item \textbf{Zurückbringen (RETURN):} Zur Person zurück, danach Follow + ``Offer'' bis ``release''.
+  \item \textbf{Übergabe (HANDOVER):} Objekt freigeben (release), Arm in Safe Pose.
+\end{itemize}
+
+\section{Zustandsautomat \& Events}
+
+\subsection{Designprinzipien}
+\begin{itemize}
+  \item \textbf{Modus durch Voice Command:} ``lets play'' und ``search'' setzen unterschiedliche Such-/Startbedingungen.
+  \item \textbf{Zwei Sucharten:} lokale Objektsuche (um Person/last seen) vs. globale Objektsuche (Karte/Waypoints).
+  \item \textbf{Greifen nur nach ``Throw confirmed'':} Im Play-Modus darf PICK erst erfolgen, wenn ein Wurf/Loslassen plausibel ist.
+  \item \textbf{Return ist ``Return+Follow'':} Objekt wird angeboten, Freigabe nur auf ``release''.
+  \item \textbf{Fail-Safe statt Endlosschleifen:} begrenzte Retries, sonst sicherer Abbruchzustand.
+  \item \textbf{Baseline Follow:} Kein eigener Follow-Controller. Follow erfolgt über Nav2 durch periodisches Aktualisieren eines Zielpunkts
+        relativ zur Person (Pose+Offset) und Nutzung der Nav2 Obstacle Avoidance.
+\end{itemize}
+
+\subsection{Zustände}
+\begin{description}[style=nextline]
+  \item[IDLE:] Wartet auf Voice Commands, System gesund, Arm safe.
+  \item[SEARCH\_PERSON:] Person suchen (ausgehend von last\_seen oder globalen Punkten).
+  \item[APPROACH\_PERSON:] Zu Person navigieren und in definiertem Abstand positionieren.
+  \item[OBSERVE\_HAND:] Objekt in Hand / Szene vor Person beobachten, Objekt im FOV halten.
+  \item[TRACK\_THROWN:] Objekt nach Wurf im FOV halten (Drehen/kleine Reposition), Flugbahn grob schätzen.
+  \item[SEARCH\_OBJECT\_LOCAL:] Lokale Suche um Person/Objekt-last-seen (Radius/Spirale/Sektoren).
+  \item[SEARCH\_OBJECT\_GLOBAL:] Globale Suche auf Karte/Waypoints (nur wenn lokal scheitert oder ``search''-Start).
+  \item[INTERCEPT:] Prädiktives Annähern an erwartete Objektregion (nicht exaktes Intercept).
+  \item[PICK:] Greifen/Aufnehmen; max. 2 Retries; Drop-Detektion.
+  \item[RETURN\_TO\_PERSON:] Zur Person navigieren (last\_seen + Suche falls nötig).
+  \item[HOLD\_AND\_FOLLOW:] Objekt halten und der Person folgen/offer; wartet auf ``release''.
+  \item[HANDOVER\_RELEASE:] Objekt freigeben, Arm safe.
+  \item[INTERRUPTED:] Manueller Override/Teleop aktiv oder gerade freigegeben; Bewegung angehalten/unterbrochen, kein Auto-Resume.
+  \item[FAILSAFE\_ABORT:] Stop motion, Arm safe, optional Voice prompt; wartet auf Operator.
+\end{description}
+
+\subsection{Events (Trigger für Transitionen)}
+\begin{itemize}
+  \item \textbf{Voice:} \texttt{vc\_lets\_play}, \texttt{vc\_search}, \texttt{vc\_release}, \texttt{vc\_abort}, \texttt{vc\_pause}, \texttt{vc\_resume}
+  \item \textbf{Perception:} \texttt{person\_detected}, \texttt{person\_lost}, \texttt{object\_detected}, \texttt{object\_lost}
+  \item \textbf{Throw logic:} \texttt{throw\_suspected}, \texttt{throw\_confirmed}, \texttt{false\_throw\_suspected}
+  \item \textbf{Nav:} \texttt{approach\_reached}, \texttt{intercept\_reached}, \texttt{nav\_failed}, \texttt{object\_unreachable}
+  \item \textbf{Manipulation:} \texttt{grasp\_ok}, \texttt{grasp\_failed}, \texttt{object\_dropped}
+  \item \textbf{Safety:} \texttt{e\_stop}, \texttt{timeout}, \texttt{localization\_lost}, \texttt{battery\_low}
+  \item \textbf{Manual Override / Ownership:} \texttt{MANUAL\_OVERRIDE\_ACTIVE}, \texttt{MANUAL\_OVERRIDE\_RELEASED}
+\end{itemize}
+
+\subsection{Zwei Hauptabläufe}
+\subsubsection{Ablauf 1: ``lets play'' (Objekt in Hand)}
+\begin{enumerate}[label=\textbf{1.\arabic*}]
+  \item Operator sagt \texttt{vc\_lets\_play}. System geht in \texttt{SEARCH\_PERSON} bzw. \texttt{APPROACH\_PERSON}.
+  \item Roboter positioniert sich vor der Person (sicherer Abstand) und beobachtet die Hand/Objektszene: \texttt{OBSERVE\_HAND}.
+  \item Wenn das Objekt geworfen wurde: Roboter dreht/repositioniert, um das Objekt im FOV zu halten, \texttt{TRACK\_THROWN}, und bewegt sich
+        prädiktiv Richtung Objektregion (\texttt{INTERCEPT}).
+  \item Sobald das Objekt liegt und greifbar ist: \texttt{PICK}.
+  \item Danach unaufgefordert: \texttt{RETURN\_TO\_PERSON} und anschließend \texttt{HOLD\_AND\_FOLLOW} bis Operator \texttt{vc\_release}.
+  \item Auf \texttt{vc\_release}: \texttt{HANDOVER\_RELEASE} und zurück in \texttt{OBSERVE\_HAND} oder \texttt{IDLE}.
+\end{enumerate}
+
+\subsubsection{Ablauf 2: ``search'' (Objekt liegt irgendwo)}
+\begin{enumerate}[label=\textbf{2.\arabic*}]
+  \item Operator sagt \texttt{vc\_search}. System geht in \texttt{SEARCH\_OBJECT\_GLOBAL}.
+  \item Roboter sucht das Objekt auf Karte/Waypoints. Bei Sichtkontakt: \texttt{INTERCEPT} $\rightarrow$ \texttt{PICK}.
+  \item Danach: \texttt{RETURN\_TO\_PERSON} und \texttt{HOLD\_AND\_FOLLOW} bis \texttt{vc\_release}.
+\end{enumerate}
+
+\subsection{Übergangslogik (vereinfachtes Diagramm)}
+\begin{verbatim}
+IDLE
+ (vc_lets_play)  SEARCH_PERSON   APPROACH_PERSON   OBSERVE_HAND
+                                  (throw_confirmed)  TRACK_THROWN   INTERCEPT   PICK   RETURN_TO_PERSON   HOLD_AND_FOLLOW
+                                  (vc_search)  SEARCH_OBJECT_LOCAL   (fallback) SEARCH_OBJECT_GLOBAL
+                                  (timeout/person_lost)  SEARCH_PERSON
+ (vc_search)  SEARCH_OBJECT_GLOBAL   INTERCEPT   PICK   RETURN_TO_PERSON   HOLD_AND_FOLLOW
+
+HOLD_AND_FOLLOW (vc_release)  HANDOVER_RELEASE   OBSERVE_HAND/IDLE
+Any state -(MANUAL_OVERRIDE_ACTIVE)-> INTERRUPTED
+INTERRUPTED -(MANUAL_OVERRIDE_RELEASED)-> INTERRUPTED   # kein Auto-Resume
+Any state (e_stop/battery_low/localization_lost)  FAILSAFE_ABORT
+\end{verbatim}
+
+\section{Robustheit und Fehlerfälle (inkl. Operator-Overrides)}
+\subsection{Fehlerfälle Ablauf 1 (``lets play'')}
+\begin{enumerate}[label=\textbf{F1.\arabic*}]
+  \item \textbf{Objekt in Hand nicht erkannt:} Roboter positioniert sich dennoch vor die Person (\texttt{APPROACH\_PERSON}) und versucht \texttt{OBSERVE\_HAND}.
+        Wenn weiterhin kein Objekt: nach Timeout Voice-Prompt oder \texttt{FAILSAFE\_ABORT}.
+  \item \textbf{Weder Person noch Objekt gefunden:} \texttt{SEARCH\_PERSON} mit Timeout $\rightarrow$ \texttt{FAILSAFE\_ABORT}.
+  \item \textbf{Wurf nicht erkannt:} Operator kann in \texttt{OBSERVE\_HAND} via \texttt{vc\_search} eine \textbf{lokale Objektsuche} starten:
+        \texttt{SEARCH\_OBJECT\_LOCAL} um Person/last seen.
+  \item \textbf{Objekt verloren (keine Reakquisition):} Automatischer Übergang \texttt{TRACK\_THROWN} $\rightarrow$ \texttt{SEARCH\_OBJECT\_LOCAL};
+        nach Budget/Timeout $\rightarrow$ \texttt{SEARCH\_OBJECT\_GLOBAL}.
+  \item \textbf{False positive Throw:} Wenn System \texttt{throw\_confirmed} annimmt, aber Operator korrigiert (``lets play''):
+        \texttt{vc\_lets\_play} triggert Rückkehr/Neu-Approach: \texttt{SEARCH\_PERSON} bzw. \texttt{APPROACH\_PERSON}.
+  \item \textbf{Objekt nicht erreichbar (Nav2):} \texttt{object\_unreachable} $\rightarrow$ \texttt{FAILSAFE\_ABORT}.
+  \item \textbf{Objekt nicht greifbar / Greifen scheitert:} max. 2 Retries, danach \texttt{FAILSAFE\_ABORT}.
+  \item \textbf{Objekt fällt nach Greifen:} \texttt{object\_dropped} $\rightarrow$ Retry (bis Limit), sonst Abort.
+  \item \textbf{Person beim Return weg:} \texttt{RETURN\_TO\_PERSON} scheitert $\rightarrow$ \texttt{SEARCH\_PERSON} (Start bei last\_seen);
+        nach Timeout Abort.
+\end{enumerate}
+
+\subsection{Fehlerfälle Ablauf 2 (``search'')}
+Analog, jedoch beginnt die Objektsuche global; wenn Person für Return unbekannt ist, wird \texttt{SEARCH\_PERSON} nach Pick gestartet.
+
+\section{Beitrag und Abgrenzung}
+\section{Dokumentstruktur}
+
+\chapter{Anforderungen \& Sicherheit}
+\section{Funktionale Anforderungen (OBSERVE HANDOVER)}
+\section{Nicht-funktionale Anforderungen (Latenz, QoS, Echtzeit)}
+\section{Sicherheitskonzept (Mindestabstände, E-Stop, Limits)}
+\begin{itemize}
+  \item E-Stop ist jederzeit wirksam (physisch + softwareseitige Safety Gate).
+  \item Voice ist \textbf{kein} alleiniger Safety-Kanal.
+  \item Bei \texttt{battery\_low}, \texttt{localization\_lost}, \texttt{e\_stop}: deterministischer Stop $\rightarrow$ \texttt{FAILSAFE\_ABORT}.
+\end{itemize}
+\section{Abnahmekriterien \& KPIs}
+
+\chapter{Systemarchitektur}
+\section{Gesamtarchitektur \& Datenflüsse}
+Baseline-Datenfluss: Sensorik (RGB-D, LiDAR, IMU, Odom) $\rightarrow$ SLAM (RTAB-Map) $\rightarrow$ \texttt{map->odom}
+und Navigation (Nav2) $\rightarrow$ \texttt{/nav2/cmd\_vel} $\rightarrow$ Twist-Mux/Safety-Gate $\rightarrow$ \texttt{/cmd\_vel}.
+Perzeption/Tracking liefert Events an den Orchestrator; Orchestrator ruft Nav2/Manipulation über Actions auf.
+
+\subsection{Autoritative Ownership-Zusammenfassung}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.20\linewidth} p{0.24\linewidth} p{0.26\linewidth} p{0.22\linewidth}}
+\hline
+\textbf{Schnittstelle} & \textbf{Owner/Producer} & \textbf{Haupt-Consumer} & \textbf{Status} \\
+\hline
+\texttt{/map} & \texttt{nav2\_map\_server} & Nav2 Global Costmap, RViz & Normativ (final) \\
+\texttt{map->odom} & RTAB-Map Localization & Nav2, TF-Consumers & Normativ (final) \\
+\texttt{odom->base\_link} & Robot-Odometrie (Go2/Unitree) bzw. eindeutiger Adapter & Nav2, RTAB-Map, TF-Consumers & Normativ (final) \\
+\texttt{base\_link->sensor\_frames} & URDF + \texttt{robot\_state\_publisher}/statische TFs & Perzeption, SLAM, Navigation & Normativ (final) \\
+\texttt{/nav2/cmd\_vel} & Nav2 Controller-Pfad & Twist-Mux/Arbitrator & Normativ (final) \\
+\texttt{/cmd\_vel} (final) & Twist-Mux/Arbitrator + Safety-Gate & Roboter-Basisantrieb & Normativ, Implementierungsabschluss offen \\
+\hline
+\end{tabular}
+\caption{Verbindliche Ownership in der Zielarchitektur.}
+\label{tab:ownership_summary}
+\end{table}
+
+\paragraph{Abgrenzung zu Integrationspfaden.}
+Nicht-autoritative oder temporäre Outputs (z.\,B. zusätzliche Karten-Topics aus RTAB-Map) sind zulässig für Diagnose/Visualisierung,
+dürfen aber die autoritative Ownership aus Tabelle \ref{tab:ownership_summary} nicht überschreiben.
+
+% =========================================================
+% Referenz-Architektur (umsetzungsorientiert)
+% =========================================================
+\section{Umsetzungsorientierte Referenz-Architektur}
+
+\subsection{Designprinzip: Orchestrator + Skills}
+Das System wird als \textbf{Orchestrator} (Zustandsautomat oder Behavior Tree) plus \textbf{Skills} implementiert.
+Der Orchestrator ist die einzige Instanz, die Zustände wechselt und Actions startet. Skills liefern kontinuierliche
+Perzeptions-/Statusdaten (Topics) und kapseln langlaufende Tätigkeiten (Actions).
+
+\begin{itemize}
+  \item \textbf{Topics} für kontinuierliche Datenströme (Sensorik, Detektionen, Tracking, Status).
+  \item \textbf{Actions} für auftragsartige Ausführung (Navigation, Pick, Return, Release).
+  \item \textbf{TF} als verbindlicher r umlicher Contract (map odom base\_link sensor/arm).
+\end{itemize}
+
+\subsection{Komponentenübersicht}
+\begin{center}
+\begin{verbatim}
+[Voice/STT] ► /voice/command 
+                                               events
+[Perception: Person] ► /perception/person_* 
+[Perception: Object] ► /perception/object_*  
+[Tracking/Throw] ► /tracking/object_*   
+                                              ▼      ▼ ▼ ▼
+                                        [ORCHESTRATOR (BT/SM)]
+                                                    
+                          Actions: Nav2        Actions: Manipulation
+                              /navigate_to_pose              /manipulation/pick
+                              /follow_waypoints              /manipulation/release
+                                              
+                                              ▼
+                                      cmd_vel / base control
+\end{verbatim}
+\end{center}
+\noindent
+Hinweis (Baseline): Zwischen Nav2 und finalem Base-Motion-Topic \texttt{/cmd\_vel} liegt ein Twist-Mux/Arbitrator
+mit Safety-Gate-Wirkung. Teleop und optionaler lokaler Tracking-Yaw-Pfad werden als zusätzliche Quellen \emph{vor}
+dem finalen Output arbitriert.
+
+\subsection{Technologieauswahl (Baseline)}
+\begin{itemize}
+  \item \textbf{Sprachsteuerung (STT):} bevorzugt offline (z.\,B. Vosk oder Whisper.cpp). Alternativ: Unitree Voice Service falls API ausreichend.
+  \item \textbf{Navigation:} Nav2 (Planner + Controller + Recovery). Follow erfolgt Nav2-basiert über periodisch aktualisierte Zielpose (Person+Offset).
+  \item \textbf{SLAM/Odometrie (Baseline):} RGB-D SLAM mit \texttt{rtabmap\_ros} (Kamera RGB+Depth, Odom aus Go2). RTAB-Map publisht \texttt{map odom}.
+        Deskewed LiDAR Pointcloud wird primär für Nav2 Costmaps (Voxel Layer) verwendet.
+  \item \textbf{Manipulation:} D1-550-85 Treiber + MoveIt2 für IK/Kollision/Trajektorien.
+  \item \textbf{Orchestrierung:} BT (BehaviorTree.CPP) oder SMACC2 (Statechart). Baseline: BT für Mission-Flow.
+\end{itemize}
+
+\section{Koordinatenframes \texttt{map odom base\_link}}
+\subsection{TF-Responsibility (wer publisht was)}
+\begin{itemize}
+  \item \textbf{\texttt{map odom}:} SLAM/Localization (Baseline: RTAB-Map).
+  \item \textbf{\texttt{odom base\_link}:} Robot Odometrie (Baseline: Go2/Unitree).
+  \item \textbf{\texttt{base\_link sensor\_frames}:} Statische Extrinsics aus URDF + \texttt{robot\_state\_publisher}.
+\end{itemize}
+
+\subsection{URDF + \texttt{robot\_state\_publisher} (Prinzip)}
+URDF (Unified Robot Description Format) beschreibt Links und Joints des Roboters und seiner Sensoren.
+Feste Sensor-Extrinsics werden als \texttt{fixed joints} modelliert (z.\,B. \texttt{base\_link camera\_link}).
+Der Node \texttt{robot\_state\_publisher} liest URDF und publiziert daraus \texttt{/tf\_static} (fixe Joints) sowie \texttt{/tf} (bewegliche Joints,
+z.\,B. Manipulator). Dadurch sind TFs reproduzierbar und zentral versioniert.
+
+\paragraph{Kalibrierungsanforderung (verbindlich).}
+Die Extrinsics \texttt{base\_link->camera\_link} und \texttt{base\_link->lidar\_frame} sind als kalibrierte, versionierte Parameter Teil der Zielarchitektur.
+
+\subsection{Ziel-TF-Baum (Baseline)}
+\begin{verbatim}
+map
+  odom
+       base_link
+            lidar_frame
+            imu_link
+            camera_link
+                camera_*_optical_frame (RealSense)
+            arm_base_link
+                 ... joints ...
+                      tool0
+\end{verbatim}
+\subsection{Frame-Policy für Targets, Tracking und Navigation (verbindlich)}
+\label{subsec:frame_policy}
+
+\paragraph{Motivation}
+Im TF-Setup \texttt{map$\rightarrow$odom$\rightarrow$base\_link} gilt:
+\texttt{odom} ist lokal \& kontinuierlich (driftend), \texttt{map} ist global \& driftarm, kann jedoch durch
+Re-Lokalisierung/Loop-Closure diskontinuierliche Korrekturen auf \texttt{map$\rightarrow$odom} erzeugen.
+Für hochfrequente Targets (Wurf/Intercept) sind Sprünge in \texttt{map} funktional kritisch; daher werden
+Tracking-States in \texttt{odom} geführt und nur für globale Aufgaben in \texttt{map} verankert.
+
+\paragraph{Faustregel (Design-Rationale)}
+\begin{quote}
+\textbf{Alles mit Zeithorizont $< 10$--$20$\,s (Tracking, Intercept, Verify-Scan): in \texttt{odom}.}\\
+\textbf{Alles was ``Orte'' meint (globale Suche, Return-to-Person, gespeicherte Waypoints): in \texttt{map}.}
+\end{quote}
+
+\paragraph{Praktische Implementierung}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Tracking/Throw/Verify:} Alle \texttt{/tracking/*}-Outputs werden im \texttt{odom}-Frame publiziert
+        (kontinuierlich, keine Sprünge). Der Orchestrator transformiert bei Bedarf \texttt{odom$\rightarrow$map}
+        für Nav2-Goals.
+  \item \textbf{Globale Aufgaben:} Persistente Ziele (Waypoints, globale Suche, Return-to-Person) werden im \texttt{map}-Frame geführt.
+\end{itemize}
+
+\paragraph{Topic--Frame Zuordnung (Contract)}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.40\linewidth} p{0.22\linewidth} p{0.32\linewidth}}
+\hline
+\textbf{Topic} & \textbf{Frame} & \textbf{Begründung / Nutzung} \\
+\hline
+\texttt{/tracking/detections3d\_fast} & \texttt{odom} & High-rate Messungen; robuste Filterung ohne Map-Sprünge \\
+\texttt{/tracking/object\_state} & \texttt{odom} & State (Pos/Vel/Cov) für Prädiktion/ETA \\
+\texttt{/tracking/predicted\_region} & \texttt{odom} & Unsicherheitsregion für Verify/Intercept; stabil während Occlusion \\
+\texttt{/tracking/intercept\_goal} & \texttt{odom} & Kurzfristiges Ziel; Orchestrator transformiert ggf. nach \texttt{map} \\
+\hline
+\texttt{/perception/object\_pose\_6d} & \texttt{odom} & Pick ist lokal; hohe Präzision, geringe Rate; keine Map-Sprünge \\
+\texttt{/perception/object\_last\_seen} & \texttt{odom} & Lokale Referenz für Reacquire/Verify \\
+\hline
+\texttt{/perception/person\_pose} & \texttt{map} & Persistentes Ziel (Return-to-Person, globale Suche) \\
+\texttt{/navigate\_to\_pose goals} & \texttt{map} & Global Planner/Global Costmap typischerweise \texttt{map}-geführt \\
+\hline
+\end{tabular}
+\caption{Verbindliche Frame-Policy für Perzeption/Tracking und Nav2-Integration.}
+\label{tab:topic_frame_policy}
+\end{table}
+
+\paragraph{Hinweis}
+Bei ``Localization-only'' Betrieb (Initial-Mapping abgeschlossen) sind \texttt{map$\rightarrow$odom}-Korrekturen selten,
+aber weiterhin möglich (z.\,B. Re-Lokalisierung). Deshalb bleibt die \texttt{odom}-Führung für Tracking/Intercept bestehen.
+
+\section{Pakete \& Schnittstellen}
+\subsection{Schnittstellen-Contracts (Topics/Actions/TF)}
+\paragraph{Voice Interface}
+\begin{itemize}
+  \item Topic: \texttt{/voice/command} (String oder eigenes Msg mit confidence + timestamp)
+  \item Kommandos: \texttt{lets\_play}, \texttt{search}, \texttt{release}, \texttt{abort}, \texttt{pause}, \texttt{resume}
+\end{itemize}
+
+\paragraph{Perception (Person)}
+\begin{itemize}
+  \item \texttt{/perception/person\_pose} (\texttt{geometry\_msgs/PoseStamped}, \texttt{frame\_id=map})
+  \item \texttt{/perception/person\_visible} (\texttt{std\_msgs/Bool})
+  \item \texttt{/perception/person\_last\_seen} (\texttt{geometry\_msgs/PoseStamped}, \texttt{frame\_id=map})
+\end{itemize}
+
+\paragraph{Perception (Object)}
+\begin{itemize}
+  \item \texttt{/perception/object\_pose\_6d} (\texttt{geometry\_msgs/PoseStamped} oder \texttt{PoseWithCovarianceStamped})
+  \item \texttt{/perception/object\_visible} (\texttt{std\_msgs/Bool})
+  \item \texttt{/perception/object\_last\_seen} (Pose + timestamp; \texttt{odom}-geführt)
+  \item \texttt{/tracking/detections3d\_fast} (\texttt{Detection3DArray}; \texttt{odom}-geführt, high-rate)
+\end{itemize}
+
+
+\paragraph{Tracking \& Throw-Logic}
+\begin{itemize}
+  \item \texttt{/tracking/object\_state} (Pose, Velocity, Covariance; eigener Msg empfohlen; \texttt{odom}-geführt)
+  \item \texttt{/tracking/throw\_status} (Enum: IDLE/HELD/RELEASE\_SUSPECTED/THROWN/LANDED/LOST)
+  \item \texttt{/tracking/predicted\_region} (\texttt{PredictedRegion.msg} empfohlen; \texttt{odom}-geführt)
+  \item \texttt{/tracking/intercept\_goal} (\texttt{InterceptGoal.msg} empfohlen; enthält \texttt{target\_pose}; \texttt{odom}-geführt)
+\end{itemize}
+
+
+\paragraph{Navigation (Nav2)}
+\begin{itemize}
+  \item Action: \texttt{/navigate\_to\_pose}
+  \item Action: \texttt{/follow\_waypoints} (optional verfügbar, aber \textbf{nicht} Teil des verpflichtenden Follow-/Return-Minimal-Freezes)
+  \item Topic: \texttt{/nav2/cmd\_vel} (Nav2-Bewegungsausgang \emph{vor} Twist-Mux; Input-Quelle für Mux)
+  \item Topic: \texttt{/cmd\_vel} (finaler Base-Motion-Output; \textbf{Single Writer} = Twist-Mux-Ausgang)
+  \item Topic: \texttt{/cmd\_vel\_nav} (interner Output Controller Server $\rightarrow$ Input Velocity Smoother; optionaler interner Pfad)
+\end{itemize}
+
+\noindent
+Hinweis: Im erweiterten Baseline-System (Twist-Mux/Arbitrator) publisht Nav2 \textbf{nicht} direkt auf den finalen Base-Topic
+\texttt{/cmd\_vel}, sondern auf \texttt{/nav2/cmd\_vel} (vor Mux). Ein typischer Pfad ist:
+Controller Server $\rightarrow$ \texttt{/cmd\_vel\_nav} (oder Namespace- äquivalent) $\rightarrow$ \texttt{velocity\_smoother}
+$\rightarrow$ \texttt{/nav2/cmd\_vel} $\rightarrow$ Twist-Mux $\rightarrow$ \texttt{/cmd\_vel}.
+
+
+\paragraph{Manipulation (D1-550-85 + MoveIt2)}
+\begin{itemize}
+  \item \texttt{/joint\_states}
+  \item Action: \texttt{/manipulation/pick} (\texttt{PickObject.action})
+  \item Service: \texttt{/manipulation/release} (\texttt{ReleaseObject.srv})
+\end{itemize}
+
+\paragraph{TF (verbindlich)}
+\begin{center}
+\begin{verbatim}
+map -> odom -> base_link -> (lidar_frame, imu_link, camera_link, arm_base_link -> ... -> tool0)
+\end{verbatim}
+\end{center}
+
+\section{State Machine / Behavior Tree Design}
+\begin{itemize}
+  \item Events kommen von Perzeption/Navigation/Manipulation/Voice.
+  \item Eine zentrale Orchestrierung (SM/BT) ist die einzige Instanz für Zustandswechsel.
+  \item Recovery-Strategien sind explizit und endlich (Timeouts, Retry Counter).
+  \item Manual Override/Teleop ist als globaler Interrupt zu modellieren: \texttt{MANUAL\_OVERRIDE\_ACTIVE} $\rightarrow$ \texttt{INTERRUPTED}; \texttt{MANUAL\_OVERRIDE\_RELEASED} beendet den Override, fuehrt aber nicht zu Auto-Resume (Resume nur explizit).
+\end{itemize}
+
+\chapter{Hardwareplattform}
+\section{Unitree Go2 EDU}
+\section{Sensorik (RealSense, LiDAR, IMU)}
+\subsection{Intel RealSense D415 (RGB-D)}
+Baseline: Depth wird für Objekt-/Personperzeption und (optional) als Punktwolke für lokale Hindernisse genutzt.
+Empfohlenes Depth-Arbeitsfenster: \SI{0.45}{m} bis \SI{3.5}{m}.
+
+\subsection{Integriertes LiDAR (Unitree 4D LiDAR L1 PM)}
+Am Modul ist ``PM-GO2'' vermerkt; intern ``LD\_BOT\_V0.2.7 By Unitree''. Das System stellt zusätzlich deskewte Pointcloud bereit.
+
+\subsection{Deskewed Pointcloud (Motion Compensation)}
+Deskewte Cloud wird als bevorzugter Input für Nav2 Costmaps genutzt (Voxel Layer). SLAM-Baseline nutzt RGB-D + Odom; LiDAR wird optional ergänzend genutzt.
+
+\subsection{Sensor-Preprocessing (Baseline)}
+\begin{itemize}
+  \item \textbf{RealSense Depth Clipping:} Min \SI{0.45}{m}, Max \SI{3.5}{m} (reduziert Rauschen und fehlerhafte Tiefen).
+  \item \textbf{RealSense Postprocessing:} Decimation + Temporal Filter (Spatial/Hole Filling optional je nach CPU).
+  \item \textbf{PointCloud Downsampling (Voxel Grid):} RealSense-Cloud \SI{0.03}{m}--\SI{0.05}{m}, LiDAR-Cloud \SI{0.05}{m}--\SI{0.10}{m}.
+  \item \textbf{Zeitstempel/Synchronisation:} Approximate Sync für RGB+Depth+Odom (Queue Sizes ausreichend dimensionieren).
+\end{itemize}
+
+\section{Greifer/Endeffektor}
+\subsection{Manipulator: D1-550-85}
+Sticker: \texttt{D1-550-85}. Interpretation: D1-550 Variante mit integriertem Controller, Reichweite ca. \SI{0.85}{m}.
+
+\section{Kalibrierung \& Extrinsics}
+\subsection{Kritische Extrinsics}
+\texttt{base\_link arm\_base\_link} ist kritisch f r korrekte IK/Greifpose.
+Ebenso kritisch sind \texttt{base\_link camera\_link}, \texttt{base\_link lidar\_frame} und \texttt{base\_link imu\_link} (URDF, reproduzierbar).
+
+\chapter{Softwarestack (ROS~2 Humble)}
+\section{Workspace \& Build}
+\section{Third-Party Pakete (Nav2, rtabmap\_ros, robot\_localization, MoveIt2)}
+\section{Eigene Nodes \& Messages}
+\section{Launch \& Konfiguration (YAML)}
+Hinweis: Für reproduzierbaren Aufbau werden vollständige YAMLs (\texttt{nav2\_params.yaml}, \texttt{rtabmap\_params.yaml}, \texttt{realsense.yaml})
+und Launchfiles im Anhang gepflegt.
+
+\chapter{Perzeption}
+\label{ch:perception}
+
+\section{Personenerkennung \& Handzustand}
+\label{sec:perception_person}
+
+\paragraph{Ziel}
+Perzeption liefert kontinuierliche Targets/Events an den Orchestrator. Keine Bewegungssteuerung, kein \texttt{/cmd\_vel}.
+Ausgaben sind Topics unter \texttt{/perception/*} und \texttt{/tracking/*}. \\
+Sensor-Basis: Intel RealSense D415 (RGB + aligned Depth). IMU ist bei D415 nicht verfügbar; daher keine IMU-Cues aus der Kamera.
+Dokument-Baseline: \texttt{IMU\_TOPIC} bleibt für D415 leer/nicht verwendet; IMU-Integration ist optional und bezieht sich auf eine externe Quelle
+(z.\,B. Go2 Body-IMU), nicht auf die D415.
+
+\paragraph{Node-Graph (Baseline)}
+\begin{verbatim}
+realsense2_camera  -->  /camera/color/image_raw
+                     --> /camera/aligned_depth_to_color/image_raw
+                     --> /camera/color/camera_info
+          |
+          v
+perception_preproc_node  --> /perception/rgb_resized
+                         --> /perception/depth_clipped
+          |
+          +--> person_detector_trt_node --> /perception/person_visible
+          |                             --> /perception/person_bbox (debug)
+          |
+          +--> hand_state_node          --> /perception/hand_state (Enum)
+\end{verbatim}
+
+\paragraph{Technologie (konkret auf Orin Nano 8GB / 40 TOPS)}
+CNN-Inferenz läuft GPU-beschleunigt via TensorRT (FP16 baseline, INT8 optional nach Calibration). \\
+Detector-Architektur: leichter One-Stage Detector (z.\,B. YOLO-Nano-Klasse), Batch=1, Eingabe 640x384/640x480.
+
+\paragraph{Topics/Contracts}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{/perception/person\_visible} (\texttt{std\_msgs/Bool})
+\item \texttt{/perception/person\_pose} (\texttt{geometry\_msgs/PoseStamped}, Frame: \texttt{map} \textbf{(persistentes Ziel, Return/Global Search)})
+  \item \texttt{/perception/person\_last\_seen} (\texttt{geometry\_msgs/PoseStamped}, Frame: \texttt{map})
+  \item \texttt{/perception/hand\_state} (Enum: UNKNOWN/EMPTY/HOLDING/RELEASED)
+\end{itemize}
+\noindent
+Technische Minimal-Freeze-Festlegung: ein lokaler Adapter darf implementierungslokale Eingänge verwenden, muss aber nach außen ausschließlich die oben genannten
+Person-Topics bedienen. Ohne gültige Person-Pose werden keine Fantasie-Posewerte publiziert; \texttt{person\_last\_seen} wird nur bei gültiger Pose aktualisiert.
+
+\paragraph{Parameter (Baseline)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{rgb\_width=640}, \texttt{rgb\_height=384}
+  \item \texttt{depth\_min=0.45m}, \texttt{depth\_max=3.5m} (D415 Arbeitsband)
+  \item \texttt{detector\_rate\_hz=30}
+  \item \texttt{person\_visible\_hold\_time=0.3s} (Debounce)
+\end{itemize}
+
+\section{Objekt-Detektion (RGB-D)}
+\label{sec:perception_object}
+
+\paragraph{Objektannahme (Baseline)}
+Rotation ist für Tracking unwichtig, aber für Pick relevant.
+
+\paragraph{Zwei-Pipeline-Ansatz (FAST vs PRECISE)}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{FAST (Throw/Tracking):} 3D-Position (ohne Rotation) mit hoher Rate (30--60Hz). Robust gegen kurze Occlusion.
+  \item \textbf{PRECISE (Pick):} 6D-Pose (Position+Rotation) mit niedriger Rate (3--10Hz), jitterarm, nur wenn Objekt am Boden liegt.
+\end{itemize}
+
+\paragraph{Node-Graph (Baseline)}
+\begin{verbatim}
+object_detector_trt_node --> /perception/object_bbox
+                         --> /perception/object_visible
+
+object_position_fast_node (bbox+depth+K) --> /tracking/detections3d_fast
+
+object_pose_precise_node (ROI pointcloud) --> /perception/object_pose_6d
+\end{verbatim}
+
+\paragraph{Technologie (FAST)}
+\begin{itemize}[leftmargin=*]
+  \item Inferenz: TensorRT (FP16) Objekt-Detector auf \texttt{/perception/rgb\_resized}.
+  \item 3D-Position: Depth-Statistik im BBox-ROI (Median / trimmed mean), Projektion via Intrinsics aus \texttt{camera\_info}.
+  \item Ausgabe als Detektion mit Kovarianz (für Tracker-Filtergewichtung).
+\end{itemize}
+
+\paragraph{Technologie (PRECISE)}
+\begin{itemize}[leftmargin=*]
+  \item ROI-PointCloud aus aligned Depth.
+  \item Bodenebene entfernen (RANSAC Plane), Cluster extrahieren (DBSCAN).
+  \item Pose aus Oriented Bounding Box (PCA) relativ zu \texttt{(*@\FrameBase@*)}, danach TF in \texttt{odom/map}.
+  \item Aktiv nur in PICK-nahen Zuständen (CPU/GPU Budget).
+\end{itemize}
+
+\paragraph{Topics/Contracts}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{/perception/object\_visible} (\texttt{std\_msgs/Bool})
+  \item \texttt{/perception/object\_pose\_6d} (\texttt{geometry\_msgs/PoseStamped} oder \texttt{PoseWithCovarianceStamped})
+  \item \texttt{/tracking/detections3d\_fast} (\texttt{Detection3DArray} oderäquivalentes eigenes Msg)
+\end{itemize}
+
+\section{Zeitstempel, Synchronisation, QoS}
+\label{sec:perception_qos}
+
+\paragraph{Sync}
+RGB/Depth/CameraInfo werden per ApproximateTime synchronisiert:
+\begin{itemize}[leftmargin=*]
+  \item \texttt{sync\_queue=20}, \texttt{sync\_slop=0.05s}
+\end{itemize}
+
+\paragraph{QoS}
+\begin{itemize}[leftmargin=*]
+  \item Kamera-Streams: SensorDataQoS (best effort, volatile)
+  \item \texttt{/perception/*}, \texttt{/tracking/*}: reliable, volatile
+\end{itemize}
+
+\section{Debug-Visualisierungen (RViz, Annotated Images)}
+\label{sec:perception_debug}
+
+\begin{itemize}[leftmargin=*]
+  \item \texttt{/perception/debug/person\_annotated} (\texttt{sensor\_msgs/Image})
+  \item \texttt{/perception/debug/object\_annotated} (\texttt{sensor\_msgs/Image})
+  \item \texttt{/perception/debug/markers} (\texttt{visualization\_msgs/MarkerArray}) im \texttt{map/odom}-Frame
+\end{itemize}
+
+
+\chapter{SLAM \& Odometrie}
+\section{Terminologie (verbindlich)}
+\begin{itemize}
+  \item \textbf{RTAB-Map Mapping:} Aufbau/Aktualisierung einer Karte und Speicherung der Datenbank.
+  \item \textbf{RTAB-Map Localization:} Lokalisierung gegen vorhandene Datenbank; liefert \texttt{map->odom}.
+  \item \textbf{Autoritative Nav2-Karte:} statische Karte aus \texttt{nav2\_map\_server} auf \texttt{/map}.
+  \item \textbf{Nicht-autoritative Karte:} zusätzliche RTAB-Map-Kartenoutputs für Diagnose/Visualisierung.
+  \item \textbf{Supported Operational Path:} reproduzierbarer, freigegebener Standardpfad.
+  \item \textbf{Debug-/Provisional Path:} Integrations- oder Fehlersuchpfad außerhalb des freigegebenen Standardpfads.
+\end{itemize}
+
+\section{Baseline: RGB-D SLAM mit \texttt{rtabmap\_ros}}
+Baseline-Setup:
+\begin{itemize}
+  \item Inputs: RGB + Depth + CameraInfo (RealSense) sowie Odometrie (\texttt{odom base\_link}) vom Go2.
+  \item Output: RTAB-Map publisht \texttt{map odom} fuer Localization.
+  \item Mapping-Artefakte (Occupancy Grid \texttt{map.yaml/map.pgm}) werden fuer den Navigationsbetrieb versioniert/exportiert.
+  \item Sync: Approximate Sync für RGBD + Odom (Queue Size $\ge 10$).
+\end{itemize}
+
+\section{Map-Ownership-Policy (verbindlich)}
+Fuer den Zielbetrieb gilt eine eindeutige Verantwortlichkeit von \texttt{/map}:
+\begin{itemize}
+  \item \textbf{Autoritative Quelle fuer Nav2:} \texttt{nav2\_map\_server} auf \texttt{/map} (statische, versionierte Karte).
+  \item \textbf{RTAB-Map Rolle:} Localization/TF (\texttt{map->odom}) gegen vorhandene Datenbank.
+  \item \textbf{Konfliktvermeidung:} RTAB-Map-Karten-Outputs sind nicht autoritativ fuer Nav2 und muessen bei Bedarf auf einen separaten Topic (z.\,B. \texttt{/rtabmap/map}) gelegt werden.
+\end{itemize}
+
+\section{EKF-Fusion (robot\_localization)}
+Optional: EKF zur Fusion von Odom + IMU. Baseline ist Go2-Odom direkt; EKF wird erst aktiviert, wenn Drift/IMU-Nutzen klar validiert ist.
+Hinweis: Die IMU-Quelle ist die Go2-Body-IMU (nicht RealSense D415).
+
+\section{TF-Baum, Drift und Korrektur}
+Drift-Korrektur erfolgt primär über Loop Closures in RTAB-Map. TF-Konsistenz (map/odom/base\_link) ist Voraussetzung für Nav2.
+
+\section{Mapping-/Localizing-Modi}
+\begin{itemize}
+  \item \textbf{Mapping:} neue Karte aufbauen und speichern.
+  \item \textbf{Localization:} in vorhandener Karte lokalisieren (schneller Start, reproduzierbar).
+\end{itemize}
+
+\chapter{Objekt-Tracking \& Prädiktion}
+\label{ch:tracking}
+
+\section{Datenmodell \texttt{Detection3DArray}}
+\label{sec:tracking_detection3d}
+
+\paragraph{Ziel}
+Ein einheitliches Detektionsformat entkoppelt Perzeption (FAST) von Tracking/Throw-Logik. Die D415 liefert keine IMU;
+die Prädiktion basiert daher auf 3D-Positionsmessungen (Depth) + Filter.
+
+\paragraph{Message (Baseline)}
+Eigenes Msg empfohlen (Package \texttt{go2\_apportation\_msgs}):
+\begin{verbatim}
+std_msgs/Header header            # stamp, frame_id (odom empfohlen)
+Detection3D[] detections
+---
+Detection3D:
+  geometry_msgs/PoseWithCovariance pose
+  float32 confidence
+  uint32  class_id
+\end{verbatim}
+
+\paragraph{Topic}
+\begin{itemize}[leftmargin=*]
+  \item Input an Tracker: \texttt{/tracking/detections3d\_fast}
+\end{itemize}
+
+\section{Filter (CV, BALLISTIC, optional BOUNCE)}
+\label{sec:tracking_filter}
+
+\paragraph{Node: \texttt{object\_tracker\_node}}
+\begin{itemize}[leftmargin=*]
+  \item Input: \texttt{/tracking/detections3d\_fast}, \texttt{/perception/hand\_state} (optional)
+  \item Output: \texttt{/tracking/object\_state}, \texttt{/tracking/throw\_status}, \texttt{/tracking/predicted\_region}, \texttt{/tracking/intercept\_goal}
+\end{itemize}
+
+\paragraph{Zustandslogik (Tracking intern)}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{TRACKING:} Messungen vorhanden.
+  \item \textbf{OCCLUDED\_PREDICTING:} kurz keine Messung, nur Prädiktion (kein \texttt{object\_lost}). Roboter versucht, sich so zu positionieren, das die Prädiktion und deren Toleranzbereich wieder im fov ist.
+  \item \textbf{VERIFYING\_REGION:} Nachdem der fov wieder die gesamte Prädiktion mit Toleranzbereich abdeckt, wird dort für einen Zeitraum von t_verify nach Messungen gesucht. Wird keine Messung gefunden, wird in den Zustand LOST\_CONFIRMED übergegangen. Wird eine Messung gefunden, wird in den Zustand TRACKING übergegangen
+  \item \textbf{LOST\_CONFIRMED:} erst nach fehlgeschlagener Verifikation (VERIFYING\_REGION hat keine Messung für den Zeitraum t_verify) wird \texttt{object\_lost} an Orchestrator gemeldet.
+\end{itemize}
+
+\paragraph{Modelle}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CV (constant velocity):} Default, solange Objekt in Hand/kurz nach Release.
+  \item \textbf{BALLISTIC:} nach \texttt{throw\_confirmed} (g=9.81).
+  \item \textbf{BOUNCE:} optional; baseline deaktiviert.
+\end{itemize}
+
+\section{Trajektorien \& ETA (Region statt Punkt)}
+\label{sec:tracking_eta}
+
+\paragraph{Output-Semantik}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{/tracking/predicted\_region}: Unsicherheitsregion im \texttt{odom}-Frame (Baseline: \texttt{PredictedRegion.msg} mit Gültigkeitsdauer).
+  \item \texttt{/tracking/intercept\_goal}: Intercept-Zielstruktur (Baseline: \texttt{InterceptGoal.msg} mit \texttt{target\_pose}, Toleranz, Confidence/Gültigkeit);
+\end{itemize}
+
+\paragraph{Release-Erkennung (ohne Objekt-Rotation)}
+Rotation wird ignoriert. Release wird über Handzustand oder Bewegungs-Cues bestätigt:
+\begin{itemize}[leftmargin=*]
+  \item Wenn \texttt{/perception/hand\_state} verfügbar: HOLDING$\rightarrow$RELEASED.
+  \item Fallback: Geschwindigkeitsschwelle $|v| > v_{\min}$ für $n$ Messungen in kurzer Zeit.
+\end{itemize}
+
+\paragraph{Baseline-Parameter (Startwerte)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{tracker\_rate\_hz=30}
+  \item \texttt{t\_occlusion\_allow=0.6s}
+  \item \texttt{t\_verify=1.5s}
+  \item \texttt{sigma\_region\_max=1.0m}
+  \item \texttt{v\_release\_min=1.0m/s}, \texttt{n\_confirm=3}
+\end{itemize}
+
+\section{Evaluierung (RMSE, Latenz)}
+\label{sec:tracking_eval}
+
+\begin{itemize}[leftmargin=*]
+  \item RMSE der 3D-Position (gegen gelabelte Bags/Manuellmarken).
+  \item Latenz: Detection stamp $\rightarrow$ \texttt{/tracking/object\_state} stamp.
+  \item Verzögerung \texttt{throw\_confirmed}: Release-Zeitpunkt $\rightarrow$ Statuswechsel.
+\end{itemize}
+
+Hinweis: In INTERCEPT wird die Flugbahn nur grob genutzt, um Suchräume zu priorisieren.
+
+
+\chapter{Navigation \& Interception}
+\section{Nav2-Konfiguration \& Kostenkarten}
+\subsection{Lokalisierungsquelle fuer Nav2 (Zielarchitektur)}
+Im RTAB-Map-basierten Zielpfad wird Nav2 \textbf{ohne AMCL} betrieben:
+\begin{itemize}
+  \item \texttt{map->odom} stammt aus RTAB-Map Localization.
+  \item \texttt{/map} stammt aus \texttt{nav2\_map\_server} (statische Karte).
+  \item Sensorische Hindernisinformation fuer die lokale Navigation basiert auf LiDAR-Scan (direkt oder aus PointCloud2 abgeleitet).
+\end{itemize}
+
+\subsection{Costmap-Konzept (Layer)}
+Nav2 Costmaps bestehen aus Plugin-Layern. Baseline:
+\begin{itemize}
+  \item \textbf{Global costmap:} Static layer (aus \texttt{/map}) + Inflation.
+  \item \textbf{Local costmap:} Voxel layer (3D Hindernisse aus PointCloud2) + Inflation.
+\end{itemize}
+
+\subsection{COSTMAP-BRIDGE (PointCloud2 Costmap)}
+Hindernisse werden aus einer 3D Punktwolke in die lokale Costmap übernommen (Voxel Layer, ``squashed'' auf 2D).
+Dies erlaubt Erkennung niedriger Hindernisse (z.\,B. Tischplatten), sofern \texttt{min/max\_obstacle\_height} passend gesetzt sind.
+
+\subsection{Baseline Frames}
+\begin{itemize}
+  \item \textbf{Global costmap:} \texttt{global\_frame=map}, \texttt{robot\_base\_frame=base\_link}
+  \item \textbf{Local costmap (rolling):} \texttt{global\_frame=odom}, \texttt{robot\_base\_frame=base\_link}
+\end{itemize}
+
+\subsection{Baseline Controller/Planner Limits (Indoor Startwerte)}
+\begin{itemize}
+  \item \textbf{Max. Vorwärtsgeschwindigkeit:} \SI{0.8}{m/s}
+  \item \textbf{Max. Drehgeschwindigkeit:} \SI{1.0}{rad/s}
+  \item \textbf{Accel. Limits:} \SI{0.8}{m/s^2} (linear), \SI{1.2}{rad/s^2} (angular)
+  \item \textbf{Goal tolerances:} \SI{0.15}{m} (xy), \SI{0.20}{rad} (yaw) als Navigation-Baseline.
+\end{itemize}
+Hinweis: Für Pick wird Navigation auf eine Pregrasp-Pose genutzt; finaler cm-genauer Approach erfolgt im Pick-Skill (relativ in \texttt{base\_link}).
+
+\subsection{Progress Checker / Goal Checker (Baseline)}
+\begin{itemize}
+  \item \textbf{Progress Checker:} Erkennt ``stuck'' (zu wenig Bewegung in Zeitfenster) und triggert Recovery.
+  \item \textbf{Goal Checker:} Prüft, ob Pose innerhalb Toleranz erreicht ist (xy/yaw). Stateful Goal Checker vermeidet Oszillation.
+\end{itemize}
+
+\section{Intercept-Planung (Zielpunkt, Sicherheitsmarge)}
+\section{Replanning \& Constraints (v\_max, a\_max)}
+% =========================================================
+% Nav2 Recovery Policy (Concrete)
+% =========================================================
+\section{Recovery Policy (Nav2, Baseline)}
+Wenn Navigation kein Fortschritt macht, gilt folgende Policy:
+
+\begin{enumerate}
+  \item \textbf{Progress Checker triggert} (zu wenig Bewegung in Zeitfenster):
+        Nav2 erhält ``stuck'' und startet Recoveries.
+  \item \textbf{Recovery-Reihenfolge (Baseline):}
+    \begin{enumerate}
+      \item Clear local costmap
+      \item Spin (Rotate in place)
+      \item Backup (kurz)
+    \end{enumerate}
+  \item \textbf{Retry Budget:} maximal \texttt{k\_nav=2} vollständige Recovery-Zyklen; danach \texttt{FAILSAFE\_ABORT}.
+\end{enumerate}
+
+Operator Override:
+\begin{itemize}
+  \item \texttt{vc\_abort}: sofortiger Abbruch
+  \item \texttt{vc\_lets\_play}: Re-Approach Person
+  \item \texttt{vc\_search}: Wechsel in lokale/globale Objektsuche (abhängig vom Mode)
+\end{itemize}
+
+
+\chapter{Manipulation \& Handover}
+\section{Greifstrategie \& Kontaktbedingungen}
+Baseline: Pick erfolgt sequenziell nach Nav2-Pregrasp-Positionierung. \textbf{Wichtige Trennung:}
+Base-Repositioning ist \emph{nicht} Teil der Pick-Action, sondern wird ausschließlich durch den Orchestrator via Nav2 entschieden.
+Wenn ein Ziel außerhalb der Greifreichweite liegt, liefert die Pick-Schnittstelle einen Fehlercode (siehe unten), woraufhin der Orchestrator
+Nav2-Umstellen und erneuten Pick-Versuch veranlassen kann.
+
+\paragraph{Kontakt-/Erfolgssicht (Baseline-Minimum)}
+\begin{itemize}[leftmargin=*]
+  \item Pick-Erfolg wird nicht nur über Aktuation, sondern über \texttt{VERIFY\_GRASP}-Schritt/Folgeprüfung bestätigt.
+  \item Fehler werden transparent als Result-Code gemeldet; Recovery-Entscheidung (Retry/Abort/Nav2-Reposition) liegt beim Orchestrator.
+  \item Pick-Retry-Budget bleibt in der Orchestrator-State-Logik (nicht im Action-Server ``versteckt'').
+\end{itemize}
+\noindent
+Technische Minimal-Freeze-Festlegung: Manipulationsposturen wie \texttt{safe}, \texttt{carry}, \texttt{offer} und \texttt{pregrasp} bleiben implementierungslokal.
+Sie sind Hilfsbegriffe der jeweiligen MoveIt-/Runtime-Integration und \textbf{keine} globalen Shared-Surface-Begriffe.
+
+\section{Gripper-Schnittstellen (Actions)}
+\paragraph{Verbindliche Baseline-Schnittstellen}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Pick:} \texttt{PickObject.action}
+  \item \textbf{Release:} \texttt{ReleaseObject.srv}
+\end{itemize}
+
+\paragraph{Timeout-Defaults (Action/Service-Ebene, Baseline)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{pick\_timeout\_s = 15.0}
+  \item \texttt{release\_timeout\_s = 3.0}
+\end{itemize}
+\noindent
+Hinweis: Diese Interface-Timeouts sind von Missionsbudgets (z.\,B. \texttt{t\_pick}, \texttt{t\_handover}) zu unterscheiden.
+
+\section{Uebergabeprotokoll \& Events}
+\paragraph{Release-Semantik (Baseline)}
+Release wird im Baseline-System als Service (\texttt{ReleaseObject.srv}) modelliert. Das Objekt bleibt bis zur expliziten Release-Anforderung gehalten.
+Empfohlene Modi sind \texttt{OPEN\_GRIPPER}, \texttt{DROP\_SAFE} und \texttt{HANDOVER\_RELEASE}. Eine spätere Umstellung auf eine Action ist möglich,
+falls Handover-Interaktion/Verifikation erweitert wird.
+
+\section{Fail-Safe Ablegen}
+Baseline: sequenziell (Navigate -> Stabilize -> Pick -> Return -> Follow -> Release).
+\paragraph{Fail-Safe Grundsatz}
+Bei Sicherheitsereignissen oder nicht behebbaren Manipulationsfehlern wird das System über Orchestrator/Safety-Regeln in einen sicheren Zustand überführt.
+Manipulationsschnittstellen melden Fehlercodes transparent; die Recovery-Entscheidung bleibt außerhalb der Aktorik-Schnittstelle.
+
+\chapter{Orchestrierung \& Zustandslogik}
+\section{Events \& Transitionen}
+% =========================================================
+% Transition Table (Baseline)
+% =========================================================
+\section{Transition Table (Baseline, deterministisch)}
+\subsection{Konventionen}
+\begin{itemize}
+  \item \textbf{Mode:} \texttt{MODE=PLAY} nach \texttt{vc\_lets\_play}, \texttt{MODE=SEARCH} nach \texttt{vc\_search}.
+  \item \textbf{Timeout-Event:} Jeder State kann ein \texttt{timeout} auslösen (parametriert). Timeouts sind \emph{explizite} Transitions.
+  \item \textbf{Budgets:} Lokale/Globale Suche haben Zeit- oder Waypoint-Budgets (\texttt{t\_local}, \texttt{t\_global}).
+  \item \textbf{PICK Guard:} In \texttt{MODE=PLAY} ist \texttt{throw\_confirmed} Voraussetzung für \texttt{PICK}. In \texttt{MODE=SEARCH} reicht \texttt{object\_detected}.
+  \item \textbf{Follow:} \texttt{HOLD\_AND\_FOLLOW} aktualisiert periodisch ein Nav2-Ziel \texttt{person\_pose + offset}.
+  \item \textbf{Safety:} \texttt{e\_stop} / \texttt{battery\_low} / \texttt{localization\_lost} haben höchste Priorität (Any-State).
+  \item \textbf{Manual Override:} \texttt{MANUAL\_OVERRIDE\_ACTIVE} kann aus jedem Zustand in \texttt{INTERRUPTED} führen;
+        \texttt{MANUAL\_OVERRIDE\_RELEASED} erzeugt \emph{kein} automatisches Resume (Resume nur via explizitem Kommando/Orchestrator-Regel).
+\end{itemize}
+
+\subsection{Globale Any-State Regeln (Priorität 1)}
+\begin{table}[h]
+\centering
+\begin{tabular}{llllll}
+\toprule
+\textbf{From} & \textbf{Event} & \textbf{Guard} & \textbf{Action} & \textbf{To} & \textbf{Notes} \\
+\midrule
+ANY & e\_stop & -- & stop\_motion(), arm\_safe() & FAILSAFE\_ABORT & sofort \\
+ANY & battery\_low & -- & stop\_motion(), arm\_safe() & FAILSAFE\_ABORT & sofort \\
+ANY & localization\_lost & -- & stop\_motion(), arm\_safe() & FAILSAFE\_ABORT & sofort \\
+ANY & MANUAL\_OVERRIDE\_ACTIVE & -- & nav\_cancel(); mark\_interrupted() & INTERRUPTED & Teleop/Mux takeover \\
+INTERRUPTED & MANUAL\_OVERRIDE\_RELEASED & -- & hold\_position(); wait\_explicit\_resume() & INTERRUPTED & no auto-resume \\
+ANY & vc\_abort & -- & nav\_cancel(); pick\_cancel(); reset\_mission\_context(); arm\_safe() & IDLE & Operator hard abort \\
+ANY & vc\_pause & -- & nav\_cancel(), hold\_position() & IDLE & optional Pause-State \\
+IDLE & vc\_resume & -- & -- & IDLE & no-op (placeholder) \\
+\bottomrule
+\end{tabular}
+\caption{Any-State Safety/Abort Regeln (höchste Priorität).}
+\end{table}
+
+\paragraph{Hinweis zur Unterbrechungssemantik}
+Die Platzhalter-Zeilen \texttt{vc\_pause}/\texttt{vc\_resume} sind konzeptionell getrennt vom manuellen Override. Fuer Teleop/Mux-Override gilt verbindlich die Any-State-Regel nach \texttt{INTERRUPTED}; \texttt{MANUAL\_OVERRIDE\_RELEASED} fuehrt zu keinem automatischen Resume.
+
+\paragraph{Semantik \texttt{vc\_abort} (verbindlich)}
+\texttt{vc\_abort} gilt als \emph{Any-State}-Operatorabbruch (auch aus \texttt{INTERRUPTED}) und fuehrt deterministisch nach \texttt{IDLE}.
+Dabei wird der Missionskontext geleert/zurueckgesetzt (mindestens: Mode leeren, \texttt{k\_nav=0}, \texttt{pick\_retries=0},
+\texttt{throw\_confirmed=false}, \texttt{object\_detected=false}, \texttt{person\_detected=false}, \texttt{manual\_override\_active=false}).
+Laufende Skills/Aktionen werden ueber Orchestrator-Contract abgebrochen (\texttt{nav\_cancel()}, Pick/Release-Cancel), ohne direkte
+\texttt{/cmd\_vel}-Steuerung. Ein automatisches Resume ist ausgeschlossen.
+
+\subsection{Mode-Einstieg und Person-Handling}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{2.4cm}p{2.6cm}p{3.2cm}p{4.2cm}p{2.8cm}p{2.2cm}}
+\toprule
+\textbf{From} & \textbf{Event} & \textbf{Guard} & \textbf{Action} & \textbf{To} & \textbf{Timeout} \\
+\midrule
+IDLE & vc\_lets\_play & -- & set\_mode(PLAY); reset\_counters() & SEARCH\_PERSON & -- \\
+IDLE & vc\_search & -- & set\_mode(SEARCH); reset\_counters() & SEARCH\_OBJECT\_GLOBAL & -- \\
+
+SEARCH\_PERSON & person\_detected & -- & set\_person\_target(); nav\_goal(person+offset) & APPROACH\_PERSON & t\_search\_person \\
+SEARCH\_PERSON & timeout & -- & voice\_prompt(optional); stop\_motion() & FAILSAFE\_ABORT & -- \\
+
+APPROACH\_PERSON & approach\_reached & -- & stabilize(); set\_last\_seen(person) & OBSERVE\_HAND & t\_approach \\
+APPROACH\_PERSON & nav\_failed & -- & retry\_nav(k++); if k>k\_nav then abort & SEARCH\_PERSON & t\_approach \\
+
+OBSERVE\_HAND & person\_lost & -- & set\_last\_seen(person); nav\_cancel() & SEARCH\_PERSON & t\_observe \\
+OBSERVE\_HAND & timeout & MODE=PLAY & voice\_prompt(optional) & OBSERVE\_HAND & t\_observe \\
+\bottomrule
+\end{tabular}
+\caption{Mode-Einstieg, Person-Suche und Annäherung.}
+\end{table}
+
+\subsection{Play-Flow: Throw/Track/Local Search}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{2.4cm}p{2.6cm}p{3.2cm}p{4.2cm}p{2.8cm}p{2.2cm}}
+\toprule
+\textbf{From} & \textbf{Event} & \textbf{Guard} & \textbf{Action} & \textbf{To} & \textbf{Timeout} \\
+\midrule
+OBSERVE\_HAND & object\_detected & MODE=PLAY & track\_hand\_scene(); set\_object\_last\_seen() & OBSERVE\_HAND & t\_observe \\
+OBSERVE\_HAND & throw\_suspected & MODE=PLAY & start\_track(); & TRACK\_THROWN & t\_track \\
+OBSERVE\_HAND & vc\_search & MODE=PLAY & init\_local\_search(center=person\_last\_seen) & SEARCH\_OBJECT\_LOCAL & t\_local \\
+
+TRACK\_THROWN & throw\_confirmed & MODE=PLAY & predict\_region(); nav\_goal(intercept\_goal) & INTERCEPT & t\_intercept \\
+TRACK\_THROWN & object\_lost & MODE=PLAY & init\_local\_search(center=object\_last\_seen) & SEARCH\_OBJECT\_LOCAL & t\_local \\
+TRACK\_THROWN & timeout & MODE=PLAY & init\_local\_search(center=object\_last\_seen) & SEARCH\_OBJECT\_LOCAL & t\_local \\
+
+SEARCH\_OBJECT\_LOCAL & object\_detected & -- & nav\_goal(object\_pose) & INTERCEPT & t\_intercept \\
+SEARCH\_OBJECT\_LOCAL & timeout & -- & init\_global\_search() & SEARCH\_OBJECT\_GLOBAL & t\_global \\
+SEARCH\_OBJECT\_LOCAL & vc\_lets\_play & -- & nav\_cancel(); set\_mode(PLAY) & SEARCH\_PERSON & -- \\
+\bottomrule
+\end{tabular}
+\caption{Play-Flow: OBSERVE\_HAND   TRACK\_THROWN   (INTERCEPT | SEARCH\_OBJECT\_LOCAL).}
+\end{table}
+
+\subsection{Search-Flow: Global Search}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{2.4cm}p{2.6cm}p{3.2cm}p{4.2cm}p{2.8cm}p{2.2cm}}
+\toprule
+\textbf{From} & \textbf{Event} & \textbf{Guard} & \textbf{Action} & \textbf{To} & \textbf{Timeout} \\
+\midrule
+SEARCH\_OBJECT\_GLOBAL & object\_detected & -- & nav\_goal(object\_pose) & INTERCEPT & t\_intercept \\
+SEARCH\_OBJECT\_GLOBAL & timeout & -- & voice\_prompt(optional); stop\_motion() & FAILSAFE\_ABORT & -- \\
+SEARCH\_OBJECT\_GLOBAL & vc\_lets\_play & -- & set\_mode(PLAY) & SEARCH\_PERSON & -- \\
+\bottomrule
+\end{tabular}
+\caption{Search-Flow: globale Suche nach Objekt.}
+\end{table}
+
+\subsection{Interception, Pick, Return, Follow, Release}
+\begin{table}[h]
+\centering
+\begin{tabular}{p{2.4cm}p{2.6cm}p{3.2cm}p{4.2cm}p{2.8cm}p{2.2cm}}
+\toprule
+\textbf{From} & \textbf{Event} & \textbf{Guard} & \textbf{Action} & \textbf{To} & \textbf{Timeout} \\
+\midrule
+INTERCEPT & intercept\_reached & MODE=PLAY \& throw\_confirmed & start\_pick(object\_pose) & PICK & t\_pick \\
+INTERCEPT & intercept\_reached & MODE=SEARCH & start\_pick(object\_pose) & PICK & t\_pick \\
+INTERCEPT & object\_lost & -- & init\_local\_search(center=object\_last\_seen) & SEARCH\_OBJECT\_LOCAL & t\_local \\
+INTERCEPT & nav\_failed & -- & retry\_nav(k++); if k>k\_nav then abort & FAILSAFE\_ABORT & -- \\
+INTERCEPT & object\_unreachable & -- & voice\_prompt(optional) & FAILSAFE\_ABORT & -- \\
+
+PICK & grasp\_ok & -- & set\_carry(true); ensure\_arm\_carry\_pose() & RETURN\_TO\_PERSON & t\_return \\
+PICK & grasp\_failed & retries<2 & retry\_pick(r++); adjust\_pose() & PICK & t\_pick \\
+PICK & grasp\_failed & retries>=2 & voice\_prompt(optional); arm\_safe() & FAILSAFE\_ABORT & -- \\
+PICK & object\_dropped & retries<2 & retry\_pick(r++); & PICK & t\_pick \\
+PICK & timeout & -- & arm\_safe() & FAILSAFE\_ABORT & -- \\
+
+RETURN\_TO\_PERSON & person\_detected & -- & nav\_goal(person+offset) & RETURN\_TO\_PERSON & t\_return \\
+RETURN\_TO\_PERSON & approach\_reached & -- & stop\_motion() & HOLD\_AND\_FOLLOW & t\_follow \\
+RETURN\_TO\_PERSON & nav\_failed & -- & set\_last\_seen(person); & SEARCH\_PERSON & t\_search\_person \\
+RETURN\_TO\_PERSON & timeout & -- & SEARCH\_PERSON & SEARCH\_PERSON & t\_search\_person \\
+
+HOLD\_AND\_FOLLOW & vc\_release & -- & release(); arm\_safe() & HANDOVER\_RELEASE & t\_handover \\
+HOLD\_AND\_FOLLOW & person\_lost & -- & nav\_cancel(); set\_last\_seen(person) & SEARCH\_PERSON & t\_search\_person \\
+HOLD\_AND\_FOLLOW & timeout & -- & voice\_prompt(optional) & HOLD\_AND\_FOLLOW & t\_follow \\
+
+HANDOVER\_RELEASE & timeout & -- & -- & OBSERVE\_HAND & -- \\
+\bottomrule
+\end{tabular}
+\caption{Interception, Pick, Return, Follow und Release (Baseline).}
+\end{table}
+
+\subsection{Parameterisierung (Baseline, als Referenz)}
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Parameter} & \textbf{Baseline} & \textbf{Bedeutung} \\
+\midrule
+t\_search\_person & 60 s & Person-Suche Budget \\
+t\_approach & 30 s & Nav2 Annäherung an Person \\
+t\_observe & 120 s & Beobachten ohne Fortschritt \\
+t\_track & 10 s & Tracking nach Wurf \\
+t\_local & 45 s & Lokale Objektsuche Budget \\
+t\_global & 180 s & Globale Objektsuche Budget \\
+t\_intercept & 30 s & Intercept-Navigation Budget \\
+t\_pick & 20 s & Pick-Aktion Budget \\
+t\_return & 60 s & Return-Navigation Budget \\
+t\_follow & 300 s & Follow/Offer Budget \\
+t\_handover & 4.0 s & Handover/Release Timeout-Budget (mit Puffer zu Release-Service Timeout) \\
+k\_nav & 2 & max. Nav2 Retries \\
+pick\_retries & 2 & max. Greif-Retries \\
+\bottomrule
+\end{tabular}
+\caption{Baseline-Parameter (Startwerte).}
+\end{table}
+% =========================================================
+% State Actions Table (Entry / Do / Exit) + Responsibilities
+% =========================================================
+\subsection{State-Actions (Entry/Do/Exit) und Responsibilities}
+Dieser Abschnitt ergänzt die Transition Table um die \textbf{konkrete Semantik pro Zustand} (Entry/Do/Exit),
+inkl. Action- und Topic-Verantwortlichkeiten. Ziel ist, dass die Implementierung 1:1 aus der Doku ableitbar ist.
+
+\subsubsection{Allgemeine Regeln (gelten für alle Zustände)}
+\begin{itemize}
+  \item \textbf{Entry Actions} werden \emph{genau einmal} beim Betreten ausgeführt.
+  \item \textbf{Do Loop} läuft zyklisch (z.\,B. \SI{10}{Hz}) und überwacht Events/Guards.
+  \item \textbf{Exit Actions} werden beim Verlassen ausgeführt (z.\,B. Cancel laufender Actions).
+  \item \textbf{Action Ownership:} Nur der Orchestrator startet/cancelt Actions (Nav2, Pick, Release).
+  \item \textbf{cmd\_vel Ownership:} Finaler Topic \texttt{/cmd\_vel} ist Single-Writer am Twist-Mux-Ausgang; Quellen werden über einen
+        dokumentierten Ownership-/Mux-Contract arbitriert (siehe Abschnitt \glqq cmd\_vel Ownership und Safety Gate\grqq{}).
+\end{itemize}
+
+\subsubsection{Tabelle: Entry/Do/Exit je State (Baseline)}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{2.8cm}p{4.2cm}p{5.3cm}p{4.2cm}}
+\toprule
+\textbf{State} & \textbf{Entry} & \textbf{Do (zyklisch)} & \textbf{Exit} \\
+\midrule
+IDLE &
+\begin{itemize}[leftmargin=*]
+  \item arm\_safe()
+  \item nav\_cancel()
+  \item reset\_volatile\_state()
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item subscribe \texttt{/voice/command}
+  \item emit events: \texttt{vc\_lets\_play}, \texttt{vc\_search}, \texttt{vc\_abort}, \texttt{vc\_pause}
+  \item guard health: battery/localization ok
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item latch mode (PLAY/SEARCH) in blackboard
+\end{itemize}
+\\
+\midrule
+
+SEARCH\_PERSON &
+\begin{itemize}[leftmargin=*]
+  \item set\_search\_seed(person\_last\_seen or global)
+  \item start\_scan\_behavior(optional)
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item run person perception (topic-driven)
+  \item if \texttt{person\_detected}: set person target + offset
+  \item optionally rotate in place / waypoint loop (Budget: \texttt{t\_search\_person})
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item stop\_scan\_behavior()
+\end{itemize}
+\\
+\midrule
+
+APPROACH\_PERSON &
+\begin{itemize}[leftmargin=*]
+  \item compute approach pose: person\_pose + offset
+  \item nav\_goal(\texttt{/navigate\_to\_pose})
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item monitor Nav2 feedback/result
+  \item update goal if person\_pose changes significantly (optional)
+  \item if \texttt{nav\_failed}: retry budget \texttt{k\_nav}
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item nav\_cancel() on transition to non-nav states
+  \item stabilize() (short settle, e.g. \SI{0.5}{s})
+\end{itemize}
+\\
+\midrule
+
+OBSERVE\_HAND &
+\begin{itemize}[leftmargin=*]
+  \item set\_context(hand\_scene)
+  \item clear throw state machine
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item keep person in view: update base heading via small nav goals (optional)
+  \item run object-in-hand detection; update \texttt{object\_last\_seen}
+  \item run throw detector: emits \texttt{throw\_suspected/confirmed}
+  \item operator override: on \texttt{vc\_search} start local search
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item stop any observe-specific behaviors
+\end{itemize}
+\\
+\midrule
+
+TRACK\_THROWN &
+\begin{itemize}[leftmargin=*]
+  \item init tracker (Kalman/IMM)
+  \item freeze person tracking (store last\_seen)
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item update object state (pose/vel/cov)
+  \item maintain object in FOV by yaw/reposition goals
+  \item on \texttt{throw\_confirmed}: compute intercept region/pose
+  \item if lost: emit \texttt{object\_lost} to trigger local search
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item stop tracker timers
+\end{itemize}
+\\
+\midrule
+
+SEARCH\_OBJECT\_LOCAL &
+\begin{itemize}[leftmargin=*]
+  \item init local search pattern:
+    center=person\_last\_seen or object\_last\_seen
+  \item set search budget \texttt{t\_local}
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item execute local pattern: rotate + radial/sector sweeps
+  \item run object detector/tracker
+  \item if \texttt{object\_detected}: latch pose and go INTERCEPT
+  \item if timeout: fallback to global search
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item stop local search pattern
+\end{itemize}
+\\
+\midrule
+
+SEARCH\_OBJECT\_GLOBAL &
+\begin{itemize}[leftmargin=*]
+  \item init waypoint route / exploration plan
+  \item set budget \texttt{t\_global}
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item follow waypoints (\texttt{/follow\_waypoints})
+  \item continuously run object detector
+  \item on \texttt{object\_detected}: cancel waypoints, go INTERCEPT
+  \item on timeout: FAILSAFE\_ABORT
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item cancel waypoint action if active
+\end{itemize}
+\\
+\midrule
+
+INTERCEPT &
+\begin{itemize}[leftmargin=*]
+  \item compute intercept goal pose (predicted region or object pose)
+  \item nav\_goal(\texttt{/navigate\_to\_pose})
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item update goal if object pose updates (optional, rate-limited)
+  \item if \texttt{object\_lost}: go local search
+  \item on \texttt{intercept\_reached}: evaluate PICK guard (mode dependent)
+  \item detect unreachable/nav\_failed and abort per table
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item nav\_cancel()
+  \item stabilize() before pick (short settle)
+\end{itemize}
+\\
+\midrule
+
+PICK &
+\begin{itemize}[leftmargin=*]
+  \item lock target pose snapshot (PoseStamped + frame)
+  \item start manipulation action \texttt{/manipulation/pick}
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item monitor pick action feedback/result
+  \item on \texttt{grasp\_failed/object\_dropped}: retry up to 2
+  \item on \texttt{grasp\_ok}: set carry pose + proceed return
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item ensure carry pose or safe pose depending on outcome
+\end{itemize}
+\\
+\midrule
+
+RETURN\_TO\_PERSON &
+\begin{itemize}[leftmargin=*]
+  \item if person visible: nav\_goal(person+offset) via \texttt{/navigate\_to\_pose}
+  \item else: go SEARCH\_PERSON or nav to last\_seen
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item update person goal periodically (rate-limited goal streaming)
+  \item if nav fails: fallback to SEARCH\_PERSON
+  \item on approach\_reached: transition to HOLD\_AND\_FOLLOW
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item nav\_cancel()
+\end{itemize}
+\\
+\midrule
+
+HOLD\_AND\_FOLLOW &
+\begin{itemize}[leftmargin=*]
+  \item set follow offset (e.g. \SI{1.0}{m} in front/behind)
+  \item start periodic \texttt{/navigate\_to\_pose} goal updates
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item continuously update goal = person\_pose + offset (Nav2, rate-limited)
+  \item maintain arm ``offer'' posture (implementierungslokal, nicht Shared Surface)
+  \item wait for \texttt{vc\_release}
+  \item if person lost: SEARCH\_PERSON
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item nav\_cancel()
+  \item stop periodic updates
+\end{itemize}
+\\
+\midrule
+
+HANDOVER\_RELEASE &
+\begin{itemize}[leftmargin=*]
+  \item call release (\texttt{/manipulation/release})
+  \item arm\_safe()
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item verify release complete
+  \item optional: confirm operator took object
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item transition to OBSERVE\_HAND (PLAY) or IDLE (SEARCH)
+\end{itemize}
+\\
+\midrule
+
+INTERRUPTED &
+\begin{itemize}[leftmargin=*]
+  \item nav\_cancel()
+  \item hold\_position()
+  \item mark interrupted cause (manual override)
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item wait for explicit operator/orchestrator resume rule
+  \item monitor manual override status (\texttt{MANUAL\_OVERRIDE\_RELEASED})
+  \item do not auto-resume mission on release event
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item clear interrupted latch only on explicit resume/new command
+\end{itemize}
+\\
+\midrule
+
+FAILSAFE\_ABORT &
+\begin{itemize}[leftmargin=*]
+  \item stop\_motion()
+  \item nav\_cancel()
+  \item arm\_safe()
+  \item optional voice prompt
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item wait for operator command (\texttt{vc\_abort}/manual reset)
+  \item system health monitoring
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item on reset: go IDLE
+\end{itemize}
+\\
+\bottomrule
+\end{tabular}
+\caption{Entry/Do/Exit Actions pro Zustand (Baseline).}
+\end{table}
+
+\subsubsection{State-spezifische Notes (Implementierungsdetails)}
+\paragraph{OBSERVE\_HAND: ``Yaw-Align'' (Baseline + optionaler Erweiterungspfad)}
+\textbf{Baseline (verbindlich):} Yaw/kleine Reposition wird \emph{nicht} als separater Dauer-\texttt{cmd\_vel}-Controller implementiert,
+sondern als rate-limitiertes Aktualisieren eines Nav2-Ziels (kleine Pose-Updates), um Ownership-Konflikte zu vermeiden. \\
+\textbf{Optionaler Erweiterungspfad:} Ein lokaler Yaw-Controller ist zulässig, aber nur als Mux-Quelle
+\texttt{/tracking/yaw\_cmd\_vel} (niemals direkt \texttt{/cmd\_vel}), mit Priorität unter Teleop und über Nav2 gemäß Ownership-Contract.
+Standardmäßig ist dieser Pfad deaktiviert.
+
+\paragraph{PICK: Navigationstoleranz vs. Greiftoleranz}
+Nav2 bringt den Roboter in eine Pregrasp-Pose (Toleranz z.\,B. \SI{5}{cm}--\SI{15}{cm}); die finalen cm werden im Pick-Skill durch
+lokale Korrektur/Alignment (relativ in \texttt{base\_link}) erreicht.
+
+\paragraph{HOLD\_AND\_FOLLOW: Follow als ``Goal Streaming''}
+Follow wird als periodisches Senden von \texttt{/navigate\_to\_pose} auf \texttt{person\_pose+offset} umgesetzt (z.\,B. \SI{2}{Hz}).
+Bei verlorenem Person-Track wird zu \texttt{SEARCH\_PERSON} zurückgefallen.
+% =========================================================
+% cmd_vel Ownership / Safety Gate
+% =========================================================
+\section{cmd\_vel Ownership und Safety Gate (verbindlich)}
+\begin{itemize}
+  \item \textbf{Single Writer (verbindlich):} \texttt{/cmd\_vel} wird ausschließlich durch den Twist-Mux/Arbitrator erzeugt
+        (Ausgangspfad zur Base).
+  \item \textbf{Erlaubte Motion-Quellen (Baseline):} \texttt{/teleop/cmd\_vel} (Override), \texttt{/nav2/cmd\_vel} (Nav2 vor Mux),
+        optional \texttt{/tracking/yaw\_cmd\_vel} (lokaler Yaw-Pfad; standardm ä ßig deaktiviert).
+  \item \textbf{Nicht erlaubte Direktquellen auf \texttt{/cmd\_vel}:} Perception Nodes, Tracking (außer optionaler Yaw-Pfad via Mux),
+        Follow-Node (Follow bleibt Nav2 Goal-Streaming), Manipulation/MoveIt Base-Repositioning, Debug-/Testskripte ohne expliziten Mux-Testpfad.
+  \item \textbf{Priorität (verbindlich):} Safety/E-Stop Gate (quellenunabhängig wirksam) $>$ Teleop $>$ Tracking-Yaw (optional) $>$ Nav2.
+        Falls Tracking-Yaw nicht implementiert/aktiviert ist, gilt Teleop $>$ Nav2.
+  \item \textbf{Teleop-Override Timeout (Baseline):} \SI{1000}{ms} nach letzter Teleop-Message.
+        Bei Timeout: Stop-Twist \texttt{(0,0,0)} am Mux-Ausgang, Freigabe zurück an normale Quellen, kein automatisches Fortsetzen alter Missionen
+        ohne explizite Orchestrator-Regel/neues Kommando.
+  \item \textbf{Orchestrator-Integration (Baseline):} Teleop- Übernahme erzeugt Event \texttt{MANUAL\_OVERRIDE\_ACTIVE}; der Orchestrator wechselt nach
+        \texttt{INTERRUPTED} (nicht Resume-by-default) und cancelt laufende Nav2-Actions bzw. markiert sie als unterbrochen.
+        \texttt{MANUAL\_OVERRIDE\_RELEASED} führt nicht automatisch zu Resume; Resume nur durch explizites Kommando/Orchestrator-Regel.
+  \item \textbf{Safety-Gate Position:} logisch vor oder integriert in den effektiven Bewegungsausgangspfad; die Wirkung muss jede Quelle blockieren können.
+  \item \textbf{Logging/Diagnose (Minimum):} aktive Quelle, Quellenwechsel (z.\,B. Nav2$\rightarrow$Teleop), Timeout-Ereignisse,
+        Safety-Block aktiv/inaktiv.
+  \item \textbf{Stop Motion Semantik:} \texttt{stop\_motion()} bedeutet:
+    (1) \texttt{nav\_cancel()} aller aktiven Nav2 Actions, (2) Stop-Kommando am wirksamen Bewegungsausgangspfad (z.\,B. via Mux/Safety-Gate),
+    (3) Arm in Safe Pose, (4)  Übergang in \texttt{FAILSAFE\_ABORT}.
+  \item \textbf{Keine Neben-Controller auf \texttt{/cmd\_vel}:} Optionale lokale Controller (z.\,B. Tracking-Yaw) dürfen ausschließlich über
+        freigegebene Mux-Quellen publizieren, niemals direkt auf \texttt{/cmd\_vel}.
+\end{itemize}
+
+% =========================================================
+% Pipeline je Missionsschritt (Implementierungsleitfaden)
+% =========================================================
+\section{Pipeline je Missionsschritt (Implementierungsleitfaden)}
+
+\subsection{IDLE}
+Inputs: \texttt{/voice/command}. \\
+Outputs: Events an Orchestrator. \\
+Guards: Localization ok, battery ok, Arm safe.
+
+\subsection{SEARCH\_PERSON / APPROACH\_PERSON}
+Technologie: Person-Detektion (RGB-D) + Nav2. \\
+Inputs: \texttt{/perception/person\_visible}, \texttt{/perception/person\_pose}. \\
+Outputs: \texttt{/navigate\_to\_pose} auf Pose vor Person (Offset). \\
+Recovery: Rotationsscan, Waypoints, Timeout $\rightarrow$ Fail-Safe.
+
+\subsection{OBSERVE\_HAND}
+Technologie: Objekt-Detektion + base yaw alignment (Baseline: Nav2 Goal-/Pose-Updates; optional lokaler Yaw-Controller über Mux). \\
+Inputs: \texttt{/perception/object\_pose}, \texttt{/perception/object\_visible}. \\
+Outputs: Yaw-Korrektur oder kleine Reposition. \\
+Override: \texttt{search} startet lokale Objektsuche um Person/last seen.
+
+\paragraph{Optionaler lokaler Yaw-Controller (Baseline-Parameter, default deaktiviert)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{tracking\_yaw\_enable=false}
+  \item \texttt{tracking\_yaw\_allowed\_states=[OBSERVE\_HAND]}
+  \item \texttt{tracking\_yaw\_error\_threshold\_deg=5.0}
+  \item \texttt{tracking\_target\_stale\_timeout\_ms=300}
+  \item \texttt{tracking\_yaw\_max\_ang\_z\_rad\_s=0.5}
+  \item \texttt{tracking\_yaw\_cmd\_timeout\_ms=200}
+  \item \texttt{tracking\_yaw\_only\_rotation=true}
+\end{itemize}
+\noindent
+Aktivierungsregeln (verbindlich): nur wenn Ziel visuell valide erkannt/getrackt ist, Teleop nicht aktiv ist, Safety-Gate frei ist und
+\texttt{|yaw\_error|} über Schwellwert liegt; nur Rotationskommandos (\texttt{angular.z}), keine Translation.
+Bei stale/lost Tracking wird die Quelle deaktiviert, ein Stop auf der Quelltopic gesendet und auf Baseline-Verhalten zurückgefallen.
+
+\subsection{TRACK\_THROWN}
+Technologie: Filter (Kalman) + heuristische Throw-Confirmation. \\
+Inputs: \texttt{/tracking/object\_state}, \texttt{/tracking/throw\_status}. \\
+Outputs: Zielregion/Zielpose für INTERCEPT. \\
+Fallback: Objekt verloren $\rightarrow$ lokale Suche $\rightarrow$ globale Suche.
+
+\subsection{INTERCEPT}
+Technologie: Nav2. \\
+Inputs: predicted pose/region, object\_visible. \\
+Outputs: \texttt{/navigate\_to\_pose}. \\
+Guard: PICK erst nach Throw Confirmed (Play) oder nach \texttt{vc\_search} (Search-Modus).
+
+\subsection{PICK}
+Technologie: MoveIt2 + D1-550-85 driver. \\
+Inputs: stabile \texttt{/perception/object\_pose} (on-ground). \\
+Outputs: \texttt{/manipulation/pick} Action. \\
+Retries: max 2, danach Fail-Safe.
+
+\subsection{RETURN\_TO\_PERSON / HOLD\_AND\_FOLLOW / RELEASE}
+Technologie: Return via Nav2; Follow via periodischem Aktualisieren eines Nav2-Zielpunkts relativ zur Person (Pose+Offset). \\
+Inputs: \texttt{/perception/person\_pose}, \texttt{/voice/command=release}. \\
+Outputs: Return/Follow Ziele, \texttt{/manipulation/release}. \\
+Semantik: Objekt bleibt gehalten bis \texttt{release}.
+
+% =========================================================
+% Bringup Reihenfolge (theoretisch)
+% =========================================================
+\section{Bringup-Reihenfolge (theoretisch)}
+\item \textbf{(0) Container starten (ROS2 Humble):}
+  \begin{verbatim}
+  docker run --rm -it --network host --runtime nvidia --privileged \
+    osrf/ros:humble-desktop bash
+  source /opt/ros/humble/setup.bash
+  \end{verbatim}
+  Danach alle folgenden Schritte \emph{im Container} ausführen.
+
+\begin{enumerate}
+  \item Robot/Sensor bringup (Unitree Bridge, RealSense, TF via URDF+\texttt{robot\_state\_publisher}, \texttt{/joint\_states}).
+  \item Perception (Person/Object) + Tracking.
+  \item SLAM/Odometrie (RTAB-Map publisht \texttt{map odom}) und Nav2.
+  \item Manipulation (Arm driver + MoveIt2).
+  \item Voice-STT (oder Unitree Voice Service)   \texttt{/voice/command}.
+  \item Orchestrator starten (nimmt Events an, startet Actions).
+\end{enumerate}
+
+\section{Mode Manager (SMACC2/BT)}
+Unabhaengig von BT/SMACC2 gilt fuer den Mission-Flow dieselbe Unterbrechungssemantik:
+\begin{itemize}
+  \item \texttt{MANUAL\_OVERRIDE\_ACTIVE} praemptiert laufende Missionsschritte und fuehrt nach \texttt{INTERRUPTED}.
+  \item \texttt{MANUAL\_OVERRIDE\_RELEASED} hebt den Override auf, fuehrt aber zu keinem Auto-Resume; Fortsetzung nur ueber explizites Kommando/Orchestrator-Regel.
+  \item BT-/Statechart-Ausrollungen muessen diese Regeln konsistent zu Any-State-Transitionen und State-Actions abbilden.
+\end{itemize}
+\section{Time-outs, e\_stop, lost\_target}
+\section{Telemetrie \& Logging}
+
+\chapter{Visualisierung \& Tools}
+% =========================================================
+% RViz Debug Playbook (Concrete)
+% =========================================================
+\section{RViz2 Debug Playbook (Baseline, konkret)}
+\subsection{Fixed Frame und Grundprinzip}
+\begin{itemize}
+  \item \textbf{Fixed Frame:} \texttt{map}
+  \item Ziel: In RViz müssen \texttt{TF}, \texttt{/map}, Costmaps und Pläne im selben Referenzsystem plausibel überlagert werden.
+\end{itemize}
+
+\subsection{Pflicht-Displays (Minimum)}
+\begin{itemize}
+  \item \textbf{TF} (zeigt den TF-Baum; prüft \texttt{map->odom->base\_link})
+  \item \textbf{RobotModel} (URDF: Base + Arm)
+  \item \textbf{Map} (\texttt{/map})
+  \item \textbf{PointCloud2} LiDAR deskewed (\texttt{<LIDAR\_CLOUD\_TOPIC>})
+  \item \textbf{(Optional) PointCloud2} RealSense (\texttt{<REALSENSE\_CLOUD\_TOPIC>})
+  \item \textbf{Pose} Person (\texttt{/perception/person\_pose})
+  \item \textbf{Pose} Objekt (Pick, 6D) (\texttt{/perception/object\_pose_6d})
+  \item \textbf{Pose} Objekt position (TRACK, 3D) (\texttt{/tracking/detections3d_fast})
+  \item \textbf{Pose} Objekt region (TRACK) (\texttt{/tracking/predicted_region})
+
+\end{itemize}
+
+\subsection{Nav2 Displays (Standard-Topics)}
+\textbf{Hinweis:} Je nach Launch/Namespace können die Topics prefixed sein (z.\,B. \texttt{/nav2/...}).
+Die folgenden sind die \emph{üblichen} Default-Topics, die in vielen Nav2 Bringups so vorkommen:
+
+\begin{itemize}
+  \item \textbf{Global Costmap:}
+    \begin{itemize}
+      \item \texttt{/global\_costmap/costmap} (nav\_msgs/OccupancyGrid)
+      \item \texttt{/global\_costmap/costmap\_updates} (optional)
+      \item \texttt{/global\_costmap/published\_footprint} (optional)
+    \end{itemize}
+  \item \textbf{Local Costmap:}
+    \begin{itemize}
+      \item \texttt{/local\_costmap/costmap}
+      \item \texttt{/local\_costmap/costmap\_updates} (optional)
+      \item \texttt{/local\_costmap/published\_footprint} (optional)
+    \end{itemize}
+  \item \textbf{Pläne:}
+    \begin{itemize}
+      \item \texttt{/plan} oder \texttt{/planner\_server/plan} (je nach Setup)
+      \item \texttt{/local\_plan} oder \texttt{/controller\_server/local\_plan} (optional)
+    \end{itemize}
+  \item \textbf{Goals:}
+    \begin{itemize}
+      \item \texttt{/goal\_pose} (RViz Nav Goal Tool; je nach Tool/Bridge)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Verifikations-Reihenfolge (wenn ``etwas nicht geht'')}
+\begin{enumerate}[label=\textbf{D\arabic*.}]
+  \item \textbf{TF valid?} In TF-Display muss es eine Kette \texttt{map->odom->base\_link} geben. Wenn \texttt{map->odom} fehlt: RTAB-Map läuft nicht / publish\_tf aus.
+  \item \textbf{Map sichtbar?} \texttt{/map} muss in \texttt{map}-Frame plausibel liegen. Wenn leer: RTAB-Map liefert keine OccupancyGrid-Ausgabe.
+  \item \textbf{Odom plausibel?} \texttt{odom->base\_link} muss kontinuierlich laufen (Unitree). Wenn springend: Zeitsynchronisation/TF delay.
+  \item \textbf{Local costmap befüllt?} \texttt{/local\_costmap/costmap} muss Hindernisse zeigen. Wenn leer:
+    \begin{itemize}
+      \item Observation source topic falsch (\texttt{<LIDAR\_CLOUD\_TOPIC>})
+      \item PointCloud frame nicht transformierbar nach \texttt{odom/base\_link}
+      \item Höhenfilter zu restriktiv (\texttt{min/max\_obstacle\_height})
+    \end{itemize}
+  \item \textbf{Global costmap plausibel?} Wenn \texttt{/global\_costmap/costmap} leer: map server/\texttt{/map} fehlt oder global frame mismatch.
+  \item \textbf{Planner erzeugt Pfad?} Wenn kein Pfad:
+    \begin{itemize}
+      \item global costmap blockiert alles (Inflation/Unknown space)
+      \item \texttt{allow\_unknown} falsch, oder Start/Goal in Unknown
+    \end{itemize}
+  \item \textbf{Controller folgt Pfad?} Wenn robot nicht fährt:
+    \begin{itemize}
+      \item \texttt{/cmd\_vel} wird nicht publiziert (Controller Server inactive)
+      \item E-Stop/Safety Gate blockiert
+      \item Progress checker triggert dauerhaft (``stuck'')
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Praktische ``Find-the-right-topic'' Kommandos}
+Wenn die Standardtopics nicht passen (Namespaces), sind folgende Kommandos Teil der Bringup-Checkliste:
+\begin{verbatim}
+ros2 topic list | grep costmap
+ros2 topic list | grep plan
+ros2 topic echo /tf --once
+ros2 run tf2_ros tf2_echo map base_link
+ros2 node list
+ros2 lifecycle nodes
+\end{verbatim}
+
+
+\section{Aufzeichnungs-Pipelines (rosbag2)}
+\section{Param-Dumps und Reproduzierbarkeit}
+\section{Monitoring \& Metriken}
+
+\chapter{Tests \& Validierung}
+\section{Phase A: Bags (P/R, Latenz)}
+\section{Phase B: Simulation (Intercept-ETA, Erfolgsquote)}
+\section{Phase C: Realtests (Rollen/Hüpfen/Werfen)}
+\section{Ergebnisse \& Diskussion}
+
+\chapter{Deployment \& Betrieb}
+\section{Plattform-Baseline \& Container-Setup (Docker, ROS2 Humble)}
+\label{sec:platform-docker}
+\subsection{Plattform- und Runtime-Zielbild (Extension Board)}
+\label{sec:platform-runtime-target}
+\paragraph{Plattformmodell.}
+Das Zielsystem laeuft auf einer ARM64-Board-Plattform. Die Projektsoftware wird reproduzierbar in einem ROS2-Humble-Container betrieben; Board-nahe Dienste und Treiber koennen hostseitig verbleiben, muessen aber ueber klar definierte ROS2-Interfaces in den Gesamtstack integriert werden.
+
+\paragraph{ROS-Contract fuer Navigation/SLAM.}
+Der Laufzeit-Contract fuer Navigation und Lokalisierung ist:
+\begin{itemize}
+  \item Odometrie als \texttt{nav\_msgs/Odometry} mit konsistentem \texttt{odom->base\_link}-Bezug.
+  \item Vollstaendiger TF-Backbone \texttt{map->odom->base\_link->sensor\_frames}.
+  \item Bevorzugte Verwendung von Standardtypen (\texttt{Odometry}, \texttt{Pose}, \texttt{TF}) an den Kernschnittstellen.
+\end{itemize}
+
+\paragraph{TF-Ownership-Regel.}
+Jeder TF-Link darf genau einen Publisher besitzen. Falls ein technischer Adapter fuer \texttt{odom->base\_link} eingesetzt wird, ist dieser nur zulaessig, solange der Treiber denselben Link nicht selbst publisht.
+
+\paragraph{Relevanz fuer Nav2/RViz2.}
+Nav2 und RViz2 setzen den konsistenten TF-Baum voraus; \texttt{map->odom} kommt aus dem gewaehlten Localization/SLAM-Pfad, \texttt{odom->base\_link} aus Robot-Odometrie (oder deren eindeutigem Adapter), und Sensorframes aus URDF/static TF.
+
+\subsection{SSH-Zugang zum Extension Board (Host-Konsole)}
+\label{sec:ssh-access}
+
+\paragraph{Ziel.}
+Die tägliche Arbeit erfolgt primär per SSH vom Entwicklungsrechner auf das Extension Board. Dadurch sind Copy/Paste,
+Dateiübertragung und VS Code Remote Development möglich.
+
+\paragraph{IP-Adresse des Extension Boards ermitteln (am Board).}
+\begin{verbatim}
+ip -br a
+ip route
+\end{verbatim}
+Typische Interfaces:
+\begin{itemize}
+  \item \texttt{eth0}: Robot-/LAN-Netz (z.\,B. \texttt{192.168.123.x})
+  \item \texttt{usb0}: USB-Tethering/Internet (z.\,B. \texttt{192.168.245.x})
+\end{itemize}
+
+\paragraph{SSH-Verbindung vom Entwicklungsrechner.}
+\begin{verbatim}
+ssh unitree@<BOARD_IP>
+\end{verbatim}
+Beispiel:
+\begin{verbatim}
+ssh unitree@192.168.123.18
+\end{verbatim}
+
+\paragraph{Erster Login / Host-Key.}
+Beim ersten Verbinden fragt SSH nach der Bestätigung des Host-Schlüssels (\texttt{yes} eingeben).
+Danach Passwort des Users \texttt{unitree} eingeben.
+
+\paragraph{Empfehlung: SSH Key statt Passwort (optional, empfohlen).}
+Auf dem Entwicklungsrechner:
+\begin{verbatim}
+ssh-keygen -t ed25519
+ssh-copy-id unitree@<BOARD_IP>
+\end{verbatim}
+Danach ist Login ohne Passworteingabe möglich.
+\subsection{Dateiübertragung auf das Extension Board}
+\label{sec:file-transfer}
+
+\paragraph{Einzelne Dateien mit \texttt{scp}.}
+Vom Entwicklungsrechner zum Board:
+\begin{verbatim}
+scp <LOKALE_DATEI> unitree@<BOARD_IP>:<ZIELPFAD>
+\end{verbatim}
+Beispiel:
+\begin{verbatim}
+scp nav2_params.yaml unitree@192.168.123.18:/home/unitree/go2_fetch/config/
+\end{verbatim}
+
+\paragraph{Verzeichnisse rekursiv mit \texttt{scp}.}
+\begin{verbatim}
+scp -r ./go2_fetch_ws unitree@<BOARD_IP>:/home/unitree/
+\end{verbatim}
+
+\paragraph{Synchronisation mit \texttt{rsync} (empfohlen bei häufiger Entwicklung).}
+\begin{verbatim}
+rsync -av --delete ./go2_fetch_ws/ unitree@<BOARD_IP>:/home/unitree/go2_fetch_ws/
+\end{verbatim}
+Vorteile:
+\begin{itemize}
+  \item schnell bei kleinen  „nderungen
+  \item wiederholbar
+  \item \texttt{--delete} hält Ziel konsistent (vorsichtig verwenden)
+\end{itemize}
+
+\paragraph{Dateien vom Board zurückholen (z.\,B. Logs, Bags, Maps).}
+\begin{verbatim}
+scp -r unitree@<BOARD_IP>:/home/unitree/go2_fetch_data ./backup_go2_fetch_data
+\end{verbatim}
+\subsection{VS Code Workflow (Remote SSH + Docker)}
+\label{sec:vscode-remote-docker}
+
+\paragraph{Ziel.}
+Komfortable Entwicklung mit Editor, Terminal und Datei-Explorer auf dem Extension Board, ohne lokale Build-/Runtime-Last
+auf dem Entwicklungsrechner.
+
+\paragraph{Benötigte VS Code Extensions (am Entwicklungsrechner).}
+\begin{itemize}
+  \item \texttt{Remote - SSH}
+  \item \texttt{Docker} (optional, hilfreich)
+  \item C/C++ und/oder Python Extensions (je nach Projektanteil)
+\end{itemize}
+
+\paragraph{Verbindung per Remote SSH.}
+In VS Code:
+\begin{enumerate}
+  \item \texttt{F1} $\rightarrow$ \texttt{Remote-SSH: Connect to Host}
+  \item Host eintragen: \texttt{unitree@<BOARD_IP>}
+  \item Projektordner auf dem Boardöffnen (z.\,B. \texttt{/home/unitree/go2_fetch})
+\end{enumerate}
+
+\paragraph{Arbeiten mit Docker auf dem Remote-Host.}
+VS Code-Terminal ist dann \emph{bereits auf dem Board}. Docker-Befehle werden dort ausgeführt:
+\begin{verbatim}
+docker ps
+docker images
+docker run --rm -it --network host --runtime nvidia ...
+\end{verbatim}
+
+\paragraph{Empfohlener Ablauf.}
+\begin{enumerate}
+  \item VS Code Remote SSH auf das Board
+  \item Projektdateien editieren
+  \item Container starten (Humble)
+  \item im Container Build/Launch ausführen
+  \item Logs/Artefakte in gemountetem Host-Verzeichnis speichern
+\end{enumerate}
+
+\paragraph{Hinweis zu Copy/Paste und langen Befehlen.}
+Lange Docker-/ROS2-Befehle bevorzugt in Skripte auslagern (z.\,B. \texttt{scripts/run\_container.sh}),
+damit im Terminal nur kurze Kommandos nötig sind.
+\subsection{Praktische Shell-Helfer für lange Kommandos}
+\label{sec:shell-helpers}
+
+\paragraph{Warum.}
+Auf dem Board ist direkte Copy/Paste-Eingabe ggf. eingeschränkt. Wiederkehrende Befehle werden daher in Skripte ausgelagert.
+
+\paragraph{Beispiel: Container-Startskript anlegen.}
+\begin{verbatim}
+mkdir -p ~/go2_fetch/scripts
+nano ~/go2_fetch/scripts/run_container.sh
+\end{verbatim}
+
+\paragraph{Beispielinhalt \texttt{run\_container.sh}.}
+\begin{verbatim}
+#!/usr/bin/env bash
+docker run --rm -it --network host --runtime nvidia \
+  --privileged \
+  -v $HOME/go2_fetch_data:/data \
+  --name go2_fetch \
+  osrf/ros:humble-desktop \
+  bash
+\end{verbatim}
+
+\paragraph{Ausführbar machen und starten.}
+\begin{verbatim}
+chmod +x ~/go2_fetch/scripts/run_container.sh
+~/go2_fetch/scripts/run_container.sh
+\end{verbatim}
+
+\subsection{Motivation und Grundannahmen}
+Das Extension Board läuft auf Ubuntu 20.04 (JetPack 5.x). Die systemweite ROS2-Installation ist daher \texttt{foxy}.
+Um dennoch ROS2 Humble (Nav2, RTAB-Map, MoveIt2 etc.) konsistent zu verwenden, wird der komplette Projekt-Stack in einem Docker-Container
+mit ROS2 Humble betrieben. Der Host bleibt unverändert.
+
+\subsection{Voraussetzungen auf dem Host}
+\begin{itemize}
+  \item Docker installiert und benutzbar für User \texttt{unitree} (Gruppe \texttt{docker}).
+  \item Netzwerkzugang zum Ziehen von Images (z.\,B. USB-Tethering oder WLAN/LAN).
+  \item NVIDIA Container Runtime verfügbar (Jetson: \texttt{Runtimes: nvidia} in \texttt{docker info}).
+\end{itemize}
+
+\subsection{Grundprinzip: Host vs. Container}
+\begin{itemize}
+  \item \textbf{Host:} OS, Treiber (JetPack), Netzwerk, USB-Geräte, ggf. vorinstalliertes ROS2 Foxy (wird ignoriert).
+  \item \textbf{Container (Humble):} alle Projekt-Nodes (Nav2, RTAB-Map, Perception/Tracking, Orchestrator, später MoveIt2).
+\end{itemize}
+
+\subsection{Minimaler Container-Start (Humble Desktop)}
+\label{sec:docker-run-minimal}
+\noindent Der Container wird mit \texttt{--network host} gestartet, damit DDS/ROS2 Discovery ohne Sonderkonfiguration funktioniert.
+\begin{verbatim}
+docker run --rm -it --network host osrf/ros:humble-desktop \
+  bash -lc "source /opt/ros/humble/setup.bash && ros2 --version"
+\end{verbatim}
+
+\subsection{Projekt-Container (eigenes Image)}
+Statt bei jedem Start Pakete nachzuinstallieren, wird ein eigenes Image gebaut (Dockerfile im Projekt-Repo):
+\begin{verbatim}
+docker build -t go2_fetch:humble .
+\end{verbatim}
+und gestartet mit:
+\begin{verbatim}
+docker run --rm -it --network host --runtime nvidia \
+  --name go2_fetch \
+  go2_fetch:humble \
+  bash
+\end{verbatim}
+
+\subsection{Persistente Daten (Maps, RTAB-Map DB, Logs)}
+Persistente Artefakte werden als Volume gemountet:
+\begin{verbatim}
+docker run --rm -it --network host --runtime nvidia \
+  -v $HOME/go2_fetch_data:/data \
+  go2_fetch:humble bash
+\end{verbatim}
+\noindent Konvention: \texttt{/data/maps}, \texttt{/data/rtabmap/rtabmap.db}, \texttt{/data/bags}.
+
+\subsection{USB-Geräte im Container (RealSense)}
+USB-Zugriff im Zielbetrieb erfolgt ueber explizite Device-Freigaben:
+\begin{verbatim}
+docker run --rm -it --network host --runtime nvidia \
+  --device /dev/bus/usb:/dev/bus/usb \
+  osrf/ros:humble-desktop bash
+\end{verbatim}
+\noindent Die Device-Freigaben sind reproduzierbar zu dokumentieren; \texttt{--privileged} ist nicht Teil des Zielbetriebs.
+
+\section{Bringup-Prozeduren}
+\subsection{Konsole: Basis-Kommandos (Docker + ROS2)}
+\label{sec:console-cheatsheet}
+
+\paragraph{Docker (Host).}
+\begin{verbatim}
+docker ps
+docker images | head
+docker info | grep -i runtime
+docker pull hello-world
+\end{verbatim}
+
+\paragraph{Container betreten (Humble).}
+\begin{verbatim}
+docker run --rm -it --network host osrf/ros:humble-desktop bash
+source /opt/ros/humble/setup.bash
+\end{verbatim}
+
+\paragraph{ROS2 Basis (im Container).}
+\begin{verbatim}
+ros2 --version
+ros2 node list
+ros2 topic list
+ros2 topic info -v <TOPIC>
+ros2 param list <NODE>
+ros2 param get <NODE> <PARAM>
+ros2 lifecycle nodes
+\end{verbatim}
+
+\paragraph{TF Checks (im Container).}
+\begin{verbatim}
+ros2 topic echo /tf --once
+ros2 run tf2_ros tf2_echo map base_link
+ros2 run tf2_ros tf2_echo odom base_link
+\end{verbatim}
+
+\section{Troubleshooting}
+\subsection{Troubleshooting: \texttt{docker pull} / Internet / DNS}
+\label{sec:troubleshooting-docker-net}
+
+\paragraph{Symptom A: \texttt{manifest unknown}.}
+Der Image-Tag existiert nicht. Beispiel: \texttt{osrf/ros:humble-ros-base} ist kein gültiger Tag.
+Verwende stattdessen \texttt{osrf/ros:humble-desktop}.
+
+\paragraph{Symptom B: DNS-Timeout (\texttt{lookup registry-1.docker.io ... 127.0.0.1:53}).}
+Ursache ist fehlender Internetzugang oder falscher DNS. Zuerst Internet testen:
+\begin{verbatim}
+ping -c 2 1.1.1.1
+\end{verbatim}
+Wenn kein Internet: USB-Tethering aktivieren (Smartphone per USB, dann \texttt{usb0} Interface prüfen):
+\begin{verbatim}
+ip -br a
+ip route
+\end{verbatim}
+Wenn DNS falsch ist (z.\,B. \texttt{nameserver 127.0.0.1}), temporär DNS setzen:
+\begin{verbatim}
+sudo bash -lc 'printf "nameserver 1.1.1.1\nnameserver 8.8.8.8\n" > /etc/resolv.conf'
+\end{verbatim}
+Dann erneut testen:
+\begin{verbatim}
+docker pull hello-world
+\end{verbatim}
+
+\section{Wartung \& Updates}
+\section{Risiken \& Lessons Learned}
+
+\chapter{Fazit \& Ausblick}
+\section{Zusammenfassung}
+\section{Grenzen \& zukünftige Arbeiten}
+\section{Transfer auf weitere Tasks}
+
+% ================== Anhang ==================
+\appendix
+% =========================================================
+% Appendix: Launch- und YAML-Listings
+% =========================================================
+\chapter{Launch- und YAML-Listings}
+
+\section{\texttt{nav2\_params.yaml} (Baseline)}
+\label{app:nav2_params}
+\begin{lstlisting}[style=yamlcontracts, language=yaml,caption={Baseline Nav2 Parameterdatei (Indoor, Voxel Costmap, konservative Limits).}]
+# file: nav2_params.yaml
+# Baseline Nav2 config for Unitree Go2 EDU (Indoor, RTAB-Map map->odom, Go2 odom->base_link)
+#
+#
+# Frames must exist via TF:
+#   map -> odom (rtabmap)
+#   odom -> base_link (unitree)
+#   base_link -> lidar_frame / camera_link / imu_link (URDF + robot_state_publisher)
+
+# ----------------------------
+# Global settings / common
+# ----------------------------
+# If you use simulation, set use_sim_time true in all nodes.
+# Here: real robot baseline.
+#
+# NOTE: Nav2 expects /tf + /tf_static. Ensure those are present.
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: false
+    global_frame: map
+    robot_base_frame: base_link
+    odom_topic: "(*@\OdomTopic@*)"
+    bt_loop_duration: 10
+    default_server_timeout: 20
+    # Use the default NavigateToPose BT if you don't provide a custom XML.
+    # default_nav_to_pose_bt_xml: ""  # optional override
+    # default_nav_through_poses_bt_xml: ""  # optional override
+
+planner_server:
+  ros__parameters:
+    use_sim_time: false
+    expected_planner_frequency: 5.0
+    planner_plugins: ["GridBased"]
+
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+      allow_unknown: true
+
+controller_server:
+  ros__parameters:
+    use_sim_time: false
+    controller_frequency: 20.0
+    odom_topic: "(*@\OdomTopic@*)"
+
+    # Progress / goal checker plugins
+    progress_checker_plugins: ["progress_checker"]
+    goal_checker_plugins: ["goal_checker"]
+
+    progress_checker:
+      plugin: "nav2_controller::PoseProgressChecker"
+      required_movement_radius: 0.10
+      required_movement_angle: 0.10
+      movement_time_allowance: 10.0
+
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      stateful: true
+      xy_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.20
+
+    controller_plugins: ["FollowPath"]
+
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      debug_trajectory_details: false
+
+      # --- Baseline indoor motion limits (conservative, stable SLAM/perception) ---
+      max_vel_x: 0.8
+      min_vel_x: 0.0
+      max_vel_y: 0.0
+      min_vel_y: 0.0
+      max_vel_theta: 1.0
+      min_vel_theta: -1.0
+
+      acc_lim_x: 0.8
+      decel_lim_x: -0.8
+      acc_lim_y: 0.0
+      decel_lim_y: 0.0
+      acc_lim_theta: 1.2
+      decel_lim_theta: -1.2
+
+      vx_samples: 10
+      vy_samples: 1
+      vtheta_samples: 20
+      sim_time: 1.7
+      linear_granularity: 0.05
+      angular_granularity: 0.025
+      transform_tolerance: 0.2
+
+      # --- Goal tolerances for navigation (NOT grasp precision) ---
+      xy_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.20
+
+      # --- DWB critics (reasonable baseline) ---
+      critics:
+        - RotateToGoal
+        - Oscillation
+        - BaseObstacle
+        - PathAlign
+        - GoalAlign
+        - PathDist
+        - GoalDist
+
+      BaseObstacle.scale: 0.02
+      PathAlign.scale: 32.0
+      GoalAlign.scale: 24.0
+      PathDist.scale: 32.0
+      GoalDist.scale: 24.0
+      RotateToGoal.scale: 32.0
+      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.lookahead_time: 1.0
+
+smoother_server:
+  ros__parameters:
+    use_sim_time: false
+    smoother_plugins: ["SimpleSmoother"]
+    SimpleSmoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+      tolerance: 1.0e-6
+      max_its: 1000
+      do_refinement: true
+
+behavior_server:
+  ros__parameters:
+    use_sim_time: false
+    global_frame: map
+    robot_base_frame: base_link
+    transform_tolerance: 0.2
+    cycle_frequency: 10.0
+
+    behavior_plugins:
+      - spin
+      - backup
+      - drive_on_heading
+      - wait
+      - assisted_teleop
+
+    spin:
+      plugin: "nav2_behaviors/Spin"
+    backup:
+      plugin: "nav2_behaviors/BackUp"
+    drive_on_heading:
+      plugin: "nav2_behaviors/DriveOnHeading"
+    wait:
+      plugin: "nav2_behaviors/Wait"
+    assisted_teleop:
+      plugin: "nav2_behaviors/AssistedTeleop"
+
+waypoint_follower:
+  ros__parameters:
+    use_sim_time: false
+    loop_rate: 5
+    stop_on_failure: true
+    waypoint_task_executor_plugin: "wait_at_waypoint"
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: true
+      waypoint_pause_duration: 0  # seconds
+
+velocity_smoother:
+  ros__parameters:
+    use_sim_time: false
+    smoothing_frequency: 20.0
+    scale_velocities: false
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.8, 0.0, 1.0]     # [x, y, theta]
+    min_velocity: [0.0, 0.0, -1.0]
+    max_accel: [0.8, 0.0, 1.2]
+    max_decel: [-0.8, 0.0, -1.2]
+    odom_topic: "(*@\OdomTopic@*)"
+    velocity_timeout: 1.0
+    cmd_vel_in_topic: "/cmd_vel_nav"           # controller_server -> velocity_smoother (interner Pfad)
+    cmd_vel_out_topic: "(*@\CmdVelNavTopic@*)" # Nav2-Ausgang vor Twist-Mux
+
+# ----------------------------
+# Costmaps
+# ----------------------------
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: false
+      global_frame: map
+      robot_base_frame: base_link
+      transform_tolerance: 0.2
+      update_frequency: 5.0
+      publish_frequency: 2.0
+
+      resolution: 0.05
+      track_unknown_space: true
+
+      # Choose ONE footprint model:
+      # Option A: radius (quick start)
+      robot_radius: 0.35
+      # Option B: explicit footprint (replace radius if used)
+      # footprint: "[[0.30, 0.20], [0.30, -0.20], [-0.30, -0.20], [-0.30, 0.20]]"
+
+      plugins: ["static_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: true
+        subscribe_to_updates: true
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.60
+        cost_scaling_factor: 5.0
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: false
+      global_frame: odom
+      robot_base_frame: base_link
+      transform_tolerance: 0.2
+      update_frequency: 10.0
+      publish_frequency: 5.0
+
+      rolling_window: true
+      width: 8.0
+      height: 8.0
+      resolution: 0.05
+
+      # Same footprint model as global
+      robot_radius: 0.35
+      # footprint: "[[0.30, 0.20], [0.30, -0.20], [-0.30, -0.20], [-0.30, 0.20]]"
+
+      plugins: ["voxel_layer", "inflation_layer"]
+
+      voxel_layer:
+        plugin: "nav2_costmap_2d::VoxelLayer"
+        enabled: true
+        footprint_clearing_enabled: true
+
+        # Debug visualization in RViz (can be noisy; keep on initially)
+        publish_voxel_map: true
+
+        # 3D voxel grid parameters (indoor baseline)
+        origin_z: 0.0
+        z_resolution: 0.05
+        z_voxels: 16                      # ~0.8m vertical at 5cm resolution
+        unknown_threshold: 15
+        mark_threshold: 0
+
+        # Height filtering: include low tables, exclude floor noise
+        min_obstacle_height: 0.05
+        max_obstacle_height: 1.20
+
+        # Observation sources (PointCloud2)
+        # Baseline: LiDAR deskewed cloud (360°). Optional: add RealSense cloud.
+        observation_sources: "lidar_cloud"
+
+        lidar_cloud:
+          topic: "(*@\LidarCloudTopic@*)"
+          data_type: "PointCloud2"
+          marking: true
+          clearing: true
+          obstacle_range: 8.0
+          raytrace_range: 10.0
+          min_obstacle_height: 0.05
+          max_obstacle_height: 1.20
+
+        # Optional second source (uncomment if you want to fuse D415 pointcloud)
+        # realsense_cloud:
+        #   topic: <REALSENSE_CLOUD_TOPIC>
+        #   data_type: "PointCloud2"
+        #   marking: true
+        #   clearing: true
+        #   obstacle_range: 4.0
+        #   raytrace_range: 5.0
+        #   min_obstacle_height: 0.05
+        #   max_obstacle_height: 1.20
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.60
+        cost_scaling_factor: 5.0
+
+# ----------------------------
+# Map server (verbindlich fuer Nav2-Map-Ownership)
+# ----------------------------
+# Zielarchitektur: /map wird fuer Nav2 durch map_server bereitgestellt.
+map_server:
+  ros__parameters:
+    use_sim_time: false
+    yaml_filename: ""   # setze hier die statische Navigationskarte
+
+# ----------------------------
+# Lifecycle manager
+# ----------------------------
+lifecycle_manager:
+  ros__parameters:
+    use_sim_time: false
+    autostart: true
+    node_names:
+      - planner_server
+      - controller_server
+      - smoother_server
+      - behavior_server
+      - bt_navigator
+      - waypoint_follower
+      - velocity_smoother
+      - global_costmap
+      - local_costmap
+      - map_server
+
+\end{lstlisting}
+
+\section{\texttt{rtabmap\_params.yaml} (Baseline)}
+\label{app:rtabmap_params}
+\begin{lstlisting}[style=yamlcontracts, language=yaml,caption={Baseline RTAB-Map Parameterdatei (RGB-D SLAM, map->odom).}]
+# file: rtabmap_params.yaml
+# Baseline RTAB-Map config for RGB-D SLAM (Intel RealSense D415) on Unitree Go2 EDU.
+#
+# Goal: provide localization TF map->odom, using Go2 odom->base_link.
+# LiDAR deskewed cloud is OPTIONAL (can improve obstacle representation / mapping), but baseline is RGB-D.
+#
+#
+# Frames:
+#   base_frame_id: base_link
+#   odom_frame_id: odom
+#   map_frame_id:  map
+#   TF map->odom will be published by RTAB-Map (publish_tf: true)
+
+# ----------------------------
+# Option A (recommended): use rgbd_sync + rtabmap node
+#   rgbd_sync creates /rgbd_image from RGB+Depth+CameraInfo with approx sync
+#   rtabmap subscribes to /rgbd_image and /odom
+# ----------------------------
+
+rgbd_sync:
+  ros__parameters:
+    use_sim_time: false
+    approx_sync: true
+    queue_size: 30
+    # Inputs
+    rgb_topic: "(*@\RgbTopic@*)"
+    depth_topic: "(*@\DepthTopic@*)"
+    camera_info_topic: "(*@\CameraInfoTopic@*)"
+    # Output
+    rgbd_image: "/rgbd_image"   # default name; keep stable for docs
+
+rtabmap:
+  ros__parameters:
+    use_sim_time: false
+
+    # ---- Frames / TF ----
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    map_frame_id: "map"
+    publish_tf: true                 # publish TF map->odom
+    tf_delay: 0.05
+    tf_tolerance: 0.2
+
+    # ---- Subscriptions ----
+    subscribe_rgbd: true
+    subscribe_depth: false
+    subscribe_rgb: false
+    subscribe_scan: false
+    subscribe_scan_cloud: false      # optional (see below)
+    subscribe_imu: false             # optional (see below)
+    subscribe_odom_info: false
+
+    # Input topics
+    rgbd_image_topic: "/rgbd_image"
+    odom_topic: "(*@\OdomTopic@*)"
+
+    # ---- Sync / timing robustness ----
+    approx_sync: true
+    queue_size: 30
+    wait_for_transform: 0.2
+
+    # ---- Database ----
+    database_path: "~/.ros/rtabmap.db"
+
+    # ---- Mapping vs Localization ----
+    # Mapping mode baseline:
+    Mem/IncrementalMemory: "true"
+    # For localization-only (use existing map/db), set:
+    # Mem/IncrementalMemory: "false"
+    # and optionally disable new loop closures:
+    # RGBD/LoopClosureReextractFeatures: "false"
+
+    # ---- RealSense D415 practical constraints ----
+    # D415 depth is most reliable roughly 0.45m..3.5m (baseline prefilter in driver),
+    # but RTAB-Map can also clamp depth:
+    RGBD/DepthMin: "0.45"
+    RGBD/DepthMax: "3.50"
+
+    # ---- Performance / stability baseline ----
+    # Reduce load (especially on embedded CPUs):
+    RGBD/LinearUpdate: "0.05"         # meters (add node when moved this much)
+    RGBD/AngularUpdate: "0.05"        # rad
+    RGBD/OptimizeFromGraphEnd: "false"
+    Optimizer/Iterations: "30"
+
+    # Visual features / registration (baseline)
+    Reg/Strategy: "1"                 # 0=Visual, 1=ICP, 2=Visual+ICP (varies by builds; baseline keep visual)
+    Vis/MinInliers: "12"
+    Vis/InlierDistance: "0.10"
+
+    # Occupancy grid output for Nav2
+    grid: true
+    Grid/FromDepth: "true"
+    Grid/3D: "false"                  # 2D occupancy grid for Nav2
+    Grid/RangeMax: "4.0"              # Depth grid max range (tune)
+    Grid/FootprintRadius: "0.35"      # match nav2 robot_radius baseline
+
+    # If you see “phantom obstacles from depth noise:
+    # Grid/NoiseFilteringRadius: "0.05"
+    # Grid/NoiseFilteringMinNeighbors: "3"
+
+    # ---- Loop closure (baseline moderate) ----
+    RGBD/ProximityBySpace: "true"
+    RGBD/ProximityMaxGraphDepth: "50"
+    RGBD/ProximityPathMaxNeighbors: "1"
+    RGBD/ProximityPathFilteringRadius: "0.5"
+
+    # ---- Logging/debug ----
+    Rtabmap/PublishStats: "true"
+    Rtabmap/PublishPDF: "false"
+    Rtabmap/TimeThr: "0"              # 0 = no time limit
+
+# ----------------------------
+# OPTIONAL: add IMU constraint (only if you have stable imu_link TF and good IMU)
+# ----------------------------
+# imu_filter_madgwick / robot_localization usually handles IMU->orientation.
+# RTAB-Map can subscribe to IMU, but baseline is OFF until validated.
+#
+# rtabmap:
+#   ros__parameters:
+#     subscribe_imu: true
+#     imu_topic: "(*@\ImuTopic@*)"
+#     # If IMU orientation is good:
+#     # Reg/Force3DoF: "true"   # enforce planar motion (indoor flat floors)
+#
+# ----------------------------
+# OPTIONAL: add LiDAR deskewed cloud for ICP refinement / obstacle integration
+# ----------------------------
+# This is optional because your nav2 costmap already uses LiDAR.
+# If you add it, ensure the cloud frame is transformable to base_link/odom.
+#
+# rtabmap:
+#   ros__parameters:
+#     subscribe_scan_cloud: true
+#     scan_cloud_topic: "(*@\LidarCloudTopic@*)"
+#     # Allow using depth + cloud:
+#     Reg/Strategy: "2"          # Visual+ICP (if supported in your build)
+#     Icp/VoxelSize: "0.05"
+#     Icp/MaxCorrespondenceDistance: "0.5"
+
+\end{lstlisting}
+
+\section{\texttt{realsense.yaml} (Baseline D415)}
+\label{app:realsense_params}
+\begin{lstlisting}[style=yamlcontracts, language=yaml,caption={Baseline RealSense D415 Parameterdatei (RGB+Depth, align, filtering).}]
+# file: realsense.yaml
+# Intel RealSense D415 baseline for RGB-D SLAM + perception (ROS2 Humble, realsense2_camera)
+#
+# Goals:
+# - stable RGB + aligned depth
+# - depth range constrained to reliable band
+# - lightweight filtering (decimation + temporal) for robustness/CPU
+#
+# IMPORTANT: Parameter names vary slightly by realsense-ros version.
+# This YAML is structured in the common ROS2 style for realsense2_camera.
+# If a parameter is rejected at runtime, check `ros2 param list` and adjust naming.
+
+realsense2_camera:
+  ros__parameters:
+    use_sim_time: false
+
+    # ---- Enable streams ----
+    enable_color: true
+    enable_depth: true
+    enable_infra1: false
+    enable_infra2: false
+    enable_gyro: false
+    enable_accel: false
+
+    # ---- Frame rate / resolution (baseline) ----
+    # D415 typical stable baseline (adjust if CPU is tight)
+    color_width: 640
+    color_height: 480
+    color_fps: 30
+
+    depth_width: 640
+    depth_height: 480
+    depth_fps: 30
+
+    # ---- Align depth to color (important for RGB-D pipelines) ----
+    align_depth:
+      enable: true
+
+    # ---- Depth clamp ----
+    # ROS2 wrapper supports depth range via clip distance in some versions:
+    clip_distance: 3.5          # meters (max depth); 0 disables
+    # Minimum depth is often handled by filtering + consumer side; keep documented baseline:
+    # min_depth: 0.45           # if supported; otherwise handle in RTAB-Map and pointcloud filters
+
+    # ---- Pointcloud ----
+    pointcloud:
+      enable: true
+      allow_no_texture_points: false
+      ordered_pc: false
+    # Depth->PointCloud is heavy; if CPU is tight, disable and only use images for SLAM.
+    # For Nav2 costmap you can use LiDAR cloud instead.
+
+    # ---- Post-processing filters ----
+    # These filter blocks exist in many realsense-ros versions; naming may differ.
+    decimation_filter:
+      enable: true
+      filter_magnitude: 2        # 2 = downsample by 2
+
+    temporal_filter:
+      enable: true
+      filter_smooth_alpha: 0.4
+      filter_smooth_delta: 20
+      holes_fill: 1
+
+    spatial_filter:
+      enable: false              # optional (enable if you need more smoothing)
+      filter_magnitude: 2
+      filter_smooth_alpha: 0.5
+      filter_smooth_delta: 20
+      holes_fill: 0
+
+    hole_filling_filter:
+      enable: false              # optional
+
+    # ---- Exposure/Auto settings ----
+    # Default auto exposure is usually fine. Tune only if needed for motion blur.
+    # enable_auto_exposure: true
+
+\end{lstlisting}
+
+\section{\texttt{bringup\_minimal.launch.py} (Template)}
+\label{app:bringup_launch}
+\begin{lstlisting}[style=yamlcontracts, language=Python,caption={Minimaler Bringup Launch (Template) für URDF+TF, RealSense, RTAB-Map, Nav2.}]
+# file: bringup_minimal.launch.py
+# Minimal bringup plan (ROS2 Humble) for your pipeline:
+# - robot_state_publisher (URDF for base_link->sensor frames + arm frames)
+# - Unitree bridge (publishes odom->base_link, joint_states, etc.)
+# - RealSense driver
+# - rgbd_sync + rtabmap
+# - Nav2
+#
+# NOTE: This is a structural template; replace package/executable names with your actual ones.
+
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+def generate_launch_description():
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    urdf_path = LaunchConfiguration("urdf_path")
+    nav2_params = LaunchConfiguration("nav2_params")
+    rtabmap_params = LaunchConfiguration("rtabmap_params")
+    realsense_params = LaunchConfiguration("realsense_params")
+
+    return LaunchDescription([
+        DeclareLaunchArgument("use_sim_time", default_value="false"),
+        DeclareLaunchArgument("urdf_path", default_value=""),  # e.g. <your_pkg>/urdf/go2.urdf
+        DeclareLaunchArgument("nav2_params", default_value=""), # path to nav2_params.yaml
+        DeclareLaunchArgument("rtabmap_params", default_value=""), # path to rtabmap_params.yaml
+        DeclareLaunchArgument("realsense_params", default_value=""), # path to realsense.yaml
+
+        # 1) TF static tree from URDF (base_link->camera_link/imu_link/lidar_frame/arm...)
+        Node(
+            package="robot_state_publisher",
+            executable="robot_state_publisher",
+            name="robot_state_publisher",
+            output="screen",
+            parameters=[{
+                "use_sim_time": use_sim_time,
+                # Use robot_description from file; if you generate via xacro, do it here.
+                # "robot_description": Command(["xacro ", urdf_path]),
+            }],
+            # If you don't use xacro Command, load robot_description in another way.
+        ),
+
+        # 2) Unitree bridge / base bringup (placeholder)
+        # Replace with your actual Unitree ROS2 bringup launch or node.
+        # IncludeLaunchDescription(
+        #   PythonLaunchDescriptionSource([FindPackageShare("unitree_go2_bringup"), "/launch/bringup.launch.py"]),
+        #   launch_arguments={"use_sim_time": use_sim_time}.items()
+        # ),
+
+        # 3) RealSense driver
+        Node(
+            package="realsense2_camera",
+            executable="realsense2_camera_node",
+            name="realsense2_camera",
+            output="screen",
+            parameters=[realsense_params, {"use_sim_time": use_sim_time}],
+        ),
+
+        # 4) RTAB-Map: rgbd_sync + rtabmap (assumes these executables exist in rtabmap_ros)
+        Node(
+            package="rtabmap_sync",
+            executable="rgbd_sync",
+            name="rgbd_sync",
+            output="screen",
+            parameters=[rtabmap_params, {"use_sim_time": use_sim_time}],
+        ),
+        Node(
+            package="rtabmap_slam",
+            executable="rtabmap",
+            name="rtabmap",
+            output="screen",
+            parameters=[rtabmap_params, {"use_sim_time": use_sim_time}],
+        ),
+
+        # 5) Nav2 bringup (nav2_bringup)
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                PathJoinSubstitution([FindPackageShare("nav2_bringup"), "launch", "bringup_launch.py"])
+            ),
+            launch_arguments={
+                "use_sim_time": use_sim_time,
+                "params_file": nav2_params,
+            }.items(),
+        ),
+    ])
+
+\end{lstlisting}
+
+\section{\texttt{play\_fetch.launch.py}}
+\section{\texttt{ekf.yaml}}
+\section{\texttt{detector\_params.yaml}, \texttt{imm\_params.yaml}}
+\section{\texttt{realsense.yaml} (Baseline Filter/Clipping)}
+
+\chapter{Message-\& Service-Spezifikationen}
+\section{BallState, Trajectory, InterceptGoal}
+\paragraph{Interface-Strategie (Baseline, draft/frozen)}
+Für die erste implementierbare Baseline wird ein \textbf{Minimal-Set Custom Interfaces} verbindlich nachgezogen:
+\texttt{Detection3D}, \texttt{Detection3DArray}, \texttt{ObjectState}, \texttt{ThrowStatus}, \texttt{PredictedRegion}, \texttt{InterceptGoal}.
+Einfache Ziel-/Pose-Pfade nutzen bevorzugt Standardtypen (z.\,B. \texttt{geometry\_msgs/PoseStamped}); \texttt{std\_msgs/String}
+ist nicht für zentrale Steuer-/Statuspfade vorgesehen (nur Debug/temporär).
+
+\paragraph{Hinweis zu BallState/Trajectory}
+Die ursprünglichen Platzhalter \texttt{BallState} und \texttt{Trajectory} bleiben als mögliche spätere Erweiterungen bestehen. Für die Baseline
+wird ihre Funktionalität zunächst durch \texttt{ObjectState}, \texttt{PredictedRegion} und \texttt{InterceptGoal} abgedeckt.
+
+\paragraph{\texttt{PredictedRegion.msg} (Baseline-Minimum)}
+\begin{verbatim}
+std_msgs/Header header              # frame_id ist verbindlicher Frame-Contract (Baseline: odom)
+geometry_msgs/Pose center           # Zentrum der Vorhersageregion
+geometry_msgs/Vector3 size          # Ausdehnung (x/y/z)
+float32 confidence                  # [0..1] oder projektspezifische Skala (im Dokument konsistent halten)
+builtin_interfaces/Duration valid_for
+\end{verbatim}
+\noindent
+Semantik: \texttt{header.frame\_id} definiert den Referenzframe; \texttt{valid\_for} begrenzt die Gültigkeit der Region (z.\,B. für Verify/Intercept).
+
+\paragraph{\texttt{InterceptGoal.msg} (Baseline-Minimum)}
+\begin{verbatim}
+std_msgs/Header header
+geometry_msgs/PoseStamped target_pose
+float32 approach_radius_m
+float32 goal_tolerance_m
+float32 confidence
+builtin_interfaces/Duration valid_for
+bool is_dynamic_estimate
+\end{verbatim}
+\noindent
+Semantik: \texttt{target\_pose} ist das primäre Intercept-Ziel; zusätzliche Felder modellieren Gültigkeit/Unsicherheit für Replanning-Entscheidungen.
+
+\section{Action Definitionen}
+\paragraph{Verbindliche Pflicht-Interfaces für Baseline-Implementierbarkeit}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{PickObject.action}
+  \item \texttt{ReleaseObject.srv}
+\end{itemize}
+
+\paragraph{\texttt{PickObject.action} (Baseline-Minimum)}
+\textbf{Goal / Request}
+\begin{verbatim}
+std_msgs/Header header
+geometry_msgs/PoseStamped target_pose
+uint32 object_class_id              # optional empfohlen; 0 = unknown
+float32 position_tolerance_m
+float32 orientation_tolerance_rad
+bool allow_replan                   # Arm-Planung, nicht Base-Fahren
+\end{verbatim}
+\noindent
+Regel (verbindlich): Base-Repositioning ist nicht Teil von \texttt{PickObject}. Ist das Ziel außerhalb der Reichweite, liefert die Action
+\texttt{OUT\_OF\_REACH}; der Orchestrator entscheidet über Nav2-Umstellen und erneuten Pick-Versuch.
+
+\textbf{Result}
+\begin{verbatim}
+bool success
+uint16 result_code
+string message
+geometry_msgs/PoseStamped grasp_pose_used   # optional, empfohlen für Debug/Repeatability
+\end{verbatim}
+
+\textbf{Feedback}
+\begin{verbatim}
+uint8 stage
+string stage_text
+\end{verbatim}
+\noindent
+Empfohlene Stages: \texttt{VALIDATE\_TARGET}, \texttt{PLAN\_APPROACH}, \texttt{EXECUTE\_APPROACH}, \texttt{CLOSE\_GRIPPER},
+\texttt{VERIFY\_GRASP}, \texttt{DONE}, \texttt{FAILED}.
+
+\paragraph{\texttt{PickObject.action} Result-Codes (Baseline)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{0 PICK\_SUCCESS}
+  \item \texttt{1 PICK\_FAILED}
+  \item \texttt{2 OBJECT\_DROPPED}
+  \item \texttt{3 PICK\_UNREACHABLE}
+  \item \texttt{4 PICK\_TIMEOUT}
+  \item \texttt{5 SAFETY\_ABORTED}
+\end{itemize}
+\noindent
+Trennung der Ebenen: Diese Result-Codes bilden die \textbf{normative Wire-/Runtime-Ebene}. Die fachliche Orchestrator-Ebene leitet daraus Ereignisse ab:
+\texttt{PICK\_SUCCESS -> grasp\_ok}, \texttt{PICK\_FAILED -> grasp\_failed}, \texttt{OBJECT\_DROPPED -> object\_dropped},
+\texttt{PICK\_UNREACHABLE -> object\_unreachable}, \texttt{PICK\_TIMEOUT -> timeout}, \texttt{SAFETY\_ABORTED -> safety\_abort}.
+
+\paragraph{\texttt{ReleaseObject.srv} (Baseline-Minimum)}
+\textbf{Request}
+\begin{verbatim}
+uint8 release_mode
+uint8 OPEN_GRIPPER=0
+uint8 DROP_SAFE=1
+uint8 HANDOVER_RELEASE=2
+bool verify_open                    # optional empfohlen
+\end{verbatim}
+\noindent
+Empfohlene \texttt{release\_mode}-Werte: \texttt{OPEN\_GRIPPER}, \texttt{DROP\_SAFE}, \texttt{HANDOVER\_RELEASE}.
+Default (wenn nicht explizit gesetzt): \texttt{OPEN\_GRIPPER}.
+Die numerische Normierung stellt sicher, dass Orchestrator-, Mock- und Skill-Client-Implementierungen denselben wire-level Contract nutzen.
+
+\textbf{Response}
+\begin{verbatim}
+bool success
+uint16 result_code
+string message
+\end{verbatim}
+
+\paragraph{\texttt{ReleaseObject.srv} Result-Codes (Baseline)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{0 SUCCESS}
+  \item \texttt{1 NOT\_HOLDING\_OBJECT}
+  \item \texttt{2 ACTUATION\_FAILED}
+  \item \texttt{3 TIMEOUT}
+  \item \texttt{4 SAFETY\_ABORT}
+\end{itemize}
+\noindent
+Missionsseitige Auswertung erfolgt als technische Minimal-Freeze-Festlegung über das Paar \texttt{(release\_mode, result\_code)} und \textbf{nicht} über den
+\texttt{result\_code} allein:
+\texttt{HANDOVER\_RELEASE + SUCCESS -> HANDOVER\_RELEASE\_SUCCESS},
+\texttt{DROP\_SAFE + SUCCESS -> DROP\_RELEASE\_SUCCESS},
+\texttt{*\ + TIMEOUT -> RELEASE\_TIMEOUT},
+\texttt{*\ + SAFETY\_ABORT -> SAFETY\_ABORTED},
+sonst \texttt{RELEASE\_FAILED}.
+
+\paragraph{Retry-/Timeout-Regeln (Baseline)}
+\begin{itemize}[leftmargin=*]
+  \item \texttt{pick\_timeout\_s = 15.0}, \texttt{release\_timeout\_s = 3.0}
+  \item Pick-Retry-Budget wird durch Orchestrator-State-Logik verwaltet (nicht im Action-Server versteckt)
+  \item Action/Service melden Fehler transparent; Recovery-Entscheidungen trifft der Orchestrator
+\end{itemize}
+
+\chapter{Experimente \& zusätzliche Plots}
+\section{Qualitative Visualisierungen}
+\section{Ablation Studies}
+
+\chapter{Gefährdungsbeurteilung \& Checklisten}
+\section{Sicherheits-Check vor Live-Run}
+\section{Notfall-Prozeduren}
+
+\chapter{Derzeitiger Implementierungsstand \& Debug-Pfade (nicht-normativ)}
+\label{ch:current_status_debug}
+\section{Zweck dieses Kapitels}
+Dieses Kapitel dokumentiert den \emph{aktuellen Integrationsstand} und temporäre Debug-/Bringup-Pfade.
+Es beschreibt nicht die normative Zielarchitektur aus dem Hauptteil.
+
+\section{Aktueller Integrationsstand (kurz)}
+\begin{itemize}
+  \item Containerisierte Board-Runtime auf ARM64 ist umgesetzt; ROS2 Humble wird im Runtime-Container betrieben.
+  \item TF-Backbone ist im Integrationspfad über \texttt{odom->base\_link} (Adapter) sowie statische Brücken/URDF angebunden.
+  \item RTAB-Map Mapping/Localization und Nav2-Basisbringup sind als Skriptpfade vorhanden.
+  \item Nav2-Ausgabe wird im aktuellen Integrationspfad auf \texttt{/nav2/cmd\_vel} isoliert gehalten; eine produktive Endstrecke bis finalem Bewegungsoutput ist noch abzusichern.
+\end{itemize}
+
+\section{Provisorische Betriebsannahmen im Integrationspfad}
+\begin{itemize}
+  \item Mehrere Runner enthalten Heuristiken/Preflight-Checks zur Runtime-Stabilisierung (Sensor- und TF-Readiness).
+  \item Extrinsics können im Integrationsbetrieb temporär mit Platzhalterwerten gestartet werden; dies ist nicht abnahmefaehig.
+  \item Parallelpfade (z.\,B. RTAB-Map- und LiDAR-only-Varianten) dienen der Integration und Fehlersuche.
+\end{itemize}
+
+\section{Kritische Restarbeiten bis Projektabnahme}
+\begin{itemize}
+  \item \textbf{Motion Path / Safety:} Durchgaengige produktive Umsetzung von Twist-Mux/Safety-Gate bis zum finalen Bewegungsoutput \texttt{/cmd\_vel}.
+  \item \textbf{Extrinsics-Kalibrierung:} Verbindliche, gemessene und versionierte Werte fuer \texttt{base\_link->camera\_link} und \texttt{base\_link->lidar\_frame}.
+  \item \textbf{Operational Hardening:} Eindeutig gehaerteter, reproduzierbarer End-to-End-Runbook-Pfad fuer Mapping, Localization und Nav2.
+\end{itemize}
+
+\section{Bewertungsrelevante Abschlusskriterien (kompakt)}
+Vor der finalen Projektabnahme muessen mindestens folgende Punkte nachweisbar erfuellt sein:
+\begin{itemize}
+  \item eindeutige Ownership aller kritischen Schnittstellen gemaess Tabelle \ref{tab:ownership_summary},
+  \item stabiler Localization- und Nav2-Betrieb im vorgesehenen Supported Operational Path,
+  \item sichere Bewegungsfreigabe ausschliesslich ueber den finalen Mux/Safety-Gate-Pfad.
+\end{itemize}
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}

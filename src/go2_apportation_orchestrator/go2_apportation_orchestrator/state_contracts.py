@@ -1,0 +1,94 @@
+from __future__ import annotations
+
+"""Legacy phase-1 stub contracts.
+
+This module predates the document-near runtime core built around
+transition_spec.py / orchestrator_runtime_core.py. Keep it only as a typed
+stub surface until a deliberate cleanup/alignment round is approved.
+"""
+
+from dataclasses import dataclass
+from enum import Enum
+from typing import Optional
+
+
+class Mode(str, Enum):
+    PLAY = "PLAY"
+    SEARCH = "SEARCH"
+
+
+class MissionState(str, Enum):
+    IDLE = "IDLE"
+    SEARCH_PERSON = "SEARCH_PERSON"
+    APPROACH_PERSON = "APPROACH_PERSON"
+    OBSERVE_HAND = "OBSERVE_HAND"
+    TRACK_THROWN = "TRACK_THROWN"
+    SEARCH_OBJECT_LOCAL = "SEARCH_OBJECT_LOCAL"
+    SEARCH_OBJECT_GLOBAL = "SEARCH_OBJECT_GLOBAL"
+    INTERCEPT = "INTERCEPT"
+    PICK = "PICK"
+    RETURN_TO_PERSON = "RETURN_TO_PERSON"
+    HOLD_AND_FOLLOW = "HOLD_AND_FOLLOW"
+    HANDOVER_RELEASE = "HANDOVER_RELEASE"
+    FAILSAFE_ABORT = "FAILSAFE_ABORT"
+
+
+class Event(str, Enum):
+    VC_LETS_PLAY = "vc_lets_play"
+    VC_SEARCH = "vc_search"
+    VC_RELEASE = "vc_release"
+    VC_ABORT = "vc_abort"
+    VC_PAUSE = "vc_pause"
+    VC_RESUME = "vc_resume"
+
+    PERSON_DETECTED = "person_detected"
+    PERSON_LOST = "person_lost"
+    OBJECT_DETECTED = "object_detected"
+    OBJECT_LOST = "object_lost"
+
+    THROW_SUSPECTED = "throw_suspected"
+    THROW_CONFIRMED = "throw_confirmed"
+    FALSE_THROW_SUSPECTED = "false_throw_suspected"
+
+    APPROACH_REACHED = "approach_reached"
+    INTERCEPT_REACHED = "intercept_reached"
+    NAV_FAILED = "nav_failed"
+    OBJECT_UNREACHABLE = "object_unreachable"
+
+    GRASP_OK = "grasp_ok"
+    GRASP_FAILED = "grasp_failed"
+    OBJECT_DROPPED = "object_dropped"
+
+    E_STOP = "e_stop"
+    TIMEOUT = "timeout"
+    LOCALIZATION_LOST = "localization_lost"
+    BATTERY_LOW = "battery_low"
+
+
+class CmdVelOwnershipMode(str, Enum):
+    """Phase-1 abstraction only; no enforcement implementation yet."""
+
+    ABSTRACT_PENDING_SPEC = "abstract_pending_spec"
+    DOCUMENT_BASELINE_NAV2_SINGLE_WRITER = "document_baseline_nav2_single_writer"
+
+
+@dataclass(frozen=True)
+class RuntimeContractMirror:
+    """Technical mirror of document placeholders, not a functional source of truth."""
+
+    odom_topic: str = "<ODOM_TOPIC>"
+    cmd_vel_topic: str = "<CMD_VEL_TOPIC>"
+    lidar_cloud_topic: str = "<LIDAR_CLOUD_TOPIC>"
+    rgb_topic: str = "<RGB_TOPIC>"
+    depth_topic: str = "<DEPTH_TOPIC>"
+    camera_info_topic: str = "<CAMERA_INFO_TOPIC>"
+    imu_topic: str = "<IMU_TOPIC>"
+
+
+@dataclass
+class OrchestratorSnapshot:
+    state: MissionState = MissionState.IDLE
+    mode: Optional[Mode] = None
+    pick_retries: int = 0
+    nav_retries: int = 0
+    cmd_vel_ownership_mode: CmdVelOwnershipMode = CmdVelOwnershipMode.ABSTRACT_PENDING_SPEC

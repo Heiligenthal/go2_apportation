@@ -1,0 +1,18 @@
+# build/runtime
+build/
+install/
+install_container/
+log/
+artifacts/
+.pydeps/
+.venvs/
+.vscode/
+
+# python cache
+**/__pycache__/
+*.pyc
+*.pyo
+
+# local generated files
+frames_*.pdf
+frames_*.gv

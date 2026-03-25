@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from go2_apportation_msgs/action/PickObject.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+#include "std_msgs/msg/Header.idl"
+
+module go2_apportation_msgs {
+  module action {
+    struct PickObject_Goal {
+      std_msgs::msg::Header header;
+
+      geometry_msgs::msg::PoseStamped target_pose;
+
+      uint32 object_class_id;
+
+      float position_tolerance_m;
+
+      float orientation_tolerance_rad;
+
+      boolean allow_replan;
+    };
+    struct PickObject_Result {
+      boolean success;
+
+      uint16 result_code;
+
+      string message;
+
+      geometry_msgs::msg::PoseStamped grasp_pose_used;
+    };
+    struct PickObject_Feedback {
+      uint8 stage;
+
+      string stage_text;
+    };
+  };
+};

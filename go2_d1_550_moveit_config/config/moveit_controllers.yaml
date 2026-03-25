@@ -1,0 +1,38 @@
+# MoveIt controller configuration for Go2 + D1-550
+#
+# Two controllers:
+#   1. d1_550_arm_controller   - sends JointTrajectory to arm (joint1-joint6)
+#   2. d1_550_gripper_controller - sends JointTrajectory to gripper
+#
+# These controller names must match what your hardware interface advertises.
+# When using unitree_sdk2_python bridge node, the bridge subscribes to
+# /d1_550_arm_controller/follow_joint_trajectory
+#
+# When using fiveages-sim/unitree_ros2_control, update names to match
+# their controller definitions.
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - d1_550_arm_controller
+    - d1_550_gripper_controller
+
+  d1_550_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+
+  d1_550_gripper_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - gripper_left_joint

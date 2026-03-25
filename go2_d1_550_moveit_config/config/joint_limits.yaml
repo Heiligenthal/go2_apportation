@@ -1,0 +1,96 @@
+# Joint limits for D1-550 arm
+# These override URDF limits for MoveIt planning (can be more conservative)
+# Velocity/acceleration limits are used for trajectory scaling
+
+default_velocity_scaling_factor: 0.1   # Start conservative: 10% of max speed
+default_acceleration_scaling_factor: 0.1
+
+joint_limits:
+  # D1-550 arm joints
+  joint1:
+    has_velocity_limits: true
+    max_velocity: 1.05        # rad/s (from URDF)
+    has_acceleration_limits: true
+    max_acceleration: 1.0     # rad/s^2 - conservative
+  joint2:
+    has_velocity_limits: true
+    max_velocity: 1.05
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  joint3:
+    has_velocity_limits: true
+    max_velocity: 1.05
+    has_acceleration_limits: true
+    max_acceleration: 1.0
+  joint4:
+    has_velocity_limits: true
+    max_velocity: 1.73
+    has_acceleration_limits: true
+    max_acceleration: 1.5
+  joint5:
+    has_velocity_limits: true
+    max_velocity: 1.73
+    has_acceleration_limits: true
+    max_acceleration: 1.5
+  joint6:
+    has_velocity_limits: true
+    max_velocity: 1.73
+    has_acceleration_limits: true
+    max_acceleration: 1.5
+
+  # Gripper
+  gripper_left_joint:
+    has_velocity_limits: true
+    max_velocity: 0.02        # m/s (prismatic)
+    has_acceleration_limits: true
+    max_acceleration: 0.05
+
+  # Go2 leg joints - passive, but limits defined for collision checking
+  FL_hip_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  FL_thigh_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  FL_calf_joint:
+    has_velocity_limits: true
+    max_velocity: 15.70
+    has_acceleration_limits: false
+  FR_hip_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  FR_thigh_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  FR_calf_joint:
+    has_velocity_limits: true
+    max_velocity: 15.70
+    has_acceleration_limits: false
+  RL_hip_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  RL_thigh_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  RL_calf_joint:
+    has_velocity_limits: true
+    max_velocity: 15.70
+    has_acceleration_limits: false
+  RR_hip_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  RR_thigh_joint:
+    has_velocity_limits: true
+    max_velocity: 30.1
+    has_acceleration_limits: false
+  RR_calf_joint:
+    has_velocity_limits: true
+    max_velocity: 15.70
+    has_acceleration_limits: false

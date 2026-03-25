@@ -1,0 +1,2 @@
+# Exclude community_sdk from default workspace builds.
+# Remove this file if you explicitly want colcon to discover/build it.

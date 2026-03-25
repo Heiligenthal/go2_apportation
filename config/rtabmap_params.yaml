@@ -1,0 +1,140 @@
+# file: rtabmap_params.yaml
+# Baseline RTAB-Map config for RGB-D SLAM (Intel RealSense D415) on Unitree Go2 EDU.
+#
+# Goal: publish /map (nav_msgs/OccupancyGrid) and TF map->odom, using Go2 odom->base_link.
+# LiDAR deskewed cloud is OPTIONAL (can improve obstacle representation / mapping), but baseline is RGB-D.
+#
+#
+# Frames:
+#   base_frame_id: base_link
+#   odom_frame_id: odom
+#   map_frame_id:  map
+#   TF map->odom will be published by RTAB-Map (publish_tf: true)
+
+# ----------------------------
+# Option A (recommended): use rgbd_sync + rtabmap node
+#   rgbd_sync creates /rgbd_image from RGB+Depth+CameraInfo with approx sync
+#   rtabmap subscribes to /rgbd_image and /odom
+# ----------------------------
+
+rgbd_sync:
+  ros__parameters:
+    use_sim_time: false
+    approx_sync: true
+    queue_size: 30
+    # Inputs
+    rgb_topic: "(*@\RgbTopic@*)"
+    depth_topic: "(*@\DepthTopic@*)"
+    camera_info_topic: "(*@\CameraInfoTopic@*)"
+    # Output
+    rgbd_image: "/rgbd_image"   # default name; keep stable for docs
+
+rtabmap:
+  ros__parameters:
+    use_sim_time: false
+
+    # ---- Frames / TF ----
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    map_frame_id: "map"
+    publish_tf: true                 # publish TF map->odom
+    tf_delay: 0.05
+    tf_tolerance: 0.2
+
+    # ---- Subscriptions ----
+    subscribe_rgbd: true
+    subscribe_depth: false
+    subscribe_rgb: false
+    subscribe_scan: false
+    subscribe_scan_cloud: false      # optional (see below)
+    subscribe_imu: false             # optional (see below)
+    subscribe_odom_info: false
+
+    # Input topics
+    rgbd_image_topic: "/rgbd_image"
+    odom_topic: "(*@\OdomTopic@*)"
+
+    # ---- Sync / timing robustness ----
+    approx_sync: true
+    queue_size: 30
+    wait_for_transform: 0.2
+
+    # ---- Database ----
+    database_path: "~/.ros/rtabmap.db"
+
+    # ---- Mapping vs Localization ----
+    # Mapping mode baseline:
+    Mem/IncrementalMemory: "true"
+    # For localization-only (use existing map/db), set:
+    # Mem/IncrementalMemory: "false"
+    # and optionally disable new loop closures:
+    # RGBD/LoopClosureReextractFeatures: "false"
+
+    # ---- RealSense D415 practical constraints ----
+    # D415 depth is most reliable roughly 0.45m..3.5m (baseline prefilter in driver),
+    # but RTAB-Map can also clamp depth:
+    RGBD/DepthMin: "0.45"
+    RGBD/DepthMax: "3.50"
+
+    # ---- Performance / stability baseline ----
+    # Reduce load (especially on embedded CPUs):
+    RGBD/LinearUpdate: "0.05"         # meters (add node when moved this much)
+    RGBD/AngularUpdate: "0.05"        # rad
+    RGBD/OptimizeFromGraphEnd: "false"
+    Optimizer/Iterations: "30"
+
+    # Visual features / registration (baseline)
+    Reg/Strategy: "1"                 # 0=Visual, 1=ICP, 2=Visual+ICP (varies by builds; baseline keep visual)
+    Vis/MinInliers: "12"
+    Vis/InlierDistance: "0.10"
+
+    # Occupancy grid output for Nav2
+    grid: true
+    Grid/FromDepth: "true"
+    Grid/3D: "false"                  # 2D occupancy grid for Nav2
+    Grid/RangeMax: "4.0"              # Depth grid max range (tune)
+    Grid/FootprintRadius: "0.35"      # match nav2 robot_radius baseline
+
+    # If you see â€œphantom obstaclesâ€ from depth noise:
+    # Grid/NoiseFilteringRadius: "0.05"
+    # Grid/NoiseFilteringMinNeighbors: "3"
+
+    # ---- Loop closure (baseline moderate) ----
+    RGBD/ProximityBySpace: "true"
+    RGBD/ProximityMaxGraphDepth: "50"
+    RGBD/ProximityPathMaxNeighbors: "1"
+    RGBD/ProximityPathFilteringRadius: "0.5"
+
+    # ---- Logging/debug ----
+    Rtabmap/PublishStats: "true"
+    Rtabmap/PublishPDF: "false"
+    Rtabmap/TimeThr: "0"              # 0 = no time limit
+
+# ----------------------------
+# OPTIONAL: add IMU constraint (only if you have stable imu_link TF and good IMU)
+# ----------------------------
+# imu_filter_madgwick / robot_localization usually handles IMU->orientation.
+# RTAB-Map can subscribe to IMU, but baseline is OFF until validated.
+#
+# rtabmap:
+#   ros__parameters:
+#     subscribe_imu: true
+#     imu_topic: "(*@\ImuTopic@*)"
+#     # If IMU orientation is good:
+#     # Reg/Force3DoF: "true"   # enforce planar motion (indoor flat floors)
+#
+# ----------------------------
+# OPTIONAL: add LiDAR deskewed cloud for ICP refinement / obstacle integration
+# ----------------------------
+# This is optional because your nav2 costmap already uses LiDAR.
+# If you add it, ensure the cloud frame is transformable to base_link/odom.
+#
+# rtabmap:
+#   ros__parameters:
+#     subscribe_scan_cloud: true
+#     scan_cloud_topic: "(*@\LidarCloudTopic@*)"
+#     # Allow using depth + cloud:
+#     Reg/Strategy: "2"          # Visual+ICP (if supported in your build)
+#     Icp/VoxelSize: "0.05"
+#     Icp/MaxCorrespondenceDistance: "0.5"
+

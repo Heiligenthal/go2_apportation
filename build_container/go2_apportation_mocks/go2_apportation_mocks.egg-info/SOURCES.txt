@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/PKG-INFO
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/dependency_links.txt
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/entry_points.txt
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/requires.txt
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/top_level.txt
+../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/zip-safe
+go2_apportation_mocks/__init__.py
+go2_apportation_mocks/mock_manipulation_server.py
+go2_apportation_mocks/mock_nav2_server.py
+go2_apportation_mocks/scenario_config.py
+resource/go2_apportation_mocks

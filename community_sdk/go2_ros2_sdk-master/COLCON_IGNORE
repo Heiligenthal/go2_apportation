@@ -1,0 +1,2 @@
+# Exclude nested community SDK packages from default workspace builds.
+# Remove this file if you explicitly want colcon to discover/build it.

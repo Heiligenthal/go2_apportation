@@ -1,0 +1,278 @@
+[0.074s] Invoking command in '/workspace/repo/build_container/go2_apportation_msgs': /usr/bin/cmake --build /workspace/repo/build_container/go2_apportation_msgs -- -j6 -l6
+[1.913s] [  1%] Built target go2_apportation_msgs__cpp
+[1.913s] [ 12%] Built target go2_apportation_msgs__rosidl_generator_c
+[1.914s] [ 23%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp
+[1.914s] [ 35%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_cpp
+[1.914s] [ 46%] Built target go2_apportation_msgs__rosidl_typesupport_cpp
+[1.915s] [ 46%] Built target ament_cmake_python_copy_go2_apportation_msgs
+[1.915s] [ 57%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c
+[1.915s] [ 69%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c
+[1.915s] [ 80%] Built target go2_apportation_msgs__rosidl_typesupport_c
+[1.915s] [ 80%] Built target go2_apportation_msgs
+[1.915s] [ 81%] Built target go2_apportation_msgs__py
+[1.916s] [ 91%] Built target go2_apportation_msgs__rosidl_generator_py
+[1.916s] running egg_info
+[1.916s] writing go2_apportation_msgs.egg-info/PKG-INFO
+[1.916s] writing dependency_links to go2_apportation_msgs.egg-info/dependency_links.txt
+[1.917s] writing top-level names to go2_apportation_msgs.egg-info/top_level.txt
+[1.917s] reading manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'
+[1.918s] writing manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'
+[1.918s] [ 94%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.918s] [ 97%] Built target go2_apportation_msgs__rosidl_typesupport_c__pyext
+[1.918s] [ 97%] Built target ament_cmake_python_build_go2_apportation_msgs_egg
+[1.918s] [100%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext
+[1.922s] Invoked command in '/workspace/repo/build_container/go2_apportation_msgs' returned '0': /usr/bin/cmake --build /workspace/repo/build_container/go2_apportation_msgs -- -j6 -l6
+[1.933s] Invoking command in '/workspace/repo/build_container/go2_apportation_msgs': /usr/bin/cmake --install /workspace/repo/build_container/go2_apportation_msgs
+[1.986s] -- Install configuration: ""
+[1.986s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/rosidl_interfaces/go2_apportation_msgs
+[1.986s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[1.986s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.h
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_c__visibility_control.h
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.h
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.c
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.h
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.h
+[1.987s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.c
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.h
+[1.988s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.c
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.h
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.h
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.c
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.h
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.h
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.h
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[1.989s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.h
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.c
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.h
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.h
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.h
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.h
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[1.990s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.h
+[1.991s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.h
+[1.991s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.h
+[1.991s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.c
+[1.991s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.sh
+[1.991s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.dsv
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_c.so
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_c.h
+[2.029s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_c.h
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_c.h
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_c.h
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_c.h
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[2.030s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_c.h
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_c.h
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_c.h
+[2.031s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.c
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_c.h
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.c
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_c.h
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.c
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.c
+[2.032s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_c.h
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.c
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_c.h
+[2.033s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.c
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_c.so
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_c.so
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.hpp
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.hpp
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.hpp
+[2.034s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__builder.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__builder.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__traits.hpp
+[2.035s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__traits.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__builder.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__traits.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__builder.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__traits.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.hpp
+[2.036s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__builder.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__traits.hpp
+[2.037s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__traits.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__builder.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.hpp
+[2.038s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_cpp.hpp
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_cpp.hpp
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/dds_fastrtps
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_cpp.hpp
+[2.039s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_cpp.hpp
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/dds_fastrtps
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/dds_fastrtps
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_cpp.hpp
+[2.040s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.so
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.cpp
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_cpp.hpp
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.cpp
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_cpp.hpp
+[2.041s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.cpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.cpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_cpp.hpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_cpp.hpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.cpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_cpp.hpp
+[2.042s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+[2.043s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+[2.043s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_cpp.hpp
+[2.043s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.cpp
+[2.056s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_cpp.so
+[2.089s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_cpp.so
+[2.090s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.sh
+[2.091s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.dsv
+[2.091s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info
+[2.091s] -- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[2.091s] -- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[2.091s] -- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[2.091s] -- Installing: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[2.091s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs
+[2.091s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_c.c
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/__init__.py
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status_s.c
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array.py
+[2.092s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array_s.c
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status.py
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/__init__.py
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d.py
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state.py
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_s.c
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state_s.c
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[2.093s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object_s.c
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object.py
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/__init__.py
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/libgo2_apportation_msgs__rosidl_generator_py.so
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object.py
+[2.094s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/__init__.py
+[2.095s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object_s.c
+[2.208s] Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs'...
+[2.208s] Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action'...
+[2.208s] Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg'...
+[2.209s] Listing '/workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv'...
+[2.230s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[2.230s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[2.230s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[2.230s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_py.so
+[2.230s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.idl
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.msg
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.msg
+[2.231s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.msg
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.msg
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.action
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.srv
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Request.msg
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Response.msg
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/package_run_dependencies/go2_apportation_msgs
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/parent_prefix_path/go2_apportation_msgs
+[2.232s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.sh
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.dsv
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.sh
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.dsv
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.bash
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.sh
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.zsh
+[2.233s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.dsv
+[2.233s] -- Installing: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/package.dsv
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/ament_index/resource_index/packages/go2_apportation_msgs
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport.cmake
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport-noconfig.cmake
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport.cmake
+[2.234s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.236s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport.cmake
+[2.236s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[2.236s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cppExport.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport.cmake
+[2.237s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport-noconfig.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.238s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.239s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig.cmake
+[2.239s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig-version.cmake
+[2.239s] -- Up-to-date: /workspace/repo/install_container/go2_apportation_msgs/share/go2_apportation_msgs/package.xml
+[2.263s] Invoked command in '/workspace/repo/build_container/go2_apportation_msgs' returned '0': /usr/bin/cmake --install /workspace/repo/build_container/go2_apportation_msgs

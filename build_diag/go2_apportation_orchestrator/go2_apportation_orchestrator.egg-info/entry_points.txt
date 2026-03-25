@@ -1,0 +1,4 @@
+[console_scripts]
+orchestrator_runtime = go2_apportation_orchestrator.orchestrator_runtime_node:main
+orchestrator_stub = go2_apportation_orchestrator.orchestrator_node:main
+

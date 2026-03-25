@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d108f94ca73d31bf17d7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "go2_apportation_msgs__py",
+					"jsonFile" : "directory-go2_apportation_msgs__py-7a9bc46237363f48b7fb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/workspace/repo/build_container/go2_apportation_msgs/go2_apportation_msgs__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "go2_apportation_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_go2_apportation_msgs_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_go2_apportation_msgs_egg-50084b1d1c0b591801bb.json",
+					"name" : "ament_cmake_python_build_go2_apportation_msgs_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_go2_apportation_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_go2_apportation_msgs-c173ddb05c0729acba28.json",
+					"name" : "ament_cmake_python_copy_go2_apportation_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs-1dcb88f2ce5c6c822249.json",
+					"name" : "go2_apportation_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__cpp-bf6cb28fb3b4941cdc0f.json",
+					"name" : "go2_apportation_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "go2_apportation_msgs__py::@f6486c9a73f32b69de80",
+					"jsonFile" : "target-go2_apportation_msgs__py-ef9523f7e4ae12b3d16c.json",
+					"name" : "go2_apportation_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_generator_c-8b2e3e81a31ddf7f0b2f.json",
+					"name" : "go2_apportation_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_generator_py-8ced14a7b905a4dd53d3.json",
+					"name" : "go2_apportation_msgs__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_c-151bdde4510bdd71b7b1.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_c__pyext-f0f64ce2980329c69145.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_cpp-70d8332522773f67d00f.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_fastrtps_c-ed796b60eac9bbe08080.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext-9f0b8580d732b5c9d537.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp-08f8defa0f6171c08e9f.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_introspection_c-4392b82c1ea5f70372bc.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext-86720e1aad5532f5ceba.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs__rosidl_typesupport_introspection_cpp-70321fea8560feab4867.json",
+					"name" : "go2_apportation_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_apportation_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_apportation_msgs_uninstall-c17d473e339268f8c8b2.json",
+					"name" : "go2_apportation_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-fe9b239e0f27beb1d647.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/workspace/repo/build_container/go2_apportation_msgs",
+		"source" : "/workspace/repo/src/go2_apportation_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

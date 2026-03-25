@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  cyclonedds.xml
+  
+  CycloneDDS network configuration for D1-550 communication.
+  
+  Usage: export CYCLONEDDS_URI=file://$(ros2 pkg prefix go2_d1_550_bringup)/share/go2_d1_550_bringup/config/cyclonedds.xml
+  
+  OR set network_interface in real_robot.launch.py and this file is loaded automatically.
+  
+  Replace "eth0" with your actual interface name (check with: ip a).
+  The D1-550 and Go2 communicate on domain 0.
+-->
+<CycloneDDS>
+  <Domain id="0">
+    <General>
+      <Interfaces>
+        <!-- Replace with your actual network interface name -->
+        <NetworkInterface name="eth0" priority="default" multicast="default"/>
+      </Interfaces>
+      <AllowMulticast>true</AllowMulticast>
+      <MaxMessageSize>65500B</MaxMessageSize>
+    </General>
+    <Discovery>
+      <ParticipantIndex>auto</ParticipantIndex>
+      <MaxAutoParticipantIndex>50</MaxAutoParticipantIndex>
+    </Discovery>
+    <Internal>
+      <Watermarks>
+        <WhcHigh>500kB</WhcHigh>
+      </Watermarks>
+    </Internal>
+  </Domain>
+</CycloneDDS>

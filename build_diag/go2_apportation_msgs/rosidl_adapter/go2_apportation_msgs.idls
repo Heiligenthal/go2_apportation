@@ -1,0 +1,6 @@
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:msg/Detection3D.idl
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:msg/Detection3DArray.idl
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:msg/ObjectState.idl
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:msg/ThrowStatus.idl
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:action/PickObject.idl
+/workspace/repo/build_diag/go2_apportation_msgs/rosidl_adapter/go2_apportation_msgs:srv/ReleaseObject.idl

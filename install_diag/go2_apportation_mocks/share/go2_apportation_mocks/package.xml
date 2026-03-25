@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>go2_apportation_mocks</name>
+  <version>0.0.0</version>
+  <description>ROS2 mock servers for orchestrator development (Nav2/Pick/Release).</description>
+  <maintainer email="todo@example.com">TODO</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>go2_apportation_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

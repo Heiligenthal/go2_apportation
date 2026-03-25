@@ -1,0 +1,259 @@
+// generated from rosidl_generator_c/resource/idl__functions.c.em
+// with input from go2_apportation_msgs:msg/ThrowStatus.idl
+// generated code does not contain a copyright notice
+#include "go2_apportation_msgs/msg/detail/throw_status__functions.h"
+
+#include <assert.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "rcutils/allocator.h"
+
+
+// Include directives for member types
+// Member `header`
+#include "std_msgs/msg/detail/header__functions.h"
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__init(go2_apportation_msgs__msg__ThrowStatus * msg)
+{
+  if (!msg) {
+    return false;
+  }
+  // header
+  if (!std_msgs__msg__Header__init(&msg->header)) {
+    go2_apportation_msgs__msg__ThrowStatus__fini(msg);
+    return false;
+  }
+  // status
+  return true;
+}
+
+void
+go2_apportation_msgs__msg__ThrowStatus__fini(go2_apportation_msgs__msg__ThrowStatus * msg)
+{
+  if (!msg) {
+    return;
+  }
+  // header
+  std_msgs__msg__Header__fini(&msg->header);
+  // status
+}
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__are_equal(const go2_apportation_msgs__msg__ThrowStatus * lhs, const go2_apportation_msgs__msg__ThrowStatus * rhs)
+{
+  if (!lhs || !rhs) {
+    return false;
+  }
+  // header
+  if (!std_msgs__msg__Header__are_equal(
+      &(lhs->header), &(rhs->header)))
+  {
+    return false;
+  }
+  // status
+  if (lhs->status != rhs->status) {
+    return false;
+  }
+  return true;
+}
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__copy(
+  const go2_apportation_msgs__msg__ThrowStatus * input,
+  go2_apportation_msgs__msg__ThrowStatus * output)
+{
+  if (!input || !output) {
+    return false;
+  }
+  // header
+  if (!std_msgs__msg__Header__copy(
+      &(input->header), &(output->header)))
+  {
+    return false;
+  }
+  // status
+  output->status = input->status;
+  return true;
+}
+
+go2_apportation_msgs__msg__ThrowStatus *
+go2_apportation_msgs__msg__ThrowStatus__create()
+{
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+  go2_apportation_msgs__msg__ThrowStatus * msg = (go2_apportation_msgs__msg__ThrowStatus *)allocator.allocate(sizeof(go2_apportation_msgs__msg__ThrowStatus), allocator.state);
+  if (!msg) {
+    return NULL;
+  }
+  memset(msg, 0, sizeof(go2_apportation_msgs__msg__ThrowStatus));
+  bool success = go2_apportation_msgs__msg__ThrowStatus__init(msg);
+  if (!success) {
+    allocator.deallocate(msg, allocator.state);
+    return NULL;
+  }
+  return msg;
+}
+
+void
+go2_apportation_msgs__msg__ThrowStatus__destroy(go2_apportation_msgs__msg__ThrowStatus * msg)
+{
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+  if (msg) {
+    go2_apportation_msgs__msg__ThrowStatus__fini(msg);
+  }
+  allocator.deallocate(msg, allocator.state);
+}
+
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__Sequence__init(go2_apportation_msgs__msg__ThrowStatus__Sequence * array, size_t size)
+{
+  if (!array) {
+    return false;
+  }
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+  go2_apportation_msgs__msg__ThrowStatus * data = NULL;
+
+  if (size) {
+    data = (go2_apportation_msgs__msg__ThrowStatus *)allocator.zero_allocate(size, sizeof(go2_apportation_msgs__msg__ThrowStatus), allocator.state);
+    if (!data) {
+      return false;
+    }
+    // initialize all array elements
+    size_t i;
+    for (i = 0; i < size; ++i) {
+      bool success = go2_apportation_msgs__msg__ThrowStatus__init(&data[i]);
+      if (!success) {
+        break;
+      }
+    }
+    if (i < size) {
+      // if initialization failed finalize the already initialized array elements
+      for (; i > 0; --i) {
+        go2_apportation_msgs__msg__ThrowStatus__fini(&data[i - 1]);
+      }
+      allocator.deallocate(data, allocator.state);
+      return false;
+    }
+  }
+  array->data = data;
+  array->size = size;
+  array->capacity = size;
+  return true;
+}
+
+void
+go2_apportation_msgs__msg__ThrowStatus__Sequence__fini(go2_apportation_msgs__msg__ThrowStatus__Sequence * array)
+{
+  if (!array) {
+    return;
+  }
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+
+  if (array->data) {
+    // ensure that data and capacity values are consistent
+    assert(array->capacity > 0);
+    // finalize all array elements
+    for (size_t i = 0; i < array->capacity; ++i) {
+      go2_apportation_msgs__msg__ThrowStatus__fini(&array->data[i]);
+    }
+    allocator.deallocate(array->data, allocator.state);
+    array->data = NULL;
+    array->size = 0;
+    array->capacity = 0;
+  } else {
+    // ensure that data, size, and capacity values are consistent
+    assert(0 == array->size);
+    assert(0 == array->capacity);
+  }
+}
+
+go2_apportation_msgs__msg__ThrowStatus__Sequence *
+go2_apportation_msgs__msg__ThrowStatus__Sequence__create(size_t size)
+{
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+  go2_apportation_msgs__msg__ThrowStatus__Sequence * array = (go2_apportation_msgs__msg__ThrowStatus__Sequence *)allocator.allocate(sizeof(go2_apportation_msgs__msg__ThrowStatus__Sequence), allocator.state);
+  if (!array) {
+    return NULL;
+  }
+  bool success = go2_apportation_msgs__msg__ThrowStatus__Sequence__init(array, size);
+  if (!success) {
+    allocator.deallocate(array, allocator.state);
+    return NULL;
+  }
+  return array;
+}
+
+void
+go2_apportation_msgs__msg__ThrowStatus__Sequence__destroy(go2_apportation_msgs__msg__ThrowStatus__Sequence * array)
+{
+  rcutils_allocator_t allocator = rcutils_get_default_allocator();
+  if (array) {
+    go2_apportation_msgs__msg__ThrowStatus__Sequence__fini(array);
+  }
+  allocator.deallocate(array, allocator.state);
+}
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__Sequence__are_equal(const go2_apportation_msgs__msg__ThrowStatus__Sequence * lhs, const go2_apportation_msgs__msg__ThrowStatus__Sequence * rhs)
+{
+  if (!lhs || !rhs) {
+    return false;
+  }
+  if (lhs->size != rhs->size) {
+    return false;
+  }
+  for (size_t i = 0; i < lhs->size; ++i) {
+    if (!go2_apportation_msgs__msg__ThrowStatus__are_equal(&(lhs->data[i]), &(rhs->data[i]))) {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool
+go2_apportation_msgs__msg__ThrowStatus__Sequence__copy(
+  const go2_apportation_msgs__msg__ThrowStatus__Sequence * input,
+  go2_apportation_msgs__msg__ThrowStatus__Sequence * output)
+{
+  if (!input || !output) {
+    return false;
+  }
+  if (output->capacity < input->size) {
+    const size_t allocation_size =
+      input->size * sizeof(go2_apportation_msgs__msg__ThrowStatus);
+    rcutils_allocator_t allocator = rcutils_get_default_allocator();
+    go2_apportation_msgs__msg__ThrowStatus * data =
+      (go2_apportation_msgs__msg__ThrowStatus *)allocator.reallocate(
+      output->data, allocation_size, allocator.state);
+    if (!data) {
+      return false;
+    }
+    // If reallocation succeeded, memory may or may not have been moved
+    // to fulfill the allocation request, invalidating output->data.
+    output->data = data;
+    for (size_t i = output->capacity; i < input->size; ++i) {
+      if (!go2_apportation_msgs__msg__ThrowStatus__init(&output->data[i])) {
+        // If initialization of any new item fails, roll back
+        // all previously initialized items. Existing items
+        // in output are to be left unmodified.
+        for (; i-- > output->capacity; ) {
+          go2_apportation_msgs__msg__ThrowStatus__fini(&output->data[i]);
+        }
+        return false;
+      }
+    }
+    output->capacity = input->size;
+  }
+  output->size = input->size;
+  for (size_t i = 0; i < input->size; ++i) {
+    if (!go2_apportation_msgs__msg__ThrowStatus__copy(
+        &(input->data[i]), &(output->data[i])))
+    {
+      return false;
+    }
+  }
+  return true;
+}

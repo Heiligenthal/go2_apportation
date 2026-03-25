@@ -1,0 +1,9 @@
+<!-- Phase-1 BehaviorTree.CPP artifact stub.
+     No mission logic yet; this file only reserves the expected BT asset location. -->
+<root BTCPP_format="4">
+  <BehaviorTree ID="MissionFlowStub">
+    <Sequence name="phase1_stub_sequence">
+      <AlwaysSuccess name="placeholder_no_logic"/>
+    </Sequence>
+  </BehaviorTree>
+</root>

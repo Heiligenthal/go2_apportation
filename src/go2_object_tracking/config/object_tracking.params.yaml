@@ -1,0 +1,42 @@
+object_tracker_node:
+  ros__parameters:
+    # Replay-friendly tracking scaffold: consumes public FAST detections without enabling motion outputs.
+    use_sim_time: false
+    enabled: false
+    tracker_rate_hz: 30.0
+    state_frame: "odom"
+    internal_tracking_frame: "map"
+    best_detection_confidence_threshold: 0.39
+    input_mode: "public_detection3d_array"
+    input_topic: "/tracking/detections3d_fast"
+    input_wire_type: "go2_apportation_msgs/Detection3DArray"
+    input_topic_candidate: "/tracking/internal/detections3d_fast_candidate"
+    input_topic_map_candidate: "/tracking/internal/cube_measurement_map"
+    publish_object_state: true
+    publish_throw_status: true
+    publish_predicted_region: true
+    publish_intercept_goal: true
+    predicted_region_topic: "/tracking/predicted_region"
+    intercept_goal_topic: "/tracking/intercept_goal"
+    visible_timeout_s: 0.2
+    occlusion_timeout_s: 0.6
+    verify_timeout_s: 1.5
+    short_occlusion_timeout_s: 1.0
+    local_search_probability_threshold: 0.05
+    pick_ready_min_probability: 0.40
+    pick_ready_max_speed_mps: 0.15
+    pick_ready_max_precise_age_s: 0.5
+    safety_distance_min_m: 1.5
+    safety_distance_max_m: 2.0
+    release_speed_threshold_mps: 1.0
+    release_confirm_measurements: 3
+    gravity_mps2: 9.81
+    use_ballistic_mode: false
+    predicted_region_size_x_m: 0.30
+    predicted_region_size_y_m: 0.30
+    predicted_region_size_z_m: 0.20
+    predicted_region_confidence_scale: 0.5
+    predicted_region_valid_for_s: 0.5
+    intercept_goal_approach_radius_m: 0.35
+    intercept_goal_tolerance_m: 0.15
+    intercept_goal_valid_for_s: 0.5

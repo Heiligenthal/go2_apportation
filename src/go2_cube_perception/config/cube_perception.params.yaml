@@ -1,0 +1,108 @@
+object_detector_trt_node:
+  ros__parameters:
+    # Bag replay-friendly owner defaults.
+    # The three sensor topics below mirror the H1-confirmed board runtime defaults.
+    # They are a convenience fallback only, not a second runtime authority.
+    use_sim_time: false
+    enabled: false
+    backend_kind: "tensorrt_stub"
+    detector_rate_hz: 30.0
+    cube_edge_length_m: 0.05
+    gpu_required: true
+    model_weights_path: ""
+    engine_path: ""
+    input_width: 640
+    input_height: 640
+    confidence_threshold: 0.39
+    nms_iou_threshold: 0.5
+    max_detections: 1
+    publish_debug_bbox: false
+    color_invariance_required: true
+    active_object_count: 1
+    rgb_topic: "/camera/realsense2_camera/color/image_raw"
+    camera_info_topic: "/camera/realsense2_camera/color/camera_info"
+    input_freshness_timeout_s: 0.5
+    rgb_required: false
+    camera_info_required: false
+    ingest_mode: "owner_local_candidate"
+    object_visible_topic: "/perception/object_visible"
+    internal_bbox_topic: "/perception/internal/cube_bbox"
+    object_visible_wire_type: "std_msgs/Bool"
+    publish_bridge_look_outputs: false
+    look_control_mode: "OBSERVE_FAST"
+    look_yaw_topic: "/look_yaw_delta"
+    balance_rpy_topic: "/balance_rpy_cmd"
+    look_yaw_kp: 0.8
+    look_pitch_kp: 0.6
+    look_deadband_norm: 0.03
+    look_yaw_rate_limit_rps: 0.8
+    look_pitch_rate_limit_rps: 0.5
+    observe_center_dwell_s: 0.6
+    observe_reposition_no_improvement_s: 0.8
+    observe_improvement_epsilon: 0.02
+    look_center_half_extent_norm: 0.125
+
+object_position_fast_node:
+  ros__parameters:
+    # Safe for offline bag validation: FAST stays consume-only for sensor topics and TF.
+    use_sim_time: false
+    enabled: false
+    backend_kind: "bbox_depth_stub"
+    output_mode: "public_detection3d_array"
+    position_rate_hz: 30.0
+    cube_edge_length_m: 0.05
+    output_frame: "odom"
+    map_tracking_frame: "map"
+    # odom is consumed from the project TF chain; no local TF publication is added here.
+    allow_frame_passthrough_if_no_tf: false
+    depth_min_m: 0.45
+    depth_max_m: 3.5
+    depth_min_valid_pixels: 8
+    depth_trim_ratio: 0.1
+    depth_statistic: "median"
+    rgb_bbox_topic: "/perception/internal/cube_bbox"
+    depth_topic: "/camera/realsense2_camera/aligned_depth_to_color/image_raw"
+    camera_info_topic: "/camera/realsense2_camera/color/camera_info"
+    internal_fast_candidate_topic: "/tracking/internal/detections3d_fast_candidate"
+    internal_map_measurement_topic: "/tracking/internal/cube_measurement_map"
+    input_freshness_timeout_s: 0.5
+    ingest_mode: "owner_local_candidate"
+    enable_tf_map_lookup: true
+    map_transform_timeout_s: 0.05
+    detections3d_fast_topic: "/tracking/detections3d_fast"
+    detections3d_fast_wire_type: "go2_apportation_msgs/Detection3DArray"
+
+object_pose_precise_node:
+  ros__parameters:
+    # PRECISE remains geometry-first: backend hook only, no segmentation engine required.
+    # map/odom/base_link/camera_link are consumed from bringup/TF and not owned here.
+    use_sim_time: false
+    enabled: false
+    backend_kind: "segmentation_depth_stub"
+    precise_rate_hz: 5.0
+    cube_edge_length_m: 0.05
+    require_grounded_object: true
+    canonicalize_mod_pi: true
+    output_pose_frame: "odom"
+    object_last_seen_frame: "map"
+    depth_min_m: 0.45
+    depth_max_m: 3.5
+    min_valid_points: 24
+    max_depth_deviation_m: 0.03
+    max_axis_aligned_extent_m: 0.12
+    min_in_plane_span_m: 0.01
+    max_in_plane_span_m: 0.09
+    max_face_thickness_m: 0.02
+    segmentation_engine_path: ""
+    rgb_topic: "/camera/realsense2_camera/color/image_raw"
+    depth_topic: "/camera/realsense2_camera/aligned_depth_to_color/image_raw"
+    camera_info_topic: "/camera/realsense2_camera/color/camera_info"
+    internal_precise_candidate_topic: "/perception/internal/cube_pose_candidate"
+    input_freshness_timeout_s: 0.5
+    ingest_mode: "owner_local_candidate"
+    enable_tf_last_seen_lookup: true
+    last_seen_transform_timeout_s: 0.05
+    object_pose_topic: "/perception/object_pose_6d"
+    object_pose_wire_type: "geometry_msgs/PoseStamped"
+    object_last_seen_topic: "/perception/object_last_seen"
+    object_last_seen_wire_type: "geometry_msgs/PoseStamped"

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="go2_with_d1_550">
+
+  <!--
+    Combined description: Unitree Go2 EDU + D1-550 robotic arm + RealSense D415
+    
+    Coordinate conventions (ROS REP-103):
+      x = forward, y = left, z = up
+    
+    Mounting offsets (measured):
+      Arm:       x=-0.188, y=0.0, z=+0.087  (rear top of body + 3cm extension board)
+      RealSense: x=+0.305, y=0.0, z=+0.050  (above head_upper, 4cm up, 2cm forward)
+    
+    NOTE: Fine-tune xyz offsets after visual inspection in RViz.
+  -->
+
+  <!-- ==================== GO2 BASE ==================== -->
+  <!-- Include Go2 URDF directly (already has <robot> tag stripped via xacro include) -->
+  <xacro:include filename="$(find go2_description)/urdf/go2.urdf"/>
+
+  <!-- ==================== D1-550 ARM ==================== -->
+  <xacro:include filename="$(find d1_550_description)/urdf/d1_550.urdf.xacro"/>
+
+  <!-- Mount arm at rear top of Go2 body + extension board height -->
+  <!-- base_link is the D1-550 base, 'base' is the Go2 body link -->
+  <joint name="arm_mount_joint" type="fixed">
+    <parent link="base"/>
+    <child link="base_link"/>
+    <!--
+      x = -0.188  → rear edge of Go2 body (body length 0.3762, center at 0)
+      y =  0.000  → centered
+      z = +0.087  → top of body (0.057) + extension board (0.030)
+      rpy = 0 0 0 → arm faces forward, same direction as Go2 head
+    -->
+    <origin xyz="-0.188 0.0 0.087" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ==================== REALSENSE D415 ==================== -->
+  <!--
+    Mounted above head: Head_upper is at xyz="0.285 0 0.01" in base frame.
+    Camera sits 4cm above and 2cm forward of Head_upper origin.
+    The D415 is modeled as a simple box (93mm x 25mm x 25mm footprint).
+  -->
+  <link name="realsense_mount_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- D415 approximate dimensions: 99mm wide, 20mm tall, 23mm deep -->
+        <box size="0.023 0.099 0.020"/>
+      </geometry>
+      <material name="realsense_black">
+        <color rgba="0.1 0.1 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.023 0.099 0.020"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.072"/>
+      <inertia ixx="1.0e-4" ixy="0" ixz="0" iyy="1.0e-4" iyz="0" izz="1.0e-4"/>
+    </inertial>
+  </link>
+
+  <joint name="realsense_mount_joint" type="fixed">
+    <parent link="base"/>
+    <child link="realsense_mount_link"/>
+    <!--
+      Head_upper origin in base frame: xyz="0.285 0 0.01"
+      +0.020 forward, +0.040 up from Head_upper origin
+      → total: x=0.305, y=0.0, z=0.050
+    -->
+    <origin xyz="0.305 0.0 0.050" rpy="0 0 0"/>
+  </joint>
+
+  <!-- RealSense optical frame (camera looks forward = +x in ROS convention) -->
+  <link name="realsense_color_frame"/>
+  <joint name="realsense_color_joint" type="fixed">
+    <parent link="realsense_mount_link"/>
+    <child link="realsense_color_frame"/>
+    <!-- Camera lens is offset slightly forward from mount center -->
+    <origin xyz="0.0115 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Optical frame: Z forward, X right, Y down (ROS camera convention) -->
+  <link name="realsense_color_optical_frame"/>
+  <joint name="realsense_color_optical_joint" type="fixed">
+    <parent link="realsense_color_frame"/>
+    <child link="realsense_color_optical_frame"/>
+    <origin xyz="0 0 0" rpy="-1.5707963 0 -1.5707963"/>
+  </joint>
+
+  <link name="realsense_depth_frame"/>
+  <joint name="realsense_depth_joint" type="fixed">
+    <parent link="realsense_mount_link"/>
+    <child link="realsense_depth_frame"/>
+    <origin xyz="0.0115 0.025 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="realsense_depth_optical_frame"/>
+  <joint name="realsense_depth_optical_joint" type="fixed">
+    <parent link="realsense_depth_frame"/>
+    <child link="realsense_depth_optical_frame"/>
+    <origin xyz="0 0 0" rpy="-1.5707963 0 -1.5707963"/>
+  </joint>
+
+</robot>

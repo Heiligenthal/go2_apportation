@@ -1,0 +1,5 @@
+uint8 release_mode
+uint8 OPEN_GRIPPER=0
+uint8 DROP_SAFE=1
+uint8 HANDOVER_RELEASE=2
+bool verify_open

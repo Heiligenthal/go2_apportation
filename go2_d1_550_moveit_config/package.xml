@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>go2_d1_550_moveit_config</name>
+  <version>0.1.0</version>
+  <description>
+    MoveIt2 configuration for Unitree Go2 EDU with D1-550 robotic arm.
+    Includes planning groups, collision matrix, IK config, and launch files.
+  </description>
+  <maintainer email="your@email.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>go2_d1_550_description</depend>
+  <depend>moveit_ros_move_group</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_ros_visualization</depend>
+  <depend>moveit_kinematics</depend>
+  <depend>moveit_planners_ompl</depend>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>kdl_parser</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

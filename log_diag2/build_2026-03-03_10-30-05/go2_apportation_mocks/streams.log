@@ -1,0 +1,44 @@
+[1.543s] Invoking command in '/workspace/repo/src/go2_apportation_mocks': CMAKE_PREFIX_PATH=/workspace/repo/install_diag2/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag2/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag2/go2_apportation_mocks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages:/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag2/go2_apportation_mocks build --build-base /workspace/repo/build_diag2/go2_apportation_mocks/build install --record /workspace/repo/build_diag2/go2_apportation_mocks/install.log --single-version-externally-managed install_data
+[1.924s] running egg_info
+[1.925s] creating ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info
+[1.925s] writing ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/PKG-INFO
+[1.926s] writing dependency_links to ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/dependency_links.txt
+[1.927s] writing entry points to ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/entry_points.txt
+[1.928s] writing requirements to ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/requires.txt
+[1.928s] writing top-level names to ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/top_level.txt
+[1.929s] writing manifest file '../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+[1.932s] reading manifest file '../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+[1.934s] writing manifest file '../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+[1.934s] running build
+[1.934s] running build_py
+[1.934s] creating /workspace/repo/build_diag2/go2_apportation_mocks/build
+[1.934s] creating /workspace/repo/build_diag2/go2_apportation_mocks/build/lib
+[1.934s] creating /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks
+[1.934s] copying go2_apportation_mocks/mock_manipulation_server.py -> /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks
+[1.935s] copying go2_apportation_mocks/__init__.py -> /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks
+[1.935s] copying go2_apportation_mocks/mock_nav2_server.py -> /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks
+[1.935s] copying go2_apportation_mocks/scenario_config.py -> /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks
+[1.935s] running install
+[1.935s] running install_lib
+[1.936s] creating /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+[1.936s] copying /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks/mock_manipulation_server.py -> /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+[1.936s] copying /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks/__init__.py -> /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+[1.937s] copying /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks/mock_nav2_server.py -> /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+[1.937s] copying /workspace/repo/build_diag2/go2_apportation_mocks/build/lib/go2_apportation_mocks/scenario_config.py -> /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+[1.938s] byte-compiling /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/mock_manipulation_server.py to mock_manipulation_server.cpython-310.pyc
+[1.941s] byte-compiling /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/__init__.py to __init__.cpython-310.pyc
+[1.941s] byte-compiling /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/mock_nav2_server.py to mock_nav2_server.cpython-310.pyc
+[1.943s] byte-compiling /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/scenario_config.py to scenario_config.cpython-310.pyc
+[1.944s] running install_data
+[1.945s] creating /workspace/repo/install_diag2/go2_apportation_mocks/share/ament_index
+[1.945s] creating /workspace/repo/install_diag2/go2_apportation_mocks/share/ament_index/resource_index
+[1.945s] creating /workspace/repo/install_diag2/go2_apportation_mocks/share/ament_index/resource_index/packages
+[1.945s] copying resource/go2_apportation_mocks -> /workspace/repo/install_diag2/go2_apportation_mocks/share/ament_index/resource_index/packages
+[1.945s] copying package.xml -> /workspace/repo/install_diag2/go2_apportation_mocks/share/go2_apportation_mocks
+[1.945s] running install_egg_info
+[1.950s] Copying ../../build_diag2/go2_apportation_mocks/go2_apportation_mocks.egg-info to /workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks-0.0.0-py3.10.egg-info
+[1.952s] running install_scripts
+[1.997s] Installing mock_manipulation_server script to /workspace/repo/install_diag2/go2_apportation_mocks/lib/go2_apportation_mocks
+[1.997s] Installing mock_nav2_server script to /workspace/repo/install_diag2/go2_apportation_mocks/lib/go2_apportation_mocks
+[1.997s] writing list of installed files to '/workspace/repo/build_diag2/go2_apportation_mocks/install.log'
+[2.069s] Invoked command in '/workspace/repo/src/go2_apportation_mocks' returned '0': CMAKE_PREFIX_PATH=/workspace/repo/install_diag2/go2_apportation_msgs LD_LIBRARY_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/lib/aarch64-linux-gnu/pkgconfig:/workspace/repo/install_diag2/go2_apportation_msgs/lib/pkgconfig PYTHONPATH=/workspace/repo/build_diag2/go2_apportation_mocks/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_diag2/go2_apportation_mocks/lib/python3.10/site-packages:/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/workspace/repo/install_diag2/go2_apportation_msgs/share /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build_diag2/go2_apportation_mocks build --build-base /workspace/repo/build_diag2/go2_apportation_mocks/build install --record /workspace/repo/build_diag2/go2_apportation_mocks/install.log --single-version-externally-managed install_data

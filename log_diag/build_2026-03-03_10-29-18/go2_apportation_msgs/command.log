@@ -1,0 +1,6 @@
+Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake /workspace/repo/src/go2_apportation_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_diag/go2_apportation_msgs
+Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake /workspace/repo/src/go2_apportation_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_diag/go2_apportation_msgs
+Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake --build /workspace/repo/build_diag/go2_apportation_msgs -- -j6 -l6
+Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake --build /workspace/repo/build_diag/go2_apportation_msgs -- -j6 -l6
+Invoking command in '/workspace/repo/build_diag/go2_apportation_msgs': /usr/bin/cmake --install /workspace/repo/build_diag/go2_apportation_msgs
+Invoked command in '/workspace/repo/build_diag/go2_apportation_msgs' returned '0': /usr/bin/cmake --install /workspace/repo/build_diag/go2_apportation_msgs

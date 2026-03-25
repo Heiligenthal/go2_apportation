@@ -1,0 +1,2 @@
+Invoking command in '/workspace/repo/build_container/lidar_processor_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor_cpp -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/lidar_processor_cpp
+Invoked command in '/workspace/repo/build_container/lidar_processor_cpp' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor_cpp -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/lidar_processor_cpp

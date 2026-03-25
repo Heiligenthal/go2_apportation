@@ -1,0 +1,115 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Grid1
+        - /RobotModel1
+        - /TF1
+        - /LiDARCloud1
+        - /CameraCloud1
+      Splitter Ratio: 0.55
+    Tree Height: 720
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+  - Class: rviz_common/Time
+    Name: Time
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: <Fixed Frame>
+      Color: 160; 160; 164
+      Alpha: 0.5
+      Line Style:
+        Value: Lines
+        Line Width: 0.03
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Names: true
+      Show Axes: true
+      Show Arrows: true
+      Marker Scale: 0.4
+      Update Interval: 0
+      Frames:
+        All Enabled: true
+    - Class: rviz_default_plugins/PointCloud2
+      Name: LiDARCloud
+      Enabled: true
+      Topic:
+        Value: /utlidar/cloud
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Size (Pixels): 3
+      Style: Flat Squares
+      Color Transformer: Intensity
+      Use Fixed Frame: true
+      Decay Time: 0
+      Selectable: true
+    - Class: rviz_default_plugins/PointCloud2
+      Name: CameraCloud
+      Enabled: true
+      Topic:
+        Value: /camera/realsense2_camera/depth/color/points
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Size (Pixels): 2
+      Style: Flat Squares
+      Color Transformer: RGB8
+      Use Fixed Frame: true
+      Decay Time: 0
+      Selectable: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.5
+      Focal Point:
+        X: 0.0
+        Y: 0.0
+        Z: 0.15
+      Pitch: 0.75
+      Yaw: 0.5
+Window Geometry:
+  Height: 1000
+  Width: 1600

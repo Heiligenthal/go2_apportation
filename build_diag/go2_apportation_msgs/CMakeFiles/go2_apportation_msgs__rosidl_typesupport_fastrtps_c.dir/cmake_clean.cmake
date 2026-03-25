@@ -1,0 +1,33 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/action/detail/pick_object__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/action/detail/pick_object__type_support_c.cpp.o.d"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d__type_support_c.cpp.o.d"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d_array__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d_array__type_support_c.cpp.o.d"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/object_state__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/object_state__type_support_c.cpp.o.d"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/throw_status__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/throw_status__type_support_c.cpp.o.d"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/srv/detail/release_object__type_support_c.cpp.o"
+  "CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/srv/detail/release_object__type_support_c.cpp.o.d"
+  "libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.pdb"
+  "libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/action/detail/pick_object__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d_array__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/object_state__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/throw_status__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/go2_apportation_msgs/srv/detail/release_object__type_support_c.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

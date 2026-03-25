@@ -1,0 +1,11 @@
+# Runtime topic/frame values for board-side RTAB-Map scripts.
+# Fill concrete values after running topic discovery on the board.
+
+runtime_topics:
+  rgb_topic: "<RGB_TOPIC>"
+  depth_topic: "<DEPTH_TOPIC>"
+  camera_info_topic: "<CAMERA_INFO_TOPIC>"
+  base_frame: "base_link"
+  odom_frame: "odom"
+  map_frame: "map"
+  database_path: "/workspace/repo/artifacts/rtabmap/rtabmap.db"

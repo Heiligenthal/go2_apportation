@@ -1,0 +1,1002 @@
+[0.540s] Invoking command in '/workspace/repo/build_container/unitree_sdk2': /usr/bin/cmake /workspace/repo/sdk/repository/unitree_sdk2-main -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/unitree_sdk2
+[0.766s] -- The C compiler identification is GNU 11.4.0
+[0.924s] -- The CXX compiler identification is GNU 11.4.0
+[0.941s] -- Detecting C compiler ABI info
+[1.118s] -- Detecting C compiler ABI info - done
+[1.118s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.118s] -- Detecting C compile features
+[1.118s] -- Detecting C compile features - done
+[1.577s] -- Detecting CXX compiler ABI info
+[1.577s] -- Detecting CXX compiler ABI info - done
+[1.577s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.577s] -- Detecting CXX compile features
+[1.578s] -- Detecting CXX compile features - done
+[1.578s] -- Setting build type to 'Release' as none was specified.
+[1.578s] -- Current system architecture: aarch64
+[1.578s] -- Looking for pthread.h
+[1.578s] -- Looking for pthread.h - found
+[1.578s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.033s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.033s] -- Found Threads: TRUE  
+[2.033s] -- Importing: /workspace/repo/sdk/repository/unitree_sdk2-main/thirdparty/lib/aarch64/libddsc.so
+[2.034s] -- Importing: /workspace/repo/sdk/repository/unitree_sdk2-main/thirdparty/lib/aarch64/libddscxx.so
+[2.035s] -- Unitree SDK library found at: /workspace/repo/sdk/repository/unitree_sdk2-main/lib/aarch64/libunitree_sdk2.a
+[2.035s] -- Importing: /workspace/repo/sdk/repository/unitree_sdk2-main/lib/aarch64/libunitree_sdk2.a
+[2.035s] -- Could NOT find Boost (missing: Boost_INCLUDE_DIR program_options) 
+[2.037s] -- Found yaml-cpp version 0.7.0
+[2.038s] -- Configuring done
+[2.039s] -- Generating done
+[2.039s] -- Build files have been written to: /workspace/repo/build_container/unitree_sdk2
+[2.040s] Invoked command in '/workspace/repo/build_container/unitree_sdk2' returned '0': /usr/bin/cmake /workspace/repo/sdk/repository/unitree_sdk2-main -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/unitree_sdk2
+[2.040s] Invoking command in '/workspace/repo/build_container/unitree_sdk2': /usr/bin/cmake --build /workspace/repo/build_container/unitree_sdk2 -- -j6 -l6
+[2.150s] [  1%] Building CXX object example/helloworld/CMakeFiles/test_publisher.dir/publisher.cpp.o
+[2.184s] [  2%] Building CXX object example/go2/CMakeFiles/go2_sport_client.dir/go2_sport_client.cpp.o
+[2.186s] [  4%] Building CXX object example/wireless_controller/CMakeFiles/advanced_gamepad.dir/main.cpp.o
+[2.188s] [  5%] Building CXX object example/jsonize/CMakeFiles/test_jsonize.dir/test_jsonize.cpp.o
+[2.193s] [  7%] Building CXX object example/helloworld/CMakeFiles/test_subscriber.dir/subscriber.cpp.o
+[2.249s] [  8%] Building CXX object example/state_machine/CMakeFiles/state_machine_example.dir/main.cpp.o
+[8.033s] [ 10%] Linking CXX executable ../../bin/test_jsonize
+[8.595s] [ 10%] Built target test_jsonize
+[8.731s] [ 11%] Building CXX object example/go2/CMakeFiles/go2_low_level.dir/go2_low_level.cpp.o
+[15.169s] [ 12%] Building CXX object example/helloworld/CMakeFiles/test_publisher.dir/HelloWorldData.cpp.o
+[17.032s] [ 14%] Building CXX object example/helloworld/CMakeFiles/test_subscriber.dir/HelloWorldData.cpp.o
+[17.548s] [ 15%] Linking CXX executable ../../bin/advanced_gamepad
+[17.862s] [ 17%] Linking CXX executable ../../bin/test_publisher
+[18.752s] [ 17%] Built target test_publisher
+[18.898s] [ 18%] Building CXX object example/go2/CMakeFiles/go2_stand_example.dir/go2_stand_example.cpp.o
+[18.992s] [ 18%] Built target advanced_gamepad
+[19.087s] [ 20%] Linking CXX executable ../../bin/test_subscriber
+[19.133s] [ 21%] Building CXX object example/go2/CMakeFiles/go2_robot_state_client.dir/go2_robot_state_client.cpp.o
+[20.031s] [ 21%] Built target test_subscriber
+[20.128s] [ 22%] Building CXX object example/go2/CMakeFiles/go2_video_client.dir/go2_video_client.cpp.o
+[22.893s] [ 24%] Linking CXX executable ../../bin/go2_sport_client
+[23.956s] [ 25%] Linking CXX executable ../../bin/go2_robot_state_client
+[24.301s] [ 25%] Built target go2_sport_client
+[24.409s] [ 27%] Building CXX object example/go2/CMakeFiles/go2_vui_client.dir/go2_vui_client.cpp.o
+[24.784s] [ 28%] Linking CXX executable ../../bin/go2_video_client
+[25.385s] [ 28%] Built target go2_robot_state_client
+[25.520s] [ 30%] Building CXX object example/b2/CMakeFiles/b2_sport_client.dir/b2_sport_client.cpp.o
+[26.199s] [ 30%] Built target go2_video_client
+[26.282s] [ 31%] Building CXX object example/b2/CMakeFiles/b2_stand_example.dir/b2_stand_example.cpp.o
+[28.698s] [ 32%] Linking CXX executable ../../bin/go2_vui_client
+[30.317s] [ 32%] Built target go2_vui_client
+[30.487s] [ 34%] Building CXX object example/h1/CMakeFiles/h1_loco_client.dir/high_level/h1_loco_client_example.cpp.o
+[30.678s] [ 35%] Linking CXX executable ../../bin/b2_sport_client
+[32.386s] [ 35%] Built target b2_sport_client
+[32.550s] [ 37%] Building CXX object example/h1/CMakeFiles/h1_low_level_example.dir/low_level/humanoid.cpp.o
+[37.433s] [ 38%] Linking CXX executable ../../bin/state_machine_example
+[38.812s] [ 38%] Built target state_machine_example
+[40.040s] [ 40%] Linking CXX executable ../../bin/go2_low_level
+[40.930s] [ 41%] Linking CXX executable ../../bin/h1_loco_client
+[41.073s] [ 41%] Built target go2_low_level
+[41.909s] [ 41%] Built target h1_loco_client
+[49.193s] [ 42%] Linking CXX executable ../../bin/go2_stand_example
+[50.180s] [ 42%] Built target go2_stand_example
+[54.482s] [ 44%] Linking CXX executable ../../bin/b2_stand_example
+[55.424s] [ 44%] Built target b2_stand_example
+[58.064s] [ 45%] Linking CXX executable ../../bin/h1_low_level_example
+[58.475s] [ 47%] Building CXX object example/g1/CMakeFiles/g1_loco_client.dir/high_level/g1_loco_client_example.cpp.o
+[58.966s] [ 47%] Built target h1_low_level_example
+[59.009s] [ 48%] Building CXX object example/h1/CMakeFiles/h1_2_arm_sdk_dds_example.dir/high_level/h1_2_arm_sdk_dds_example.cpp.o
+[60.039s] [ 50%] Building CXX object example/g1/CMakeFiles/g1_arm5_sdk_dds_example.dir/high_level/g1_arm5_sdk_dds_example.cpp.o
+[61.071s] [ 51%] Building CXX object example/h1/CMakeFiles/h1_arm_sdk_dds_example.dir/high_level/h1_arm_sdk_dds_example.cpp.o
+[61.120s] [ 52%] Building CXX object example/h1/CMakeFiles/h1_2_ankle_track.dir/low_level/h1_2_ankle_track.cpp.o
+[62.186s] [ 54%] Building CXX object example/h1/CMakeFiles/h1_27dof_example.dir/low_level/h1_27dof_example.cpp.o
+[65.778s] [ 55%] Linking CXX executable ../../bin/g1_loco_client
+[67.040s] [ 55%] Built target g1_loco_client
+[79.212s] [ 57%] Linking CXX executable ../../bin/h1_2_arm_sdk_dds_example
+[80.123s] [ 57%] Built target h1_2_arm_sdk_dds_example
+[80.429s] [ 58%] Linking CXX executable ../../bin/g1_arm5_sdk_dds_example
+[81.156s] [ 58%] Built target g1_arm5_sdk_dds_example
+[82.502s] [ 60%] Linking CXX executable ../../bin/h1_arm_sdk_dds_example
+[82.576s] [ 61%] Linking CXX executable ../../bin/h1_2_ankle_track
+[83.257s] [ 61%] Built target h1_arm_sdk_dds_example
+[83.298s] [ 61%] Built target h1_2_ankle_track
+[84.047s] [ 62%] Linking CXX executable ../../bin/h1_27dof_example
+[84.736s] [ 62%] Built target h1_27dof_example
+[84.778s] [ 64%] Building CXX object example/g1/CMakeFiles/g1_dual_arm_example.dir/low_level/g1_dual_arm_example.cpp.o
+[88.807s] [ 65%] Building CXX object example/g1/CMakeFiles/g1_agv_client_example.dir/agv/g1_agv_client_example.cpp.o
+[89.832s] [ 67%] Building CXX object example/g1/CMakeFiles/g1_dex3_example.dir/dex3/g1_dex3_example.cpp.o
+[90.858s] [ 68%] Building CXX object example/g1/CMakeFiles/g1_audio_client_example.dir/audio/g1_audio_client_example.cpp.o
+[91.910s] [ 70%] Building CXX object example/g1/CMakeFiles/g1_ankle_swing_example.dir/low_level/g1_ankle_swing_example.cpp.o
+[92.740s] [ 71%] Linking CXX executable ../../bin/g1_agv_client_example
+[92.964s] [ 72%] Building CXX object example/g1/CMakeFiles/g1_arm7_sdk_dds_example.dir/high_level/g1_arm7_sdk_dds_example.cpp.o
+[94.043s] [ 72%] Built target g1_agv_client_example
+[104.519s] [ 74%] Linking CXX executable ../../bin/g1_audio_client_example
+[105.554s] [ 74%] Built target g1_audio_client_example
+[110.252s] [ 75%] Linking CXX executable ../../bin/g1_dual_arm_example
+[111.264s] [ 75%] Built target g1_dual_arm_example
+[113.341s] [ 77%] Linking CXX executable ../../bin/g1_arm7_sdk_dds_example
+[114.100s] [ 77%] Built target g1_arm7_sdk_dds_example
+[114.160s] [ 78%] Linking CXX executable ../../bin/g1_dex3_example
+[114.868s] [ 78%] Built target g1_dex3_example
+[118.358s] [ 80%] Linking CXX executable ../../bin/g1_ankle_swing_example
+[119.261s] [ 80%] Built target g1_ankle_swing_example
+[119.304s] [ 81%] Building CXX object example/a2/CMakeFiles/a2_sport_client.dir/a2_sport_client.cpp.o
+[123.329s] [ 82%] Building CXX object example/a2/CMakeFiles/a2_sport_state.dir/a2_sport_state.cpp.o
+[124.477s] [ 84%] Linking CXX executable ../../bin/a2_sport_client
+[125.340s] [ 84%] Built target a2_sport_client
+[125.351s] [ 85%] Building CXX object example/b2w/CMakeFiles/b2w_stand_example.dir/b2w_stand_example.cpp.o
+[125.382s] [ 87%] Building CXX object example/b2w/CMakeFiles/b2w_sport_client.dir/b2w_sport_client.cpp.o
+[129.032s] [ 88%] Linking CXX executable ../../bin/b2w_sport_client
+[129.920s] [ 88%] Built target b2w_sport_client
+[129.966s] [ 90%] Building CXX object example/a2/CMakeFiles/a2_audio_client_example.dir/audio/a2_audio_client_example.cpp.o
+[136.576s] [ 91%] Linking CXX executable ../../bin/a2_sport_state
+[137.282s] [ 91%] Built target a2_sport_state
+[137.328s] [ 92%] Building CXX object example/go2w/CMakeFiles/go2w_stand_example.dir/go2w_stand_example.cpp.o
+[141.727s] [ 94%] Linking CXX executable ../../bin/a2_audio_client_example
+[142.608s] [ 94%] Built target a2_audio_client_example
+[142.653s] [ 95%] Building CXX object example/go2w/CMakeFiles/go2w_sport_client.dir/go2w_sport_client.cpp.o
+[146.598s] [ 97%] Linking CXX executable ../../bin/b2w_stand_example
+[147.537s] [ 97%] Built target b2w_stand_example
+[156.085s] [ 98%] Linking CXX executable ../../bin/go2w_sport_client
+[156.980s] [ 98%] Built target go2w_sport_client
+[159.684s] [100%] Linking CXX executable ../../bin/go2w_stand_example
+[160.630s] [100%] Built target go2w_stand_example
+[160.670s] Invoked command in '/workspace/repo/build_container/unitree_sdk2' returned '0': /usr/bin/cmake --build /workspace/repo/build_container/unitree_sdk2 -- -j6 -l6
+[160.683s] Invoking command in '/workspace/repo/build_container/unitree_sdk2': /usr/bin/cmake --install /workspace/repo/build_container/unitree_sdk2
+[160.700s] -- Install configuration: "Release"
+[160.700s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include
+[160.701s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree
+[160.702s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl
+[160.702s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2
+[160.703s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PointField_.hpp
+[160.703s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PoseWithCovarianceStamped_.hpp
+[160.703s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Pose_.hpp
+[160.704s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/TwistStamped_.hpp
+[160.704s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Imu_.hpp
+[160.705s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/MapMetaData_.hpp
+[160.705s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Header_.hpp
+[160.706s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Point32_.hpp
+[160.707s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Odometry_.hpp
+[160.708s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Pose2D_.hpp
+[160.708s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Point_.hpp
+[160.709s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Twist_.hpp
+[160.710s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PoseStamped_.hpp
+[160.710s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PointStamped_.hpp
+[160.710s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/QuaternionStamped_.hpp
+[160.711s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PoseWithCovariance_.hpp
+[160.711s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/TwistWithCovariance_.hpp
+[160.712s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Time_.hpp
+[160.712s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/TwistWithCovarianceStamped_.hpp
+[160.713s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/PointCloud2_.hpp
+[160.713s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Vector3_.hpp
+[160.714s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/String_.hpp
+[160.714s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/Quaternion_.hpp
+[160.714s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/ros2/OccupancyGrid_.hpp
+[160.715s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg_doubleimu
+[160.715s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg_doubleimu/doubleIMUState_.hpp
+[160.716s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2
+[160.716s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/UwbState_.hpp
+[160.717s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/SportModeState_.hpp
+[160.717s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/BmsState_.hpp
+[160.717s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/InterfaceConfig_.hpp
+[160.718s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/MotorCmds_.hpp
+[160.718s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/UwbSwitch_.hpp
+[160.719s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/PathPoint_.hpp
+[160.719s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/HeightMap_.hpp
+[160.719s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/IMUState_.hpp
+[160.720s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/WirelessController_.hpp
+[160.720s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/TimeSpec_.hpp
+[160.720s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/LidarState_.hpp
+[160.721s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/LowState_.hpp
+[160.721s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/Go2FrontVideoData_.hpp
+[160.722s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/Error_.hpp
+[160.723s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/ConfigChangeStatus_.hpp
+[160.723s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/VoxelMapCompressed_.hpp
+[160.724s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/AudioData_.hpp
+[160.724s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/BmsCmd_.hpp
+[160.724s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/LowCmd_.hpp
+[160.724s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/MotorCmd_.hpp
+[160.725s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/Res_.hpp
+[160.725s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/MotorState_.hpp
+[160.725s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/MotorStates_.hpp
+[160.726s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/SportModeCmd_.hpp
+[160.726s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/go2/Req_.hpp
+[160.727s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg
+[160.727s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/SportModeState_.hpp
+[160.727s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/BmsState_.hpp
+[160.728s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/IMUState_.hpp
+[160.729s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/AgvBmsState_.hpp
+[160.729s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/LowState_.hpp
+[160.729s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/HandCmd_.hpp
+[160.729s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/PressSensorState_.hpp
+[160.730s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/MainBoardState_.hpp
+[160.730s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/HandState_.hpp
+[160.731s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/BmsCmd_.hpp
+[160.731s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/LowCmd_.hpp
+[160.731s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/MotorCmd_.hpp
+[160.732s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/idl/hg/MotorState_.hpp
+[160.732s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common
+[160.732s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/exception.hpp
+[160.732s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/time
+[160.733s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/time/time_tool.hpp
+[160.733s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/time/sleep.hpp
+[160.733s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log
+[160.733s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_keeper.hpp
+[160.734s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_policy.hpp
+[160.734s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_logger.hpp
+[160.734s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_initor.hpp
+[160.735s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_writer.hpp
+[160.735s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_buffer.hpp
+[160.735s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_decl.hpp
+[160.735s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log_store.hpp
+[160.738s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/log/log.hpp
+[160.738s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/lock
+[160.738s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/lock/lock.hpp
+[160.738s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds
+[160.738s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_native.hpp
+[160.739s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_factory_model.hpp
+[160.739s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_qos_policy_parameter.hpp
+[160.739s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_callback.hpp
+[160.741s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_easy_model.hpp
+[160.741s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_qos.hpp
+[160.741s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_qos_realize.hpp
+[160.741s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_parameter.hpp
+[160.742s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_qos_policy.hpp
+[160.742s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_error.hpp
+[160.742s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_entity.hpp
+[160.742s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_qos_parameter.hpp
+[160.745s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_traits.hpp
+[160.745s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_exception.hpp
+[160.745s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/dds/dds_topic_channel.hpp
+[160.746s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/decl.hpp
+[160.746s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/error.hpp
+[160.746s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/any.hpp
+[160.746s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/os.hpp
+[160.747s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/string_tool.hpp
+[160.747s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/block_queue.hpp
+[160.747s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread
+[160.747s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/future.hpp
+[160.747s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/thread_task.hpp
+[160.748s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/recurrent_thread.hpp
+[160.748s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/thread.hpp
+[160.748s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/thread_decl.hpp
+[160.748s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/thread/thread_pool.hpp
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/dds_service.hpp
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/base
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/base/service_decl.hpp
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/base/service_application.hpp
+[160.749s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/base/service_base.hpp
+[160.750s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/service/base/service_config.hpp
+[160.750s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/json
+[160.750s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/json/json_config.hpp
+[160.750s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/json/json.hpp
+[160.751s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/json/jsonize.hpp
+[160.751s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/assert.hpp
+[160.751s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/filesystem
+[160.751s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/filesystem/file.hpp
+[160.751s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/filesystem/directory.hpp
+[160.752s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/common/filesystem/filesystem.hpp
+[160.752s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper
+[160.752s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots
+[160.752s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/g1
+[160.753s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/g1/g1_sub.h
+[160.753s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/g1/defines.h
+[160.753s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/g1/g1_pub.h
+[160.753s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/g1/g1.h
+[160.754s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/go2
+[160.754s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/go2/go2.h
+[160.757s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/go2/defines.h
+[160.758s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/go2/go2_pub.h
+[160.758s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/robots/go2/go2_sub.h
+[160.758s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/common
+[160.759s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/common/Publisher.h
+[160.759s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/common/crc.h
+[160.759s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/common/unitree_joystick.hpp
+[160.760s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/dds_wrapper/common/Subscription.h
+[160.760s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot
+[160.760s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel
+[160.760s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel/channel_publisher.hpp
+[160.761s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel/channel_subscriber.hpp
+[160.761s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel/channel_factory.hpp
+[160.761s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel/channel_labor.hpp
+[160.761s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/channel/channel_namer.hpp
+[160.762s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2
+[160.762s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/robot_state
+[160.762s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/robot_state/robot_state_error.hpp
+[160.762s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/robot_state/robot_state_api.hpp
+[160.763s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/robot_state/robot_state_client.hpp
+[160.763s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/motion_switcher
+[160.763s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/motion_switcher/motion_switcher_error.hpp
+[160.763s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/motion_switcher/motion_switcher_api.hpp
+[160.763s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/motion_switcher/motion_switcher_client.hpp
+[160.764s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/sport
+[160.764s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/sport/sport_error.hpp
+[160.764s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/sport/sport_api.hpp
+[160.764s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/sport/sport_client.hpp
+[160.764s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/front_video
+[160.765s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/front_video/front_video_api.hpp
+[160.765s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/front_video/front_video_error.hpp
+[160.765s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/front_video/front_video_client.hpp
+[160.766s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/back_video
+[160.766s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/back_video/back_video_error.hpp
+[160.766s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/back_video/back_video_api.hpp
+[160.767s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/back_video/back_video_client.hpp
+[160.767s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/config
+[160.767s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/config/config_error.hpp
+[160.768s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/config/config_api.hpp
+[160.768s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/b2/config/config_client.hpp
+[160.768s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/serialize
+[160.769s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/serialize/serialize.hpp
+[160.769s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal
+[160.773s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_request_response.hpp
+[160.774s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_error.hpp
+[160.774s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl
+[160.774s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/ResponseHeader_.hpp
+[160.774s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/ResponseStatus_.hpp
+[160.774s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/RequestPolicy_.hpp
+[160.775s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/Request_.hpp
+[160.775s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/RequestHeader_.hpp
+[160.776s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/Response_.hpp
+[160.776s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/RequestLease_.hpp
+[160.776s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_idl_decl/RequestIdentity_.hpp
+[160.776s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal_api.hpp
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/internal/internal.hpp
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/h1
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/h1/loco
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/h1/loco/h1_loco_error.hpp
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/h1/loco/h1_loco_client.hpp
+[160.777s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/h1/loco/h1_loco_api.hpp
+[160.778s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2
+[160.778s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/sport
+[160.778s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/sport/sport_error.hpp
+[160.779s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/sport/sport_api.hpp
+[160.780s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/sport/sport_client.hpp
+[160.781s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/audio
+[160.781s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/audio/audio_client.hpp
+[160.781s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/audio/audio_api.hpp
+[160.781s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/a2/audio/audio_error.hpp
+[160.781s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1
+[160.782s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/arm
+[160.782s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/arm/g1_arm_action_client.hpp
+[160.782s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/arm/g1_arm_action_api.hpp
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/arm/g1_arm_action_error.hpp
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/audio
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/audio/g1_audio_error.hpp
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/audio/g1_audio_api.hpp
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/audio/g1_audio_client.hpp
+[160.783s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/agv
+[160.784s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/agv/g1_agv_api.hpp
+[160.784s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/agv/g1_agv_client.hpp
+[160.784s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/agv/g1_agv_error.hpp
+[160.784s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/loco
+[160.784s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/loco/g1_loco_api.hpp
+[160.785s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/loco/g1_loco_client.hpp
+[160.785s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/loco/g1_loco_error.hpp
+[160.785s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/common
+[160.785s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/g1/common/terminations.hpp
+[160.785s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2
+[160.786s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/robot_state
+[160.786s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/robot_state/robot_state_error.hpp
+[160.786s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/robot_state/robot_state_api.hpp
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/robot_state/robot_state_client.hpp
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/utrack
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/utrack/utrack_api.hpp
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/utrack/utrack_client.hpp
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/sport
+[160.787s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/sport/sport_error.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/sport/sport_api.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/sport/sport_client.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/vui
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/vui/vui_error.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/vui/vui_client.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/vui/vui_api.hpp
+[160.788s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/video
+[160.789s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/video/video_error.hpp
+[160.789s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/video/video_api.hpp
+[160.793s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/video/video_client.hpp
+[160.794s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/obstacles_avoid
+[160.794s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/obstacles_avoid/obstacles_avoid_client.hpp
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/obstacles_avoid/obstacles_avoid_api.hpp
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/public
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/public/jsonize_type.hpp
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/config
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/config/config_error.hpp
+[160.795s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/config/config_api.hpp
+[160.796s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/go2/config/config_client.hpp
+[160.796s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/future
+[160.796s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/future/request_future.hpp
+[160.796s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/server
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/server/lease_server.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/server/server.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/server/server_stub.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/server/server_base.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/client
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/client/client_stub.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/client/client_base.hpp
+[160.797s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/client/lease_client.hpp
+[160.798s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/unitree/robot/client/client.hpp
+[160.798s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/libunitree_sdk2.a
+[160.892s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/cmake/unitree_sdk2/unitree_sdk2Targets.cmake
+[160.892s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/cmake/unitree_sdk2/unitree_sdk2Config.cmake
+[160.892s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/cmake/unitree_sdk2/unitree_sdk2ConfigVersion.cmake
+[160.893s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/libddsc.so
+[160.923s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/libddsc.so.0
+[160.926s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/libddscxx.so
+[160.936s] -- Installing: /workspace/repo/install_container/unitree_sdk2/lib/libddscxx.so.0
+[160.937s] -- Up-to-date: /workspace/repo/install_container/unitree_sdk2/include
+[160.937s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds
+[160.937s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/export.h
+[160.937s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/dds.h
+[160.937s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/config.h
+[160.938s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/version.h
+[160.939s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc
+[160.941s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_qos.h
+[160.941s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_listener.h
+[160.942s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_impl.h
+[160.942s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_data_allocator.h
+[160.942s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_loan_api.h
+[160.942s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_basic_types.h
+[160.942s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_alloc.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_qosdefs.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_opcodes.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_rhc.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_status.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_public_error.h
+[160.943s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_internal_api.h
+[160.944s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsc/dds_statistics.h
+[160.944s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/features.h
+[160.944s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt
+[160.944s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/misc.h
+[160.945s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/fibheap.h
+[160.945s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/threads
+[160.945s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/threads/posix.h
+[160.946s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/threads/windows.h
+[160.946s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/threads/freertos.h
+[160.946s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/avl.h
+[160.947s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/static_assert.h
+[160.947s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/time
+[160.947s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/time/freertos.h
+[160.947s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sockets
+[160.948s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sockets/posix.h
+[160.948s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sockets/windows.h
+[160.948s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/strtol.h
+[160.949s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/filesystem.h
+[160.949s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/mh3.h
+[160.949s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/attributes.h
+[160.950s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/rusage.h
+[160.950s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/threads.h
+[160.950s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/align.h
+[160.950s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/endian.h
+[160.951s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics.h
+[160.951s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/strtod.h
+[160.951s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/expand_vars.h
+[160.952s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/iovec.h
+[160.952s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/countargs.h
+[160.952s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/process.h
+[160.953s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/netstat.h
+[160.953s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/dynlib.h
+[160.953s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/types.h
+[160.954s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics
+[160.954s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics/msvc.h
+[160.954s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics/arm.h
+[160.955s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics/gcc.h
+[160.955s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/atomics/sun.h
+[160.955s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/log.h
+[160.958s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/time.h
+[160.958s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/hopscotch.h
+[160.958s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/bswap.h
+[160.958s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/heap.h
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/ifaddrs.h
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/io.h
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/types
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/types/posix.h
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/types/windows.h
+[160.959s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/types/vxworks.h
+[160.960s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sync.h
+[160.960s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/circlist.h
+[160.960s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/cdtors.h
+[160.960s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/arch.h
+[160.960s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/xmlparser.h
+[160.961s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sockets.h
+[160.961s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/string.h
+[160.961s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sched.h
+[160.962s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/random.h
+[160.962s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/retcode.h
+[160.962s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sync
+[160.963s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sync/posix.h
+[160.963s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sync/windows.h
+[160.963s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/sync/freertos.h
+[160.964s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/environ.h
+[160.964s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/filesystem
+[160.964s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/filesystem/posix.h
+[160.965s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/filesystem/windows.h
+[160.965s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsrt/md5.h
+[160.965s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi
+[160.965s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_sertype.h
+[160.966s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_transmit.h
+[160.967s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_typewrap.h
+[160.967s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_rtps.h
+[160.967s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_receive.h
+[160.967s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_serdata_default.h
+[160.968s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_proxy_participant.h
+[160.968s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_tran.h
+[160.974s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_addrset.h
+[160.975s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_unused.h
+[160.975s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_guid.h
+[160.975s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/sysdeps.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_builtin_topic_if.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_protocol.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_bswap.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_shm_transport.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typeinfo.idl
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_acknack.h
+[160.976s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_xmsg.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_ddsi_discovery.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_list_genptr.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_inverse_uint32_set.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_typelookup.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typeinfo.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_domaingv.h
+[160.977s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_serdata_pserop.h
+[160.978s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typelookup.h
+[160.978s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_iid.h
+[160.978s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_log.h
+[160.978s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_init.h
+[160.978s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_qosmatch.h
+[160.983s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_serdata_plist.h
+[160.983s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_tkmap.h
+[160.984s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_ipaddr.h
+[160.984s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_mcgroup.h
+[160.984s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_entity.h
+[160.987s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_typelib.h
+[160.987s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_misc.h
+[160.987s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_feature_check.h
+[160.987s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_pmd.h
+[160.987s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_hbcontrol.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_ssl.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_participant.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typemap.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_plist.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_threadmon.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_topic.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_config.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_whc.h
+[160.988s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_security_msg.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_deliver_locally.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_deadline.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_cfgunits.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_cdrstream.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_rhc.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_portmapping.h
+[160.989s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_raweth.h
+[160.990s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_plist_generic.h
+[160.990s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_entity_match.h
+[160.990s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_serdata.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_lifespan.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_cfgelems.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_sertopic.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_vnet.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_time.h
+[160.991s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_ownip.h
+[160.992s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xqos.h
+[160.992s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_bitset.h
+[160.992s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_thread.h
+[160.992s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_list_tmpl.h
+[160.992s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_statistics.h
+[160.993s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_lease.h
+[160.993s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_proxy_endpoint.h
+[160.993s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_lat_estim.h
+[160.994s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_wraddrset.h
+[160.995s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_security_exchange.h
+[160.995s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typelookup.idl
+[160.995s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_keyhash.h
+[160.995s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_typebuilder.h
+[160.995s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_gc.h
+[160.996s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_debmon.h
+[160.996s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_impl.h
+[160.997s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_vendor.h
+[160.997s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_endpoint.h
+[160.997s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_xt_typemap.idl
+[160.998s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_locator.h
+[160.998s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_freelist.h
+[160.998s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_security_omg.h
+[160.999s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_xevent.h
+[160.999s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_config_impl.h
+[161.000s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_sockwaitset.h
+[161.000s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_tcp.h
+[161.000s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_security_util.h
+[161.001s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_entity_index.h
+[161.001s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_pcap.h
+[161.002s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/q_radmin.h
+[161.002s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_handshake.h
+[161.002s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/dds/ddsi/ddsi_udp.h
+[161.003s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx
+[161.003s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds
+[161.003s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain
+[161.003s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/find.hpp
+[161.004s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/discovery.hpp
+[161.004s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/TDomainParticipant.hpp
+[161.004s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/ddsdomain.hpp
+[161.004s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/detail
+[161.005s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/detail/TDomainParticipantImpl.hpp
+[161.005s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/detail/ddsdomain.hpp
+[161.005s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/detail/DomainParticipant.hpp
+[161.005s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/qos
+[161.006s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/qos/DomainParticipantQos.hpp
+[161.006s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/qos/detail
+[161.006s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/qos/detail/DomainParticipantQos.hpp
+[161.007s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/DomainParticipantListener.hpp
+[161.007s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/domain/DomainParticipant.hpp
+[161.008s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic
+[161.008s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TopicTraits.hpp
+[161.008s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TFilter.hpp
+[161.008s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/AnyTopic.hpp
+[161.009s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/Filter.hpp
+[161.009s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/Topic.hpp
+[161.009s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/ddstopic.hpp
+[161.009s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/MultiTopic.hpp
+[161.009s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/find.hpp
+[161.010s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/discovery.hpp
+[161.010s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/AnyTopicListener.hpp
+[161.011s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TopicInstance.hpp
+[161.011s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TMultiTopic.hpp
+[161.011s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TContentFilteredTopic.hpp
+[161.012s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TopicDescription.hpp
+[161.012s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/BuiltinTopic.hpp
+[161.012s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail
+[161.012s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/AnyTopic.hpp
+[161.012s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/Filter.hpp
+[161.013s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/Topic.hpp
+[161.013s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/ddstopic.hpp
+[161.022s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/MultiTopic.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/find.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TopicInstanceImpl.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/discovery.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TFilterImpl.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TopicDescription.hpp
+[161.023s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/BuiltinTopic.hpp
+[161.024s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TTopicImpl.hpp
+[161.024s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TTopicDescriptionImpl.hpp
+[161.024s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/BuiltinTopicKey.hpp
+[161.024s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TBuiltinTopicImpl.hpp
+[161.024s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/ContentFilteredTopic.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TContentFilteredTopicImpl.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TAnyTopicImpl.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/detail/TBuiltinTopicKeyImpl.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TTopic.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TTopicDescription.hpp
+[161.025s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/qos
+[161.026s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/qos/TopicQos.hpp
+[161.026s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/qos/detail
+[161.026s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/qos/detail/TopicQos.hpp
+[161.026s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TopicListener.hpp
+[161.026s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TBuiltinTopic.hpp
+[161.027s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/BuiltinTopicKey.hpp
+[161.027s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TAnyTopic.hpp
+[161.027s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/ContentFilteredTopic.hpp
+[161.027s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/topic/TBuiltinTopicKey.hpp
+[161.027s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/array.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/LengthUnlimited.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/TQosProvider.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/macros.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/ddscore.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Value.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/ref_traits.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/types.hpp
+[161.028s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Duration.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TDynamicType.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/Annotations.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TAnnotation.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TDynamicData.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/CollectionTypes.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/UnionCase.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/DynamicData.hpp
+[161.029s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TCollectionTypes.hpp
+[161.030s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/UnionType.hpp
+[161.030s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TMemberType.hpp
+[161.030s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail
+[161.032s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/CollectionTypes.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/UnionCase.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/DynamicData.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/UnionType.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/PrimitiveTypes.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/StructType.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/MemberType.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/TypeProvider.hpp
+[161.033s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/Annotation.hpp
+[161.034s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/detail/DynamicType.hpp
+[161.034s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TStructType.hpp
+[161.034s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/PrimitiveTypes.hpp
+[161.035s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/StructType.hpp
+[161.035s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/MemberType.hpp
+[161.035s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TypeKind.hpp
+[161.035s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TypeProvider.hpp
+[161.036s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/TTypeProvider.hpp
+[161.036s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/xtypes/DynamicType.hpp
+[161.036s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy
+[161.037s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/QosPolicyCount.hpp
+[161.038s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/CorePolicy.hpp
+[161.038s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/detail
+[161.038s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/detail/QosPolicyCount.hpp
+[161.039s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/detail/TQosPolicyCountImpl.hpp
+[161.039s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/detail/TCorePolicyImpl.hpp
+[161.039s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/detail/CorePolicy.hpp
+[161.039s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/TQosPolicyCount.hpp
+[161.040s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/PolicyKind.hpp
+[161.040s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/policy/TCorePolicy.hpp
+[161.040s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/TEntity.hpp
+[161.040s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/TEntityQos.hpp
+[161.041s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/SafeEnumeration.hpp
+[161.041s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/QosProvider.hpp
+[161.041s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail
+[161.042s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/array.hpp
+[161.043s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/macros.hpp
+[161.043s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/ddscore.hpp
+[161.043s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/Value.hpp
+[161.043s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/ReferenceImpl.hpp
+[161.043s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/module_docs.hpp
+[161.044s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/inttypes.hpp
+[161.044s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/ref_traits.hpp
+[161.044s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/old_win_stdint.h
+[161.044s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/TEntityQosImpl.hpp
+[161.044s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/TQosProviderImpl.hpp
+[161.045s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/QosProvider.hpp
+[161.045s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/TInstanceHandleImpl.hpp
+[161.045s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/InstanceHandle.hpp
+[161.045s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/conformance.hpp
+[161.049s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/TEntityImpl.hpp
+[161.050s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/Entity.hpp
+[161.050s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/export.hpp
+[161.050s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/WeakReferenceImpl.hpp
+[161.050s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/detail/BuiltinTopicTypes.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/TInstanceHandle.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Reference.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/WeakReference.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Optional.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/TBuiltinTopicTypes.hpp
+[161.051s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/InstanceHandle.hpp
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/conformance.hpp
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Entity.hpp
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/Status.hpp
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/State.hpp
+[161.052s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/TStatus.hpp
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/detail
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/detail/Status.hpp
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/status/detail/TStatusImpl.hpp
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Exception.hpp
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond
+[161.053s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/GuardCondition.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/StatusCondition.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/TStatusCondition.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/TGuardCondition.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/TWaitSet.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/Condition.hpp
+[161.054s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail
+[161.055s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/GuardCondition.hpp
+[161.055s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/StatusCondition.hpp
+[161.055s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/TGuardConditionImpl.hpp
+[161.055s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/Condition.hpp
+[161.056s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/TStatusConditionImpl.hpp
+[161.056s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/TWaitSetImpl.hpp
+[161.056s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/TConditionImpl.hpp
+[161.056s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/detail/WaitSet.hpp
+[161.056s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/TCondition.hpp
+[161.057s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/cond/WaitSet.hpp
+[161.057s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/BuiltinTopicTypes.hpp
+[161.057s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/refmacros.hpp
+[161.057s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/Time.hpp
+[161.057s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/core/External.hpp
+[161.058s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/LICENSE
+[161.059s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/dds.hpp
+[161.059s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/features.hpp
+[161.059s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub
+[161.059s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TSampleInfo.hpp
+[161.060s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TCoherentAccess.hpp
+[161.060s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/SampleInfo.hpp
+[161.060s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/Subscriber.hpp
+[161.060s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/GenerationCount.hpp
+[161.060s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TSample.hpp
+[161.061s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/SubscriberListener.hpp
+[161.061s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/find.hpp
+[161.061s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/Sample.hpp
+[161.062s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/discovery.hpp
+[161.062s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TQuery.hpp
+[161.062s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/ddssub.hpp
+[161.063s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/AnyDataReaderListener.hpp
+[161.063s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TSubscriber.hpp
+[161.063s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TDataReader.hpp
+[161.063s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/DataReaderListener.hpp
+[161.063s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/CoherentAccess.hpp
+[161.064s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TGenerationCount.hpp
+[161.064s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TSampleRef.hpp
+[161.064s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail
+[161.064s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TSampleInfoImpl.hpp
+[161.065s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/SampleInfo.hpp
+[161.065s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/Subscriber.hpp
+[161.065s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/GenerationCount.hpp
+[161.065s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/Manipulators.hpp
+[161.066s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/find.hpp
+[161.066s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/Sample.hpp
+[161.067s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/discovery.hpp
+[161.068s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TSubscriberImpl.hpp
+[161.068s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/ddssub.hpp
+[161.068s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/LoanedSamplesImpl.hpp
+[161.070s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TRankImpl.hpp
+[161.070s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TDataReaderImpl.hpp
+[161.071s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TSampleImpl.hpp
+[161.071s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TCoherentAccessImpl.hpp
+[161.071s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/CoherentAccess.hpp
+[161.072s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TSampleRefImpl.hpp
+[161.072s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/Rank.hpp
+[161.072s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/SharedSamplesImpl.hpp
+[161.072s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/SamplesHolder.hpp
+[161.072s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TAnyDataReaderImpl.hpp
+[161.073s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/Query.hpp
+[161.073s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TGenerationCountImpl.hpp
+[161.073s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/LoanedSamples.hpp
+[161.073s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/AnyDataReader.hpp
+[161.073s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/TQueryImpl.hpp
+[161.074s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/SampleRef.hpp
+[161.074s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/DataReader.hpp
+[161.074s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/detail/SharedSamples.hpp
+[161.074s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/Rank.hpp
+[161.075s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TRank.hpp
+[161.075s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos
+[161.075s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos/SubscriberQos.hpp
+[161.076s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos/DataReaderQos.hpp
+[161.076s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos/detail
+[161.076s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos/detail/SubscriberQos.hpp
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/qos/detail/DataReaderQos.hpp
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/Query.hpp
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/status
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/status/DataState.hpp
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/status/detail
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/status/detail/DataStateImpl.hpp
+[161.077s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/LoanedSamples.hpp
+[161.078s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/AnyDataReader.hpp
+[161.078s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond
+[161.078s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/QueryCondition.hpp
+[161.078s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/ReadCondition.hpp
+[161.078s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/detail
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/detail/QueryCondition.hpp
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/detail/ReadCondition.hpp
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/detail/TQueryConditionImpl.hpp
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/detail/TReadConditionImpl.hpp
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/TQueryCondition.hpp
+[161.079s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/cond/TReadCondition.hpp
+[161.080s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/TAnyDataReader.hpp
+[161.080s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/SampleRef.hpp
+[161.080s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/DataReader.hpp
+[161.080s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/sub/SharedSamples.hpp
+[161.080s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub
+[161.081s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/DataWriterListener.hpp
+[161.081s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/AnyDataWriterListener.hpp
+[161.081s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/DataWriter.hpp
+[161.081s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/find.hpp
+[161.082s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/discovery.hpp
+[161.082s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/SuspendedPublication.hpp
+[161.082s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/PublisherListener.hpp
+[161.082s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/TSuspendedPublication.hpp
+[161.083s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/TCoherentSet.hpp
+[161.083s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/CoherentSet.hpp
+[161.083s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail
+[161.084s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/TAnyDataWriterImpl.hpp
+[161.084s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/DataWriter.hpp
+[161.084s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/find.hpp
+[161.084s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/DataWriterImpl.hpp
+[161.085s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/discovery.hpp
+[161.085s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/SuspendedPublication.hpp
+[161.085s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/TPublisherImpl.hpp
+[161.085s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/CoherentSet.hpp
+[161.086s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/TCoherentSetImpl.hpp
+[161.086s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/AnyDataWriter.hpp
+[161.086s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/TSuspendedPublicationImpl.hpp
+[161.087s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/Publisher.hpp
+[161.087s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/detail/ddspub.hpp
+[161.087s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos
+[161.087s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos/DataWriterQos.hpp
+[161.088s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos/detail
+[161.088s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos/detail/DataWriterQos.hpp
+[161.088s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos/detail/PublisherQos.hpp
+[161.088s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/qos/PublisherQos.hpp
+[161.089s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/AnyDataWriter.hpp
+[161.089s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/TAnyDataWriter.hpp
+[161.090s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/Publisher.hpp
+[161.090s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/ddspub.hpp
+[161.091s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/dds/pub/TPublisher.hpp
+[161.091s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org
+[161.091s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse
+[161.091s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds
+[161.091s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain
+[161.092s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/DomainWrap.hpp
+[161.092s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/DomainParticipantRegistry.hpp
+[161.092s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/Domain.hpp
+[161.092s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/DomainParticipantDelegate.hpp
+[161.092s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/qos
+[161.093s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/qos/DomainParticipantQosDelegate.hpp
+[161.093s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/domain/DomainParticipantListener.hpp
+[161.093s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic
+[161.093s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/TopicTraits.hpp
+[161.094s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/AnyTopicDelegate.hpp
+[161.094s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/find.hpp
+[161.094s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/discovery.hpp
+[161.095s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/TopicDescriptionDelegate.hpp
+[161.095s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/AnyTopicListener.hpp
+[161.095s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/BuiltinTopicTraits.hpp
+[161.095s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/CDRBlob.hpp
+[161.096s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/BuiltinTopicKeyDelegate.hpp
+[161.096s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/FilterDelegate.hpp
+[161.096s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/BuiltinTopicDelegate.hpp
+[161.097s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/BuiltinTopic.hpp
+[161.097s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/datatopic.hpp
+[161.097s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/BuiltinTopicCopy.hpp
+[161.097s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/hash.hpp
+[161.098s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/qos
+[161.098s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/qos/TopicQosDelegate.hpp
+[161.098s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/TopicListener.hpp
+[161.099s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/topic/TBuiltinTopic.hpp
+[161.099s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core
+[161.099s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy
+[161.099s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy/PolicyDelegate.hpp
+[161.100s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy/ProprietaryPolicyKind.hpp
+[161.100s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy/TPolicy.hpp
+[161.100s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy/Policy.hpp
+[161.101s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/policy/QosPolicyCountDelegate.hpp
+[161.101s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/InstanceHandleDelegate.hpp
+[161.101s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/Missing.hpp
+[161.102s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/type_helpers.hpp
+[161.102s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/DDScObjectDelegate.hpp
+[161.102s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/Mutex.hpp
+[161.103s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/EntityDelegate.hpp
+[161.103s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/ReportUtils.hpp
+[161.103s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/ObjectDelegate.hpp
+[161.103s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/QosProviderDelegate.hpp
+[161.104s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/WeakReferenceSet.hpp
+[161.104s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/EntityRegistry.hpp
+[161.104s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/ListenerDispatcher.hpp
+[161.104s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/EntitySet.hpp
+[161.105s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/ObjectSet.hpp
+[161.105s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/MiscUtils.hpp
+[161.105s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/ScopedLock.hpp
+[161.105s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr
+[161.106s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/entity_properties.hpp
+[161.106s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/extended_cdr_v2_ser.hpp
+[161.106s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/basic_cdr_ser.hpp
+[161.107s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/fragchain.hpp
+[161.107s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/cdr_stream.hpp
+[161.107s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/extended_cdr_v1_ser.hpp
+[161.108s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cdr/cdr_enums.hpp
+[161.108s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/status
+[161.109s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/status/StatusDelegate.hpp
+[161.109s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond
+[161.109s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/ShadowParticipant.hpp
+[161.109s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/WaitSetDelegate.hpp
+[161.110s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/FunctorHolder.hpp
+[161.110s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/StatusConditionDelegate.hpp
+[161.110s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/ConditionDelegate.hpp
+[161.110s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/cond/GuardConditionDelegate.hpp
+[161.111s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/TimeHelper.hpp
+[161.111s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/core/config.hpp
+[161.111s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/ForwardDeclarations.hpp
+[161.111s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub
+[161.112s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/BuiltinSubscriberDelegate.hpp
+[161.112s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/RankImpl.hpp
+[161.112s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/SampleInfoImpl.hpp
+[161.112s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/AnyDataReaderDelegate.hpp
+[161.113s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/SubscriberDelegate.hpp
+[161.113s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/GenerationCountImpl.hpp
+[161.113s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/CoherentAccessDelegate.hpp
+[161.114s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/qos
+[161.114s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/qos/DataReaderQosDelegate.hpp
+[161.114s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/qos/SubscriberQosDelegate.hpp
+[161.115s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/QueryDelegate.hpp
+[161.115s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/cond
+[161.115s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/cond/ReadConditionDelegate.hpp
+[161.115s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/sub/cond/QueryConditionDelegate.hpp
+[161.116s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub
+[161.116s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/CoherentSetDelegate.hpp
+[161.116s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/PublisherDelegate.hpp
+[161.116s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/AnyDataWriterDelegate.hpp
+[161.117s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/SuspendedPublicationDelegate.hpp
+[161.117s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/qos
+[161.117s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/qos/PublisherQosDelegate.hpp
+[161.118s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddscxx/org/eclipse/cyclonedds/pub/qos/DataWriterQosDelegate.hpp
+[161.118s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddsc
+[161.118s] -- Installing: /workspace/repo/install_container/unitree_sdk2/include/ddsc/dds.h
+[161.130s] Invoked command in '/workspace/repo/build_container/unitree_sdk2' returned '0': /usr/bin/cmake --install /workspace/repo/build_container/unitree_sdk2

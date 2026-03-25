@@ -1,0 +1,42 @@
+running egg_info
+creating ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info
+writing ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/PKG-INFO
+writing dependency_links to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/dependency_links.txt
+writing entry points to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/entry_points.txt
+writing requirements to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/requires.txt
+writing top-level names to ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/top_level.txt
+writing manifest file '../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+reading manifest file '../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+writing manifest file '../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/repo/build_container/go2_apportation_mocks/build
+creating /workspace/repo/build_container/go2_apportation_mocks/build/lib
+creating /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks
+copying go2_apportation_mocks/mock_manipulation_server.py -> /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks
+copying go2_apportation_mocks/__init__.py -> /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks
+copying go2_apportation_mocks/mock_nav2_server.py -> /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks
+copying go2_apportation_mocks/scenario_config.py -> /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks
+running install
+running install_lib
+creating /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+copying /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks/mock_manipulation_server.py -> /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+copying /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks/__init__.py -> /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+copying /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks/mock_nav2_server.py -> /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+copying /workspace/repo/build_container/go2_apportation_mocks/build/lib/go2_apportation_mocks/scenario_config.py -> /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks
+byte-compiling /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/mock_manipulation_server.py to mock_manipulation_server.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/__init__.py to __init__.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/mock_nav2_server.py to mock_nav2_server.cpython-310.pyc
+byte-compiling /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks/scenario_config.py to scenario_config.cpython-310.pyc
+running install_data
+creating /workspace/repo/install_container/go2_apportation_mocks/share/ament_index
+creating /workspace/repo/install_container/go2_apportation_mocks/share/ament_index/resource_index
+creating /workspace/repo/install_container/go2_apportation_mocks/share/ament_index/resource_index/packages
+copying resource/go2_apportation_mocks -> /workspace/repo/install_container/go2_apportation_mocks/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/repo/install_container/go2_apportation_mocks/share/go2_apportation_mocks
+running install_egg_info
+Copying ../../build_container/go2_apportation_mocks/go2_apportation_mocks.egg-info to /workspace/repo/install_container/go2_apportation_mocks/lib/python3.10/site-packages/go2_apportation_mocks-0.0.0-py3.10.egg-info
+running install_scripts
+Installing mock_manipulation_server script to /workspace/repo/install_container/go2_apportation_mocks/lib/go2_apportation_mocks
+Installing mock_nav2_server script to /workspace/repo/install_container/go2_apportation_mocks/lib/go2_apportation_mocks
+writing list of installed files to '/workspace/repo/build_container/go2_apportation_mocks/install.log'

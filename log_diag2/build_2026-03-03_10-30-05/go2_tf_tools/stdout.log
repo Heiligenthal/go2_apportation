@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info
+writing ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/PKG-INFO
+writing dependency_links to ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/dependency_links.txt
+writing entry points to ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/entry_points.txt
+writing requirements to ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/requires.txt
+writing top-level names to ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/top_level.txt
+writing manifest file '../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+reading manifest file '../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+writing manifest file '../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /workspace/repo/build_diag2/go2_tf_tools/build
+creating /workspace/repo/build_diag2/go2_tf_tools/build/lib
+creating /workspace/repo/build_diag2/go2_tf_tools/build/lib/go2_tf_tools
+copying go2_tf_tools/odom_to_tf_broadcaster.py -> /workspace/repo/build_diag2/go2_tf_tools/build/lib/go2_tf_tools
+copying go2_tf_tools/__init__.py -> /workspace/repo/build_diag2/go2_tf_tools/build/lib/go2_tf_tools
+running install
+running install_lib
+creating /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+copying /workspace/repo/build_diag2/go2_tf_tools/build/lib/go2_tf_tools/odom_to_tf_broadcaster.py -> /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+copying /workspace/repo/build_diag2/go2_tf_tools/build/lib/go2_tf_tools/__init__.py -> /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools
+byte-compiling /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/odom_to_tf_broadcaster.py to odom_to_tf_broadcaster.cpython-310.pyc
+byte-compiling /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /workspace/repo/install_diag2/go2_tf_tools/share/ament_index
+creating /workspace/repo/install_diag2/go2_tf_tools/share/ament_index/resource_index
+creating /workspace/repo/install_diag2/go2_tf_tools/share/ament_index/resource_index/packages
+copying resource/go2_tf_tools -> /workspace/repo/install_diag2/go2_tf_tools/share/ament_index/resource_index/packages
+copying package.xml -> /workspace/repo/install_diag2/go2_tf_tools/share/go2_tf_tools
+running install_egg_info
+Copying ../../build_diag2/go2_tf_tools/go2_tf_tools.egg-info to /workspace/repo/install_diag2/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info
+running install_scripts
+Installing odom_to_tf_broadcaster script to /workspace/repo/install_diag2/go2_tf_tools/lib/go2_tf_tools
+writing list of installed files to '/workspace/repo/build_diag2/go2_tf_tools/install.log'

@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+../../../build_container/speech_processor/speech_processor.egg-info/PKG-INFO
+../../../build_container/speech_processor/speech_processor.egg-info/SOURCES.txt
+../../../build_container/speech_processor/speech_processor.egg-info/dependency_links.txt
+../../../build_container/speech_processor/speech_processor.egg-info/entry_points.txt
+../../../build_container/speech_processor/speech_processor.egg-info/requires.txt
+../../../build_container/speech_processor/speech_processor.egg-info/top_level.txt
+../../../build_container/speech_processor/speech_processor.egg-info/zip-safe
+resource/speech_processor
+speech_processor/__init__.py
+speech_processor/tts_node.py

@@ -1,0 +1,72 @@
+# config/contracts.yaml
+# Technical mirror of the runtime contract macros/values from docs/Projektarbeit_dokument_002.
+# This file is NOT a new functional source of truth.
+
+source:
+  document: docs/Projektarbeit_dokument_002
+  role: technical_mirror_only
+
+topics:
+  odom_topic: "/odom"
+  cmd_vel_topic: "/cmd_vel"
+  cmd_vel_nav_topic: "/nav2/cmd_vel"
+  cmd_vel_nav2_runtime_topic: "/cmd_vel_nav2"
+  lidar_cloud_topic: "/lidar/points"
+  rgb_topic: "/camera/realsense2_camera/color/image_raw"
+  depth_topic: "/camera/realsense2_camera/aligned_depth_to_color/image_raw"
+  camera_info_topic: "/camera/realsense2_camera/color/camera_info"
+  imu_topic: ""
+  look_yaw_delta_topic: "/look_yaw_delta"
+  balance_rpy_cmd_topic: "/balance_rpy_cmd"
+  control_mode_cmd_topic: "/control_mode_cmd"
+  person_visible_topic: "/perception/person_visible"
+  person_pose_topic: "/perception/person_pose"
+  person_last_seen_topic: "/perception/person_last_seen"
+  object_visible_topic: "/perception/object_visible"
+  object_pose_6d_topic: "/perception/object_pose_6d"
+  object_last_seen_topic: "/perception/object_last_seen"
+  detections3d_fast_topic: "/tracking/detections3d_fast"
+  object_state_topic: "/tracking/object_state"
+  throw_status_topic: "/tracking/throw_status"
+  predicted_region_topic: "/tracking/predicted_region"
+  intercept_goal_topic: "/tracking/intercept_goal"
+  tracking_directive_topic: "/tracking/tracking_directive"
+
+sensor_baselines:
+  d415_imu:
+    enabled: false
+    note: "D415 baseline without camera IMU; external IMU (e.g. Go2 body IMU) remains optional and is documented separately."
+
+frames:
+  map: "map"
+  odom: "odom"
+  base_link: "base_link"
+  base_link_nav2: "base_link_nav2"
+  camera_link: "camera_link"
+  lidar_frame: "lidar_frame"
+  imu_link: "imu_link"
+
+notes:
+  - "technical_mirror_only: changes must follow docs/Projektarbeit_dokument_002, not the other way around."
+  - "CmdVelNavTopic is now defined in the document macro block and mirrored here as /nav2/cmd_vel."
+  - "Person freeze mirror: /perception/person_visible, /perception/person_pose, /perception/person_last_seen."
+  - "Frame binding for person_pose and person_last_seen: map."
+  - "Cube/tracking freeze mirror: /perception/object_visible, /perception/object_pose_6d, /perception/object_last_seen, /tracking/detections3d_fast."
+  - "Public wire type freeze: /tracking/detections3d_fast uses go2_apportation_msgs/Detection3DArray."
+  - "Tracking state freeze mirror: /tracking/object_state uses go2_apportation_msgs/ObjectState; /tracking/throw_status uses go2_apportation_msgs/ThrowStatus."
+  - "ObjectState minimal semantics: odom-guided object state for prediction/ETA with pose, velocity and covariance meaning; no motion semantics."
+  - "ThrowStatus freeze states: IDLE, HELD, RELEASE_SUSPECTED, THROWN, LANDED, LOST."
+  - "Tracking/intercept freeze mirror: /tracking/predicted_region uses go2_apportation_msgs/PredictedRegion; /tracking/intercept_goal uses go2_apportation_msgs/InterceptGoal."
+  - "Project-freeze: PredictedRegion and InterceptGoal are publicly map-based contracts; odom may remain an internal/local derivation only."
+  - "PredictedRegion and InterceptGoal remain motion-free tracking outputs; no cmd_vel, velocity or controller-command semantics are part of the public contract."
+  - "Project-freeze runtime contracts: /cmd_vel_nav2, /look_yaw_delta, /balance_rpy_cmd, /control_mode_cmd, /tracking/tracking_directive, frame base_link_nav2."
+  - "Project-freeze: base_link_nav2 is the official technical runtime integration frame; odom_nav2 is not a productive standard and remains legacy/debug only."
+  - "Project-freeze: /control_mode_cmd supports velocity_move and balance_stand."
+  - "Project-freeze: look regulation is direct Perception/Tracking -> Bridge and not routed through the orchestrator."
+  - "Project-freeze: SEARCH_OBJECT_LOCAL remains in velocity_move."
+  - "Project-freeze: /tracking/tracking_directive uses go2_apportation_msgs/TrackingDirective as a compact discrete recommendation channel without geometry."
+  - "ObjectState and fast/raw tracking stay odom-oriented; project-freeze public PredictedRegion/InterceptGoal are map-based; PRECISE/pick pose must carry a valid frame_id and remain TF-transformable to odom/map."
+  - "Current agreed freeze keeps /perception/object_last_seen in map; document 002 still describes object_last_seen as odom-guided and needs harmonization."
+  - "Tracking/prediction shared surface does not include motion commands; it publishes state/prediction only."
+  - "This partial mirror keeps /navigate_to_pose as the currently binding navigation surface for return/follow-related orchestration."
+  - "follow_waypoints is intentionally not mirrored here as part of the current minimal required shared surface."

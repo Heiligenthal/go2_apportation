@@ -1,0 +1,1 @@
+Invoking command in '/workspace/repo/build_container/go2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspace/repo/build_container/go2_interfaces -- -j6 -l6

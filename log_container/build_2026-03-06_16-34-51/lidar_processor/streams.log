@@ -1,0 +1,21 @@
+[2.772s] Invoking command in '/workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor': PYTHONPATH=/workspace/repo/build_container/lidar_processor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/workspace/repo/install_container/lidar_processor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build_container/lidar_processor build --build-base /workspace/repo/build_container/lidar_processor/build install --record /workspace/repo/build_container/lidar_processor/install.log --single-version-externally-managed install_data
+[3.477s] running egg_info
+[3.477s] writing ../../../build_container/lidar_processor/lidar_processor.egg-info/PKG-INFO
+[3.477s] writing dependency_links to ../../../build_container/lidar_processor/lidar_processor.egg-info/dependency_links.txt
+[3.477s] writing entry points to ../../../build_container/lidar_processor/lidar_processor.egg-info/entry_points.txt
+[3.477s] writing requirements to ../../../build_container/lidar_processor/lidar_processor.egg-info/requires.txt
+[3.477s] writing top-level names to ../../../build_container/lidar_processor/lidar_processor.egg-info/top_level.txt
+[3.477s] reading manifest file '../../../build_container/lidar_processor/lidar_processor.egg-info/SOURCES.txt'
+[3.477s] writing manifest file '../../../build_container/lidar_processor/lidar_processor.egg-info/SOURCES.txt'
+[3.478s] running build
+[3.478s] running build_py
+[3.478s] running install
+[3.478s] running install_lib
+[3.478s] running install_data
+[3.478s] running install_egg_info
+[3.478s] removing '/workspace/repo/install_container/lidar_processor/lib/python3.10/site-packages/lidar_processor-1.0.0-py3.10.egg-info' (and everything under it)
+[3.478s] Copying ../../../build_container/lidar_processor/lidar_processor.egg-info to /workspace/repo/install_container/lidar_processor/lib/python3.10/site-packages/lidar_processor-1.0.0-py3.10.egg-info
+[3.479s] running install_scripts
+[3.481s] Installing lidar_to_pointcloud script to /workspace/repo/install_container/lidar_processor/lib/lidar_processor
+[3.482s] Installing pointcloud_aggregator script to /workspace/repo/install_container/lidar_processor/lib/lidar_processor
+[3.482s] writing list of installed files to '/workspace/repo/build_container/lidar_processor/install.log'

@@ -1,0 +1,401 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)
+-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /workspace/repo/build_diag2/go2_apportation_msgs
+[  1%] Generating C code for ROS interfaces
+[  2%] Generating C++ code for ROS interfaces
+[  2%] Built target ament_cmake_python_copy_go2_apportation_msgs
+running egg_info
+creating go2_apportation_msgs.egg-info
+writing go2_apportation_msgs.egg-info/PKG-INFO
+writing dependency_links to go2_apportation_msgs.egg-info/dependency_links.txt
+writing top-level names to go2_apportation_msgs.egg-info/top_level.txt
+writing manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'
+reading manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'
+writing manifest file 'go2_apportation_msgs.egg-info/SOURCES.txt'
+[  2%] Built target ament_cmake_python_build_go2_apportation_msgs_egg
+[  4%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/msg/detail/detection3_d__functions.c.o
+[  5%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/msg/detail/detection3_d_array__functions.c.o
+[  7%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/msg/detail/object_state__functions.c.o
+[  8%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/msg/detail/throw_status__functions.c.o
+[  9%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/action/detail/pick_object__functions.c.o
+[  9%] Built target go2_apportation_msgs__cpp
+[ 11%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_c.dir/rosidl_generator_c/go2_apportation_msgs/srv/detail/release_object__functions.c.o
+[ 12%] Generating C++ type support dispatch for ROS interfaces
+[ 14%] Generating C++ introspection for ROS interfaces
+[ 15%] Generating C++ type support for eProsima Fast-RTPS
+[ 16%] Linking C shared library libgo2_apportation_msgs__rosidl_generator_c.so
+[ 16%] Built target go2_apportation_msgs__rosidl_generator_c
+[ 18%] Generating C type support dispatch for ROS interfaces
+[ 19%] Generating C introspection for ROS interfaces
+[ 21%] Generating C type support for eProsima Fast-RTPS
+[ 22%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/msg/detection3_d__type_support.cpp.o
+[ 23%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/msg/detail/detection3_d__type_support.cpp.o
+[ 25%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/msg/detection3_d__type_support.cpp.o
+[ 26%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/msg/detection3_d_array__type_support.cpp.o
+[ 28%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/msg/detail/dds_fastrtps/detection3_d__type_support.cpp.o
+[ 29%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/msg/detection3_d_array__type_support.cpp.o
+[ 30%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/msg/object_state__type_support.cpp.o
+[ 32%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/msg/throw_status__type_support.cpp.o
+[ 33%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/action/pick_object__type_support.cpp.o
+[ 35%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/msg/detail/detection3_d__type_support.c.o
+[ 36%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/go2_apportation_msgs/srv/release_object__type_support.cpp.o
+[ 38%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.c.o
+[ 39%] Linking CXX shared library libgo2_apportation_msgs__rosidl_typesupport_c.so
+[ 40%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d__type_support_c.cpp.o
+[ 42%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/msg/detail/object_state__type_support.c.o
+[ 42%] Built target go2_apportation_msgs__rosidl_typesupport_c
+[ 43%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/msg/detail/throw_status__type_support.c.o
+[ 45%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/action/detail/pick_object__type_support.c.o
+[ 46%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.cpp.o
+[ 47%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/detection3_d_array__type_support_c.cpp.o
+[ 49%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/go2_apportation_msgs/srv/detail/release_object__type_support.c.o
+[ 50%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/msg/object_state__type_support.cpp.o
+[ 52%] Linking C shared library libgo2_apportation_msgs__rosidl_typesupport_introspection_c.so
+[ 52%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c
+[ 53%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/msg/throw_status__type_support.cpp.o
+[ 54%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/msg/detail/dds_fastrtps/detection3_d_array__type_support.cpp.o
+[ 56%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/object_state__type_support_c.cpp.o
+[ 57%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/action/pick_object__type_support.cpp.o
+[ 59%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/msg/detail/throw_status__type_support_c.cpp.o
+[ 60%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/go2_apportation_msgs/srv/release_object__type_support.cpp.o
+[ 61%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/msg/detail/object_state__type_support.cpp.o
+[ 63%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/action/detail/pick_object__type_support_c.cpp.o
+[ 64%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/msg/detail/dds_fastrtps/object_state__type_support.cpp.o
+[ 66%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/go2_apportation_msgs/srv/detail/release_object__type_support_c.cpp.o
+[ 67%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/msg/detail/throw_status__type_support.cpp.o
+[ 69%] Linking CXX shared library libgo2_apportation_msgs__rosidl_typesupport_cpp.so
+[ 69%] Built target go2_apportation_msgs__rosidl_typesupport_cpp
+[ 70%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/action/detail/pick_object__type_support.cpp.o
+[ 71%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/go2_apportation_msgs/srv/detail/release_object__type_support.cpp.o
+[ 73%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/msg/detail/dds_fastrtps/throw_status__type_support.cpp.o
+[ 74%] Linking CXX shared library libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so
+[ 76%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/action/detail/dds_fastrtps/pick_object__type_support.cpp.o
+[ 77%] Building CXX object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/go2_apportation_msgs/srv/detail/dds_fastrtps/release_object__type_support.cpp.o
+[ 77%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c
+[ 78%] Linking CXX shared library libgo2_apportation_msgs__rosidl_typesupport_introspection_cpp.so
+[ 78%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_cpp
+[ 80%] Linking CXX shared library libgo2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.so
+[ 80%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_cpp
+[ 80%] Built target go2_apportation_msgs
+[ 81%] Generating Python code for ROS interfaces
+[ 81%] Built target go2_apportation_msgs__py
+[ 85%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/msg/_throw_status_s.c.o
+[ 85%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/msg/_detection3_d_s.c.o
+[ 87%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/msg/_object_state_s.c.o
+[ 85%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/msg/_detection3_d_array_s.c.o
+[ 88%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/action/_pick_object_s.c.o
+[ 90%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_generator_py.dir/rosidl_generator_py/go2_apportation_msgs/srv/_release_object_s.c.o
+[ 91%] Linking C shared library rosidl_generator_py/go2_apportation_msgs/libgo2_apportation_msgs__rosidl_generator_py.so
+[ 91%] Built target go2_apportation_msgs__rosidl_generator_py
+[ 95%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_c.c.o
+[ 95%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[ 95%] Building C object CMakeFiles/go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[ 98%] Linking C shared library rosidl_generator_py/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[ 98%] Linking C shared library rosidl_generator_py/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[100%] Linking C shared library rosidl_generator_py/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[100%] Built target go2_apportation_msgs__rosidl_typesupport_c__pyext
+[100%] Built target go2_apportation_msgs__rosidl_typesupport_fastrtps_c__pyext
+[100%] Built target go2_apportation_msgs__rosidl_typesupport_introspection_c__pyext
+-- Install configuration: ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/ament_index/resource_index/rosidl_interfaces/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__functions.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.sh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/library_path.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_c.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.c
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_c.h
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detection3_d_array.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__struct.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__struct.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__struct.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__struct.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/object_state.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/throw_status.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/release_object.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__struct.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__traits.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__builder.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__struct.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/pick_object.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/dds_fastrtps
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/dds_fastrtps
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/dds_fastrtps
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/object_state__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/throw_status__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/msg/detail/detection3_d_array__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/srv/detail/release_object__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action
+-- Up-to-date: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/include/go2_apportation_msgs/go2_apportation_msgs/action/detail/pick_object__type_support.cpp
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_typesupport_cpp.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.sh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/pythonpath.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_c.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/__init__.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status_s.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array_s.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/__init__.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_s.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state_s.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object_s.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/__init__.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/libgo2_apportation_msgs__rosidl_generator_py.so
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/_go2_apportation_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/__init__.py
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object_s.c
+Listing '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/__init__.py'...
+Listing '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/__init__.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/action/_pick_object.py'...
+Listing '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/__init__.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_detection3_d_array.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_object_state.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/msg/_throw_status.py'...
+Listing '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/__init__.py'...
+Compiling '/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/srv/_release_object.py'...
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/local/lib/python3.10/dist-packages/go2_apportation_msgs/go2_apportation_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_py.so
+-- Set runtime path of "/workspace/repo/install_diag2/go2_apportation_msgs/lib/libgo2_apportation_msgs__rosidl_generator_py.so" to ""
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.idl
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3D.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/Detection3DArray.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/ObjectState.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/msg/ThrowStatus.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/action/PickObject.action
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject.srv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Request.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/srv/ReleaseObject_Response.msg
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/ament_index/resource_index/package_run_dependencies/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/ament_index/resource_index/parent_prefix_path/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.sh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/ament_prefix_path.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.sh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/environment/path.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.bash
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.sh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.zsh
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/local_setup.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/package.dsv
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/ament_index/resource_index/packages/go2_apportation_msgs
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/export_go2_apportation_msgs__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/cmake/go2_apportation_msgsConfig-version.cmake
+-- Installing: /workspace/repo/install_diag2/go2_apportation_msgs/share/go2_apportation_msgs/package.xml

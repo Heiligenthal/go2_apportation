@@ -1,0 +1,14 @@
+std_msgs/Header header
+geometry_msgs/PoseStamped target_pose
+uint32 object_class_id
+float32 position_tolerance_m
+float32 orientation_tolerance_rad
+bool allow_replan
+---
+bool success
+uint16 result_code
+string message
+geometry_msgs/PoseStamped grasp_pose_used
+---
+uint8 stage
+string stage_text

@@ -1,0 +1,51 @@
+[0.619s] Invoking command in '/workspace/repo/build_container/go2_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspace/repo/build_container/go2_description -- -j6 -l6
+[1.568s] Invoked command in '/workspace/repo/build_container/go2_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspace/repo/build_container/go2_description -- -j6 -l6
+[1.571s] Invoking command in '/workspace/repo/build_container/go2_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspace/repo/build_container/go2_description
+[1.705s] -- Install configuration: ""
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/urdf
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/urdf/go2.urdf
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/hip.dae
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/calf_mirror.dae
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/thigh.dae
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/trunk.dae
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/foot.dae
+[1.706s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/calf.dae
+[1.707s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/meshes/thigh_mirror.dae
+[1.707s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae
+[1.707s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/hip.dae
+[1.722s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/calf_mirror.dae
+[1.722s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/base.dae
+[1.722s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/thigh.dae
+[1.722s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/foot.dae
+[1.722s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/calf.dae
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/dae/thigh_mirror.dae
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/materials.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/robot.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/transmission.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/const.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/gazebo.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/xacro/leg.xacro
+[1.723s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/base_link_bridge.launch.py
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__/robot_state_publisher.launch.cpython-38.pyc
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/__pycache__/base_link_bridge.launch.cpython-38.pyc
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/launch/robot_state_publisher.launch.py
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/package_run_dependencies/go2_description
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/parent_prefix_path/go2_description
+[1.724s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/ament_prefix_path.sh
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/ament_prefix_path.dsv
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/path.sh
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/environment/path.dsv
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.bash
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.sh
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.zsh
+[1.725s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/local_setup.dsv
+[1.726s] -- Installing: /workspace/repo/install_container/go2_description/share/go2_description/package.dsv
+[1.726s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/ament_index/resource_index/packages/go2_description
+[1.726s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/cmake/go2_descriptionConfig.cmake
+[1.726s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/cmake/go2_descriptionConfig-version.cmake
+[1.726s] -- Up-to-date: /workspace/repo/install_container/go2_description/share/go2_description/package.xml
+[1.783s] Invoked command in '/workspace/repo/build_container/go2_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspace/repo/build_container/go2_description

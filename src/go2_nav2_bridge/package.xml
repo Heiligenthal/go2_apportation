@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>go2_nav2_bridge</name>
+  <version>0.3.0</version>
+  <description>Bridge between Nav2 and the Unitree Go2 sport mode API using a virtual Nav2 base frame.</description>
+
+  <maintainer email="todo@example.com">TODO</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>unitree_api</depend>
+  <depend>unitree_go</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

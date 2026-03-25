@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <n>go2_d1_550_bringup</n>
+  <version>0.1.0</version>
+  <description>
+    Bringup package for Go2 EDU + D1-550.
+    Contains SDK bridge node and real-hardware launch files.
+  </description>
+  <maintainer email="your@email.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>go2_d1_550_moveit_config</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>trajectory_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

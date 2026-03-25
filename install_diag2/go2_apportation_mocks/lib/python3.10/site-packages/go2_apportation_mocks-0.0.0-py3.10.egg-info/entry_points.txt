@@ -1,0 +1,4 @@
+[console_scripts]
+mock_manipulation_server = go2_apportation_mocks.mock_manipulation_server:main
+mock_nav2_server = go2_apportation_mocks.mock_nav2_server:main
+

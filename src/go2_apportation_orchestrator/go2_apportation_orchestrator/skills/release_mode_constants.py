@@ -1,0 +1,23 @@
+from __future__ import annotations
+
+# Baseline constants from Document 002 / ReleaseObject.srv
+# Wire-level release modes stay mode-centric. Mission-level interpretation may
+# further combine (release_mode, result_code) without changing these constants.
+RELEASE_MODE_OPEN_GRIPPER = 0
+RELEASE_MODE_DROP_SAFE = 1
+RELEASE_MODE_HANDOVER_RELEASE = 2
+
+_DEFAULT_RELEASE_MODE_NAME = "OPEN_GRIPPER"
+
+_RELEASE_MODE_BY_NAME: dict[str, int] = {
+    "OPEN_GRIPPER": RELEASE_MODE_OPEN_GRIPPER,
+    "DROP_SAFE": RELEASE_MODE_DROP_SAFE,
+    "HANDOVER_RELEASE": RELEASE_MODE_HANDOVER_RELEASE,
+}
+
+
+def resolve_release_mode_value(mode: str | None) -> int:
+    normalized = (mode or "").strip().upper()
+    if not normalized:
+        normalized = _DEFAULT_RELEASE_MODE_NAME
+    return _RELEASE_MODE_BY_NAME.get(normalized, RELEASE_MODE_OPEN_GRIPPER)

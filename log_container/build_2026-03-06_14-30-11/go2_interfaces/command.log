@@ -1,0 +1,1 @@
+Invoking command in '/workspace/repo/build_container/go2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspace/repo/community_sdk/go2_ros2_sdk-master/go2_interfaces -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/go2_interfaces

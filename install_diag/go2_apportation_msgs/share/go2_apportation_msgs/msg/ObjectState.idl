@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from go2_apportation_msgs/msg/ObjectState.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseWithCovariance.idl"
+#include "geometry_msgs/msg/TwistWithCovariance.idl"
+#include "std_msgs/msg/Header.idl"
+
+module go2_apportation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Phase-1 stub inferred from Document 002 text: pose + velocity + covariance for /tracking/object_state")
+    struct ObjectState {
+      std_msgs::msg::Header header;
+
+      geometry_msgs::msg::PoseWithCovariance pose;
+
+      geometry_msgs::msg::TwistWithCovariance twist;
+    };
+  };
+};

@@ -1,0 +1,52 @@
+[0.052s] Invoking command in '/workspace/repo/build_container/lidar_processor_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor_cpp -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/lidar_processor_cpp
+[0.261s] -- The C compiler identification is GNU 11.4.0
+[0.415s] -- The CXX compiler identification is GNU 11.4.0
+[0.446s] -- Detecting C compiler ABI info
+[0.740s] -- Detecting C compiler ABI info - done
+[0.755s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.770s] -- Detecting C compile features
+[0.772s] -- Detecting C compile features - done
+[0.800s] -- Detecting CXX compiler ABI info
+[1.319s] -- Detecting CXX compiler ABI info - done
+[1.330s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.341s] -- Detecting CXX compile features
+[1.342s] -- Detecting CXX compile features - done
+[1.354s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.981s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.269s] -- Found rclcpp: 16.0.17 (/opt/ros/humble/share/rclcpp/cmake)
+[3.274s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.274s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.274s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.274s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.275s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.275s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.275s] -- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.275s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[3.275s] -- Found FastRTPS: /opt/ros/humble/include  
+[3.275s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.275s] -- Looking for pthread.h
+[3.275s] -- Looking for pthread.h - found
+[3.276s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.276s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.276s] -- Found Threads: TRUE  
+[3.295s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[3.369s] CMake Error at CMakeLists.txt:23 (find_package):
+[3.370s]   By not providing "Findpcl_ros.cmake" in CMAKE_MODULE_PATH this project has
+[3.370s]   asked CMake to find a package configuration file provided by "pcl_ros", but
+[3.370s]   CMake did not find one.
+[3.370s] 
+[3.370s]   Could not find a package configuration file provided by "pcl_ros" with any
+[3.370s]   of the following names:
+[3.370s] 
+[3.370s]     pcl_rosConfig.cmake
+[3.370s]     pcl_ros-config.cmake
+[3.371s] 
+[3.371s]   Add the installation prefix of "pcl_ros" to CMAKE_PREFIX_PATH or set
+[3.371s]   "pcl_ros_DIR" to a directory containing one of the above files.  If
+[3.371s]   "pcl_ros" provides a separate development package or SDK, be sure it has
+[3.371s]   been installed.
+[3.371s] 
+[3.371s] 
+[3.371s] -- Configuring incomplete, errors occurred!
+[3.372s] See also "/workspace/repo/build_container/lidar_processor_cpp/CMakeFiles/CMakeOutput.log".
+[3.392s] Invoked command in '/workspace/repo/build_container/lidar_processor_cpp' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /workspace/repo/community_sdk/go2_ros2_sdk-master/lidar_processor_cpp -DCMAKE_INSTALL_PREFIX=/workspace/repo/install_container/lidar_processor_cpp
