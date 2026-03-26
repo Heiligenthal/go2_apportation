@@ -62,12 +62,12 @@ Visualization Manager:
       Name: LiDARCloud
       Enabled: true
       Topic:
-        Value: /utlidar/cloud
+        Value: /manual_calibration/lidar_cloud
         Reliability Policy: Best Effort
         Durability Policy: Volatile
         History Policy: Keep Last
         Depth: 5
-      Size (Pixels): 3
+      Size (Pixels): 2
       Style: Flat Squares
       Color Transformer: Intensity
       Use Fixed Frame: true
@@ -77,12 +77,12 @@ Visualization Manager:
       Name: CameraCloud
       Enabled: true
       Topic:
-        Value: /camera/realsense2_camera/depth/color/points
+        Value: /manual_calibration/camera_cloud
         Reliability Policy: Best Effort
         Durability Policy: Volatile
         History Policy: Keep Last
         Depth: 5
-      Size (Pixels): 2
+      Size (Pixels): 1
       Style: Flat Squares
       Color Transformer: RGB8
       Use Fixed Frame: true

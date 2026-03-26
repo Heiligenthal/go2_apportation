@@ -20,6 +20,7 @@ setup(
     entry_points={
         "console_scripts": [
             "odom_to_tf_broadcaster = go2_tf_tools.odom_to_tf_broadcaster:main",
+            "zero_joint_state_publisher = go2_tf_tools.zero_joint_state_publisher:main",
         ],
     },
 )

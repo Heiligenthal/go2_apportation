@@ -1,0 +1,30 @@
+.git
+artifacts
+build
+build_container
+install
+install_container
+log
+.pydeps
+.venvs
+.vscode
+**/__pycache__
+*.pyc
+frames_*.pdf
+frames_*.gv
+EOFcd ~/go2_apportation
+cat > .dockerignore <<'EOF'
+.git
+artifacts
+build
+build_container
+install
+install_container
+log
+.pydeps
+.venvs
+.vscode
+**/__pycache__
+*.pyc
+frames_*.pdf
+frames_*.gv

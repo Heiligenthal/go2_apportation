@@ -10,4 +10,5 @@ setup.py
 ../../build_container/go2_tf_tools/go2_tf_tools.egg-info/zip-safe
 go2_tf_tools/__init__.py
 go2_tf_tools/odom_to_tf_broadcaster.py
+go2_tf_tools/zero_joint_state_publisher.py
 resource/go2_tf_tools

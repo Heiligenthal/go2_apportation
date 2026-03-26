@@ -8,7 +8,7 @@ STDOUT_LOG="${ARTIFACT_DIR}/docker_build.stdout.log"
 STDERR_LOG="${ARTIFACT_DIR}/docker_build.stderr.log"
 IMAGE_TAG="go2_board_runtime:humble"
 DOCKERFILE_PATH="${ROOT_DIR}/docker/Dockerfile.board_runtime"
-INCLUDED_PACKAGES="ros-humble-realsense2-camera ros-humble-rtabmap-ros ros-humble-slam-toolbox ros-humble-nav2-map-server ros-humble-pointcloud-to-laserscan"
+INCLUDED_PACKAGES="ros-humble-realsense2-camera ros-humble-rviz2 ros-humble-rtabmap-ros ros-humble-slam-toolbox ros-humble-nav2-map-server ros-humble-pointcloud-to-laserscan"
 
 mkdir -p "${ARTIFACT_DIR}"
 

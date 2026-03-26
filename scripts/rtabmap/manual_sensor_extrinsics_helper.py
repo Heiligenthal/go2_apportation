@@ -85,7 +85,55 @@ def parse_triplet(value: str, *, cast=float) -> list[float]:
     return [cast(part) for part in parts]
 
 
+def latest_manual_calibration_dir() -> Path | None:
+    latest_link = MANUAL_ROOT / "latest"
+    if latest_link.is_symlink():
+        resolved = Path(os.readlink(latest_link))
+        if not resolved.is_absolute():
+            resolved = (MANUAL_ROOT / resolved).resolve()
+        if resolved.is_dir():
+            return resolved
+
+    candidates = sorted(
+        (path for path in MANUAL_ROOT.glob("*") if path.is_dir()),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    return candidates[0] if candidates else None
+
+
+def latest_manual_env_candidates() -> list[Path]:
+    latest_dir = latest_manual_calibration_dir()
+    if latest_dir is None:
+        return []
+    return [
+        latest_dir / "manual_sensor_extrinsics.env",
+        latest_dir / "camera_manual_extrinsics.env",
+        latest_dir / "lidar_manual_extrinsics.env",
+    ]
+
+
 def load_initial_camera_state(logs: list[str]) -> ExtrinsicsState:
+    manual_dir = latest_manual_calibration_dir()
+    if manual_dir is not None:
+        manual_env = manual_dir / "manual_sensor_extrinsics.env"
+        if manual_env.is_file():
+            values = parse_env_file(manual_env)
+            xyz_value = values.get("CAMERA_XYZ")
+            rpy_value = values.get("CAMERA_RPY")
+            if xyz_value and rpy_value:
+                logs.append(f"camera init: loaded latest manual calibration from {manual_env}")
+                return ExtrinsicsState(parse_triplet(xyz_value), parse_triplet(rpy_value))
+
+        camera_env = manual_dir / "camera_manual_extrinsics.env"
+        if camera_env.is_file():
+            values = parse_env_file(camera_env)
+            xyz_value = values.get("CAMERA_XYZ")
+            rpy_value = values.get("CAMERA_RPY")
+            if xyz_value and rpy_value:
+                logs.append(f"camera init: loaded manual camera values from {camera_env}")
+                return ExtrinsicsState(parse_triplet(xyz_value), parse_triplet(rpy_value))
+
     env_path = latest_camera_calibration_env()
     if env_path is None:
         logs.append("camera init: no camera-mount calibration found; starting from zeros")
@@ -107,6 +155,28 @@ def load_initial_camera_state(logs: list[str]) -> ExtrinsicsState:
 
 
 def load_initial_lidar_state(default_frame: str, logs: list[str]) -> tuple[str, ExtrinsicsState]:
+    manual_dir = latest_manual_calibration_dir()
+    if manual_dir is not None:
+        manual_env = manual_dir / "manual_sensor_extrinsics.env"
+        if manual_env.is_file():
+            values = parse_env_file(manual_env)
+            lidar_frame = values.get("LIDAR_FRAME", default_frame).strip() or default_frame
+            xyz_value = values.get("LIDAR_XYZ")
+            rpy_value = values.get("LIDAR_RPY")
+            if xyz_value and rpy_value:
+                logs.append(f"lidar init: loaded latest manual calibration from {manual_env}")
+                return lidar_frame, ExtrinsicsState(parse_triplet(xyz_value), parse_triplet(rpy_value))
+
+        lidar_env = manual_dir / "lidar_manual_extrinsics.env"
+        if lidar_env.is_file():
+            values = parse_env_file(lidar_env)
+            lidar_frame = values.get("LIDAR_FRAME", default_frame).strip() or default_frame
+            xyz_value = values.get("LIDAR_XYZ")
+            rpy_value = values.get("LIDAR_RPY")
+            if xyz_value and rpy_value:
+                logs.append(f"lidar init: loaded manual lidar values from {lidar_env}")
+                return lidar_frame, ExtrinsicsState(parse_triplet(xyz_value), parse_triplet(rpy_value))
+
     if not LIDAR_CONFIG_ENV.is_file():
         logs.append("lidar init: no existing LiDAR env found; starting from zeros")
         return default_frame, ExtrinsicsState([0.0, 0.0, 0.0], [0.0, 0.0, 0.0])
@@ -373,7 +443,8 @@ def main() -> int:
     active_sensor = "camera"
     step_index = 1
     publish_period = 1.0 / max(args.publish_rate, 1.0)
-    last_publish = 0.0
+    node.publish_state(camera_state, lidar_state)
+    last_publish = time.monotonic()
 
     print_help()
     print_status(active_sensor, STEP_SIZES[step_index], args.camera_frame, camera_state, lidar_frame, lidar_state)

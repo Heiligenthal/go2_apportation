@@ -1,6 +1,8 @@
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/odom_to_tf_broadcaster.py
+/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/zero_joint_state_publisher.py
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__init__.py
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__pycache__/odom_to_tf_broadcaster.cpython-310.pyc
+/workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__pycache__/zero_joint_state_publisher.cpython-310.pyc
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools/__pycache__/__init__.cpython-310.pyc
 /workspace/repo/install_container/go2_tf_tools/share/ament_index/resource_index/packages/go2_tf_tools
 /workspace/repo/install_container/go2_tf_tools/share/go2_tf_tools/package.xml
@@ -12,3 +14,4 @@
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info/entry_points.txt
 /workspace/repo/install_container/go2_tf_tools/lib/python3.10/site-packages/go2_tf_tools-0.0.0-py3.10.egg-info/requires.txt
 /workspace/repo/install_container/go2_tf_tools/lib/go2_tf_tools/odom_to_tf_broadcaster
+/workspace/repo/install_container/go2_tf_tools/lib/go2_tf_tools/zero_joint_state_publisher

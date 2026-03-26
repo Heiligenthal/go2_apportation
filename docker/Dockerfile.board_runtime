@@ -4,6 +4,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         python3-pip \
         ros-humble-realsense2-camera \
+        ros-humble-rviz2 \
         ros-humble-rtabmap-ros \
         ros-humble-slam-toolbox \
         ros-humble-nav2-map-server \

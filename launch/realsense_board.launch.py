@@ -30,6 +30,8 @@ def generate_launch_description() -> LaunchDescription:
                     {
                         "use_sim_time": LaunchConfiguration("use_sim_time"),
                         "align_depth.enable": True,
+                        "pointcloud.enable": True,
+                        "publish_tf": True,
                     },
                 ],
             ),
