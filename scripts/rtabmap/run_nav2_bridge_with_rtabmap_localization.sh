@@ -10,8 +10,11 @@ PRIVILEGED=0
 ALLOW_UNCALIBRATED_LIDAR=0
 PC_TOPIC=""
 SCAN_TOPIC="/scan"
+EXTRINSICS_ENV_PATH=""
+CAMERA_XYZ_ENV_SET="${CAMERA_XYZ+x}"
+CAMERA_RPY_ENV_SET="${CAMERA_RPY+x}"
 
-LIDAR_FRAME="utlidar_lidar"
+LIDAR_FRAME="lidar_frame"
 LIDAR_XYZ="0 0 0"
 LIDAR_RPY="0 0 0"
 CAMERA_FRAME="camera_link"
@@ -29,10 +32,11 @@ Usage:
 
 Options:
   --db <path>                    RTAB-Map DB path (default: latest artifacts/maps/*/rtabmap.db)
-  --map-yaml <path>              Static map YAML for nav2_map_server (required)
+  --map-yaml <path>              Static map YAML for nav2_map_server (default: sibling map.yaml next to chosen DB, else latest artifacts/maps/*/map.yaml)
   --restart-container            Stop running container and start fresh
   --privileged                   Start/restart runtime container with ENABLE_PRIVILEGED=1
   --allow-uncalibrated-lidar     Allow lidar_xyz/lidar_rpy both "0 0 0" (debug only)
+  --extrinsics-env <path>        Explicit camera/lidar session env (default: latest manual calibration)
   --pc-topic <topic>             PointCloud2 input (default: prefer /utlidar/cloud then /utlidar/cloud_base)
   --scan-topic <topic>           LaserScan output topic before restamp (default: /scan)
   -h, --help                     Show this help
@@ -41,6 +45,255 @@ After the stack is up, run:
   scripts/rtabmap/smoke_test_nav2_bridge_runtime.sh
 to validate bridge TF/topics/watchdog on the real productive path.
 USAGE
+}
+
+latest_map_run_dir() {
+  local maps_root="${ROOT_DIR}/artifacts/maps"
+  local latest_link="${maps_root}/latest"
+  local resolved=""
+  if [[ -L "${latest_link}" ]]; then
+    resolved="$(cd "$(dirname "${latest_link}")" && readlink "${latest_link}")"
+    if [[ -n "${resolved}" && "${resolved}" = /* && -d "${resolved}" ]]; then
+      printf '%s\n' "${resolved}"
+      return 0
+    fi
+    if [[ -n "${resolved}" && -d "${maps_root}/${resolved}" ]]; then
+      printf '%s\n' "${maps_root}/${resolved}"
+      return 0
+    fi
+  fi
+
+  find "${maps_root}" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' 2>/dev/null \
+    | sort -nr \
+    | awk '{print $2}' \
+    | while IFS= read -r run_dir; do
+        [[ -f "${run_dir}/rtabmap.db" ]] || continue
+        printf '%s\n' "${run_dir}"
+        break
+      done
+}
+
+latest_map_yaml() {
+  local latest_dir
+  latest_dir="$(latest_map_run_dir || true)"
+  [[ -n "${latest_dir}" && -f "${latest_dir}/map.yaml" ]] && printf '%s\n' "${latest_dir}/map.yaml"
+}
+
+latest_manual_calibration_dir() {
+  local calibration_root latest_link resolved
+  calibration_root="${ROOT_DIR}/artifacts/manual_calibration"
+  latest_link="${calibration_root}/latest"
+  if [[ -L "${latest_link}" ]]; then
+    resolved="$(cd "$(dirname "${latest_link}")" && readlink "${latest_link}")"
+    if [[ -n "${resolved}" && "${resolved}" = /* && -d "${resolved}" ]]; then
+      printf '%s\n' "${resolved}"
+      return 0
+    fi
+    if [[ -n "${resolved}" && -d "${calibration_root}/${resolved}" ]]; then
+      printf '%s\n' "${calibration_root}/${resolved}"
+      return 0
+    fi
+  fi
+
+  find "${calibration_root}" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' 2>/dev/null \
+    | sort -nr \
+    | awk '{print $2}' \
+    | while IFS= read -r run_dir; do
+        [[ -f "${run_dir}/manual_sensor_extrinsics.env" || -f "${run_dir}/camera_manual_extrinsics.env" || -f "${run_dir}/lidar_manual_extrinsics.env" ]] || continue
+        printf '%s\n' "${run_dir}"
+        break
+      done
+}
+
+latest_camera_mount_calibration_dir() {
+  local calibration_root latest_link resolved
+  calibration_root="${ROOT_DIR}/artifacts/calibration/camera_mount"
+  latest_link="${calibration_root}/latest"
+  if [[ -L "${latest_link}" ]]; then
+    resolved="$(cd "$(dirname "${latest_link}")" && readlink "${latest_link}")"
+    if [[ -n "${resolved}" && "${resolved}" = /* && -d "${resolved}" ]]; then
+      printf '%s\n' "${resolved}"
+      return 0
+    fi
+    if [[ -n "${resolved}" && -d "${calibration_root}/${resolved}" ]]; then
+      printf '%s\n' "${calibration_root}/${resolved}"
+      return 0
+    fi
+  fi
+
+  find "${calibration_root}" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' 2>/dev/null \
+    | sort -nr \
+    | awk '{print $2}' \
+    | while IFS= read -r run_dir; do
+        [[ -f "${run_dir}/best_extrinsics.env" ]] || continue
+        printf '%s\n' "${run_dir}"
+        break
+      done
+}
+
+latest_mapping_test_extrinsics_env() {
+  local candidate="${ROOT_DIR}/config/mapping_test_extrinsics.env"
+  [[ -f "${candidate}" ]] && printf '%s\n' "${candidate}"
+}
+
+resolve_path() {
+  local path_value="$1"
+  if [[ "${path_value}" = /* ]]; then
+    printf '%s\n' "${path_value}"
+  else
+    printf '%s\n' "${ROOT_DIR}/${path_value}"
+  fi
+}
+
+normalize_triplet() {
+  printf '%s\n' "$1" | sed -E "s/^[[:space:]'\\\"]+//; s/[[:space:]'\\\"]+$//" | awk '{$1=$1; print}'
+}
+
+normalize_frame_name() {
+  printf '%s\n' "$1" | sed -E "s/^[[:space:]'\\\"]+//; s/[[:space:]'\\\"]+$//"
+}
+
+load_session_extrinsics_if_needed() {
+  local manual_dir camera_mount_dir extrinsics_env snapshot mapping_env
+  local camera_source="environment"
+  local lidar_source="environment"
+
+  if [[ -z "${CAMERA_XYZ_ENV_SET}" || -z "${CAMERA_RPY_ENV_SET}" ]]; then
+    extrinsics_env=""
+    if [[ -n "${EXTRINSICS_ENV_PATH}" ]]; then
+      extrinsics_env="$(resolve_path "${EXTRINSICS_ENV_PATH}")"
+      camera_source="explicit --extrinsics-env"
+    else
+      manual_dir="$(latest_manual_calibration_dir || true)"
+      if [[ -n "${manual_dir}" && -f "${manual_dir}/manual_sensor_extrinsics.env" ]]; then
+        extrinsics_env="${manual_dir}/manual_sensor_extrinsics.env"
+        camera_source="latest manual session calibration"
+      elif [[ -n "${manual_dir}" && -f "${manual_dir}/camera_manual_extrinsics.env" ]]; then
+        extrinsics_env="${manual_dir}/camera_manual_extrinsics.env"
+        camera_source="latest manual session camera calibration"
+      else
+        camera_mount_dir="$(latest_camera_mount_calibration_dir || true)"
+        if [[ -n "${camera_mount_dir}" ]]; then
+          extrinsics_env="${camera_mount_dir}/best_extrinsics.env"
+          camera_source="latest automatic camera mount calibration"
+        fi
+      fi
+    fi
+
+    if [[ -n "${extrinsics_env}" && -f "${extrinsics_env}" ]]; then
+      snapshot="${RUN_DIR}/00_camera_session_extrinsics.env"
+      python3 - "${extrinsics_env}" "${snapshot}" <<'PY'
+import shlex
+import sys
+from pathlib import Path
+
+src = Path(sys.argv[1])
+dst = Path(sys.argv[2])
+values = {}
+for raw_line in src.read_text(encoding="utf-8").splitlines():
+    line = raw_line.strip()
+    if not line or line.startswith("#") or "=" not in line:
+        continue
+    key, value = line.split("=", 1)
+    parsed = shlex.split(value.strip(), comments=False, posix=True)
+    values[key.strip()] = parsed[0] if len(parsed) == 1 else " ".join(parsed)
+
+required = ["X", "Y", "Z", "ROLL_DEG", "PITCH_DEG", "YAW_DEG"]
+if all(key in values and values[key] != "" for key in ("CAMERA_XYZ", "CAMERA_RPY")):
+    camera_xyz = values["CAMERA_XYZ"]
+    camera_rpy = values["CAMERA_RPY"]
+else:
+    missing = [key for key in required if key not in values or values[key] == ""]
+    if missing:
+        raise SystemExit(f"camera calibration env missing required keys: {', '.join(missing)}")
+    camera_xyz = f"{values['X']} {values['Y']} {values['Z']}"
+    camera_rpy = f"{values['ROLL_DEG']} {values['PITCH_DEG']} {values['YAW_DEG']}"
+
+dst.write_text(
+    "CAMERA_XYZ=" + shlex.quote(camera_xyz) + "\n"
+    + "CAMERA_RPY=" + shlex.quote(camera_rpy) + "\n",
+    encoding="utf-8",
+)
+PY
+      # shellcheck disable=SC1090
+      source "${snapshot}"
+      log "Loaded camera extrinsics from ${camera_source}: ${extrinsics_env}"
+    else
+      log "No camera session calibration found; using camera_xyz/camera_rpy as currently set"
+    fi
+  else
+    log "Using CAMERA_XYZ/CAMERA_RPY from environment: camera_xyz='${CAMERA_XYZ}' camera_rpy='${CAMERA_RPY}'"
+  fi
+
+  if [[ "$(normalize_triplet "${LIDAR_XYZ}")" == "0 0 0" && "$(normalize_triplet "${LIDAR_RPY}")" == "0 0 0" ]]; then
+    extrinsics_env=""
+    if [[ -n "${EXTRINSICS_ENV_PATH}" ]]; then
+      extrinsics_env="$(resolve_path "${EXTRINSICS_ENV_PATH}")"
+      lidar_source="explicit --extrinsics-env"
+    else
+      manual_dir="$(latest_manual_calibration_dir || true)"
+    fi
+    if [[ -z "${extrinsics_env}" && -n "${manual_dir:-}" && -f "${manual_dir}/manual_sensor_extrinsics.env" ]]; then
+      extrinsics_env="${manual_dir}/manual_sensor_extrinsics.env"
+      lidar_source="latest manual session calibration"
+    elif [[ -z "${extrinsics_env}" && -n "${manual_dir:-}" && -f "${manual_dir}/lidar_manual_extrinsics.env" ]]; then
+      extrinsics_env="${manual_dir}/lidar_manual_extrinsics.env"
+      lidar_source="latest manual session lidar calibration"
+    elif [[ -z "${extrinsics_env}" ]]; then
+      mapping_env="$(latest_mapping_test_extrinsics_env || true)"
+      if [[ -n "${mapping_env}" ]]; then
+        extrinsics_env="${mapping_env}"
+        lidar_source="config/mapping_test_extrinsics.env"
+      fi
+    fi
+
+    if [[ -n "${extrinsics_env}" && -f "${extrinsics_env}" ]]; then
+      snapshot="${RUN_DIR}/00_lidar_session_extrinsics.env"
+      python3 - "${extrinsics_env}" "${snapshot}" <<'PY'
+import shlex
+import sys
+from pathlib import Path
+
+src = Path(sys.argv[1])
+dst = Path(sys.argv[2])
+values = {}
+for raw_line in src.read_text(encoding="utf-8").splitlines():
+    line = raw_line.strip()
+    if not line or line.startswith("#") or "=" not in line:
+        continue
+    key, value = line.split("=", 1)
+    parsed = shlex.split(value.strip(), comments=False, posix=True)
+    values[key.strip()] = parsed[0] if len(parsed) == 1 else " ".join(parsed)
+
+required = ["LIDAR_FRAME", "LIDAR_XYZ", "LIDAR_RPY"]
+missing = [key for key in required if key not in values or values[key] == ""]
+if missing:
+    raise SystemExit(f"lidar calibration env missing required keys: {', '.join(missing)}")
+
+dst.write_text(
+    "LIDAR_FRAME=" + shlex.quote(values["LIDAR_FRAME"]) + "\n"
+    + "LIDAR_XYZ=" + shlex.quote(values["LIDAR_XYZ"]) + "\n"
+    + "LIDAR_RPY=" + shlex.quote(values["LIDAR_RPY"]) + "\n",
+    encoding="utf-8",
+)
+PY
+      # shellcheck disable=SC1090
+      source "${snapshot}"
+      log "Loaded lidar extrinsics from ${lidar_source}: ${extrinsics_env}"
+    else
+      log "No lidar session calibration found; using lidar_xyz/lidar_rpy as currently set"
+    fi
+  else
+    log "Using LIDAR_XYZ/LIDAR_RPY from environment: lidar_xyz='${LIDAR_XYZ}' lidar_rpy='${LIDAR_RPY}'"
+  fi
+
+  CAMERA_XYZ="$(normalize_triplet "${CAMERA_XYZ}")"
+  CAMERA_RPY="$(normalize_triplet "${CAMERA_RPY}")"
+  LIDAR_FRAME="$(normalize_frame_name "${LIDAR_FRAME}")"
+  LIDAR_XYZ="$(normalize_triplet "${LIDAR_XYZ}")"
+  LIDAR_RPY="$(normalize_triplet "${LIDAR_RPY}")"
+
+  log "Effective session extrinsics: lidar_frame='${LIDAR_FRAME}' lidar_xyz='${LIDAR_XYZ}' lidar_rpy='${LIDAR_RPY}' camera_frame='${CAMERA_FRAME}' camera_xyz='${CAMERA_XYZ}' camera_rpy='${CAMERA_RPY}'"
 }
 
 while [[ $# -gt 0 ]]; do
@@ -66,6 +319,11 @@ while [[ $# -gt 0 ]]; do
     --allow-uncalibrated-lidar)
       ALLOW_UNCALIBRATED_LIDAR=1
       shift
+      ;;
+    --extrinsics-env)
+      [[ $# -lt 2 ]] && { echo "ERROR: --extrinsics-env requires value" >&2; exit 2; }
+      EXTRINSICS_ENV_PATH="$2"
+      shift 2
       ;;
     --pc-topic)
       [[ $# -lt 2 ]] && { echo "ERROR: --pc-topic requires value" >&2; exit 2; }
@@ -110,7 +368,7 @@ container_running() {
 
 latest_db() {
   local latest_dir
-  latest_dir="$(ls -1d "${ROOT_DIR}/artifacts/maps"/* 2>/dev/null | sort | tail -n 1 || true)"
+  latest_dir="$(latest_map_run_dir || true)"
   [[ -n "${latest_dir}" && -f "${latest_dir}/rtabmap.db" ]] && echo "${latest_dir}/rtabmap.db"
 }
 
@@ -130,24 +388,26 @@ if [[ -z "${host_db_path}" || ! -f "${host_db_path}" ]]; then
   exit 1
 fi
 
-if [[ -z "${MAP_YAML}" ]]; then
-  log "FAIL: --map-yaml is required (static map for nav2_map_server)."
-  exit 1
-fi
-
 container_db_path="${host_db_path}"
 if [[ "${host_db_path}" == "${ROOT_DIR}"/* ]]; then
   container_db_path="/workspace/repo/${host_db_path#${ROOT_DIR}/}"
 fi
 
 host_map_yaml_path=""
-if [[ "${MAP_YAML}" = /* ]]; then
+if [[ -n "${MAP_YAML}" && "${MAP_YAML}" = /* ]]; then
   host_map_yaml_path="${MAP_YAML}"
-else
+elif [[ -n "${MAP_YAML}" ]]; then
   host_map_yaml_path="${ROOT_DIR}/${MAP_YAML}"
+else
+  sibling_map_yaml="$(dirname "${host_db_path}")/map.yaml"
+  if [[ -f "${sibling_map_yaml}" ]]; then
+    host_map_yaml_path="${sibling_map_yaml}"
+  else
+    host_map_yaml_path="$(latest_map_yaml || true)"
+  fi
 fi
 if [[ ! -f "${host_map_yaml_path}" ]]; then
-  log "FAIL: map yaml not found: ${host_map_yaml_path}"
+  log "FAIL: map yaml not found. Provide --map-yaml or ensure artifacts/maps/*/map.yaml exists."
   exit 1
 fi
 
@@ -191,6 +451,8 @@ if ! container_running; then
     exit 1
   fi
 fi
+
+load_session_extrinsics_if_needed
 
 cat >"${INNER_SCRIPT_HOST}" <<'INNER_EOF'
 #!/usr/bin/env bash
@@ -344,6 +606,13 @@ wait_once_topic() {
 wait_realsense_ready() {
   local timeout_sec="$1"
   local start_ts="$(date +%s)"
+  local expected_topics="${ARTIFACT_DIR}/realsense_topics_expected.log"
+
+  {
+    printf '%s\n' "${RS_RGB_TOPIC}"
+    printf '%s\n' "${RS_DEPTH_TOPIC}"
+    printf '%s\n' "${RS_CAMERA_INFO_TOPIC}"
+  } >"${expected_topics}"
 
   while true; do
     local elapsed=$(( $(date +%s) - start_ts ))
@@ -559,8 +828,20 @@ REALSENSE_PID="$(start_bg \
   "ros2 launch launch/realsense_board.launch.py" \
   "${ARTIFACT_DIR}/02_realsense.out.log" \
   "${ARTIFACT_DIR}/02_realsense.err.log")"
-wait_realsense_ready 60 || { step_log "FAIL: RealSense preflight failed."; exit 1; }
-step_log "PASS RealSense preflight."
+if wait_realsense_ready 60; then
+  step_log "PASS RealSense preflight."
+else
+  step_log "FAIL: RealSense preflight failed."
+  {
+    echo "Expected topics:"
+    cat "${ARTIFACT_DIR}/realsense_topics_expected.log" 2>/dev/null || true
+    echo
+    echo "Observed camera topics:"
+    grep '^/camera/' "${ARTIFACT_DIR}/realsense_topics_all.log" 2>/dev/null || true
+  } >"${ARTIFACT_DIR}/realsense_topics_debug.log"
+  cat "${ARTIFACT_DIR}/realsense_topics_debug.log" | tee -a "${ARTIFACT_DIR}/summary.log" >/dev/null || true
+  exit 1
+fi
 
 pick_lidar_topic || { step_log "FAIL: LiDAR mandatory but no readable pointcloud topic found."; exit 1; }
 step_log "PASS LiDAR sample read: topic=${LIDAR_PC_TOPIC_USED}"
@@ -624,6 +905,7 @@ chmod +x "${INNER_SCRIPT_HOST}"
 log "Run dir: ${RUN_DIR}"
 log "DB: ${host_db_path}"
 log "Map YAML: ${host_map_yaml_path}"
+log "Session extrinsics source active for this run. See summary entries above and 00_*_session_extrinsics.env in ${RUN_DIR}."
 
 set +e
 docker exec "${CONTAINER_NAME}" bash -lc \

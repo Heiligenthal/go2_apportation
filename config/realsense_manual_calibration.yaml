@@ -8,6 +8,7 @@ realsense2_camera:
     enable_infra2: false
     enable_gyro: false
     enable_accel: false
+    enable_sync: true
 
     color_width: 640
     color_height: 480
@@ -17,28 +18,22 @@ realsense2_camera:
     depth_height: 480
     depth_fps: 15
 
-    align_depth:
-      enable: true
+    align_depth.enable: true
 
     clip_distance: 3.0
 
-    pointcloud:
-      enable: true
-      allow_no_texture_points: false
-      ordered_pc: false
+    pointcloud.enable: true
+    pointcloud.allow_no_texture_points: false
+    pointcloud.ordered_pc: false
 
-    decimation_filter:
-      enable: true
-      filter_magnitude: 4
+    decimation_filter.enable: true
+    decimation_filter.filter_magnitude: 4
 
-    temporal_filter:
-      enable: true
-      filter_smooth_alpha: 0.4
-      filter_smooth_delta: 20
-      holes_fill: 1
+    temporal_filter.enable: true
+    temporal_filter.filter_smooth_alpha: 0.4
+    temporal_filter.filter_smooth_delta: 20
+    temporal_filter.holes_fill: 1
 
-    spatial_filter:
-      enable: false
+    spatial_filter.enable: false
 
-    hole_filling_filter:
-      enable: false
+    hole_filling_filter.enable: false

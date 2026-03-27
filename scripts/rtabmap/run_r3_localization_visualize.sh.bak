@@ -181,8 +181,8 @@ ensure_go2_description_install_current() {
   fi
 
   if [[ ! -f /opt/ros/humble/setup.bash ]]; then
-    log "WARN: /opt/ros/humble/setup.bash missing on host; assuming install_container/go2_description is already current."
-    return 0
+    log "FAIL: /opt/ros/humble/setup.bash missing; cannot refresh install_container/go2_description on this host."
+    exit 1
   fi
 
   if ! bash -lc "source /opt/ros/humble/setup.bash && if [[ -f '${ROOT_DIR}/install_container/local_setup.bash' ]]; then source '${ROOT_DIR}/install_container/local_setup.bash'; fi && colcon build --build-base '${ROOT_DIR}/build_container_go2_description_sync' --install-base '${ROOT_DIR}/install_container' --packages-select go2_description" \

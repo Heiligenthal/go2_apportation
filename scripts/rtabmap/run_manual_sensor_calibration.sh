@@ -327,7 +327,7 @@ if [[ "${WITH_RVIZ}" == "1" ]]; then
 fi
 
 step_log "Interactive helper starts now. Productive RViz target is the Ubuntu laptop, not the runtime container."
-step_log "Default Robot Model source: repo go2_description/urdf/go2.urdf via XML-filtered sensor links + zero joint-state publisher + base_link->base bridge."
+step_log "Default Robot Model source: repo go2_description/urdf/go2.urdf via XML-filtered sensor links + zero joint-state publisher."
 step_log "Manual calibration runs in a base_link-local visualization mode; no live odom->base_link TF is started."
 step_log "LiDAR cloud topic for RViz input: ${LIDAR_CLOUD_TOPIC}"
 step_log "LiDAR cloud topic rendered into RViz: ${RVIZ_LIDAR_TOPIC}"
@@ -337,7 +337,7 @@ step_log "Manual RViz cloud policy: keep original sensor frame_id, restamp Point
 step_log "Camera RGB topic: ${CAMERA_RGB_TOPIC}"
 step_log "Camera depth topic: ${CAMERA_DEPTH_TOPIC} (mode=${CAMERA_DEPTH_TOPIC_MODE})"
 step_log "Camera info topic: ${CAMERA_INFO_TOPIC}"
-step_log "Manual TF overrides active: base_link->camera_link and base_link->utlidar_lidar (or configured lidar frame from helper init)."
+step_log "Manual TF overrides active: base_link->camera_link and base_link->lidar_frame (or configured lidar frame from helper init)."
 step_log "Ubuntu laptop RViz command: ./scripts/rtabmap/run_manual_sensor_calibration_rviz.sh"
 step_log "Ubuntu laptop requirement: same ROS_DOMAIN_ID and local workspace with go2_description + rviz2 sourced."
 

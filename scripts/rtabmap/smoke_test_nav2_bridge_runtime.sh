@@ -82,6 +82,12 @@ if [[ ! -f "${RUNTIME_LOG}" ]]; then
   exit 1
 fi
 
+DB_LINE="$(grep -E '^\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\] DB:' "${RUN_DIR}/summary.log" 2>/dev/null | tail -n 1 || true)"
+MAP_LINE="$(grep -E '^\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\] Map YAML:' "${RUN_DIR}/summary.log" 2>/dev/null | tail -n 1 || true)"
+EXTRINSICS_LINE="$(grep -E '^\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\] Effective session extrinsics:' "${RUN_DIR}/summary.log" 2>/dev/null | tail -n 1 || true)"
+CAMERA_SOURCE_LINE="$(grep -E '^\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\] Loaded camera extrinsics from' "${RUN_DIR}/summary.log" 2>/dev/null | tail -n 1 || true)"
+LIDAR_SOURCE_LINE="$(grep -E '^\\[[0-9]{2}:[0-9]{2}:[0-9]{2}\\] Loaded lidar extrinsics from' "${RUN_DIR}/summary.log" 2>/dev/null | tail -n 1 || true)"
+
 INNER_SCRIPT="${RUN_DIR}/bridge_runtime_smoke_inner.sh"
 cat >"${INNER_SCRIPT}" <<'INNER_EOF'
 #!/usr/bin/env bash
@@ -169,6 +175,11 @@ INNER_EOF
 chmod +x "${INNER_SCRIPT}"
 
 log "Using run dir: ${RUN_DIR}"
+[[ -n "${DB_LINE}" ]] && log "${DB_LINE}"
+[[ -n "${MAP_LINE}" ]] && log "${MAP_LINE}"
+[[ -n "${CAMERA_SOURCE_LINE}" ]] && log "${CAMERA_SOURCE_LINE}"
+[[ -n "${LIDAR_SOURCE_LINE}" ]] && log "${LIDAR_SOURCE_LINE}"
+[[ -n "${EXTRINSICS_LINE}" ]] && log "${EXTRINSICS_LINE}"
 log "Executing runtime smoke checks inside container '${CONTAINER_NAME}'"
 
 BEFORE_LINES="$(wc -l < "${RUNTIME_LOG}")"

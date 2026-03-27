@@ -21,6 +21,7 @@ realsense2_camera:
     enable_infra2: false
     enable_gyro: false
     enable_accel: false
+    enable_sync: true
 
     # ---- Frame rate / resolution (baseline) ----
     # D415 typical stable baseline (adjust if CPU is tight)
@@ -33,8 +34,7 @@ realsense2_camera:
     depth_fps: 30
 
     # ---- Align depth to color (important for RGB-D pipelines) ----
-    align_depth:
-      enable: true
+    align_depth.enable: true
 
     # ---- Depth clamp ----
     # ROS2 wrapper supports depth range via clip distance in some versions:
@@ -43,34 +43,29 @@ realsense2_camera:
     # min_depth: 0.45           # if supported; otherwise handle in RTAB-Map and pointcloud filters
 
     # ---- Pointcloud ----
-    pointcloud:
-      enable: true
-      allow_no_texture_points: false
-      ordered_pc: false
+    pointcloud.enable: true
+    pointcloud.allow_no_texture_points: false
+    pointcloud.ordered_pc: false
     # Depth->PointCloud is heavy; if CPU is tight, disable and only use images for SLAM.
     # For Nav2 costmap you can use LiDAR cloud instead.
 
     # ---- Post-processing filters ----
     # These filter blocks exist in many realsense-ros versions; naming may differ.
-    decimation_filter:
-      enable: true
-      filter_magnitude: 2        # 2 = downsample by 2
+    decimation_filter.enable: true
+    decimation_filter.filter_magnitude: 2        # 2 = downsample by 2
 
-    temporal_filter:
-      enable: true
-      filter_smooth_alpha: 0.4
-      filter_smooth_delta: 20
-      holes_fill: 1
+    temporal_filter.enable: true
+    temporal_filter.filter_smooth_alpha: 0.4
+    temporal_filter.filter_smooth_delta: 20
+    temporal_filter.holes_fill: 1
 
-    spatial_filter:
-      enable: false              # optional (enable if you need more smoothing)
-      filter_magnitude: 2
-      filter_smooth_alpha: 0.5
-      filter_smooth_delta: 20
-      holes_fill: 0
+    spatial_filter.enable: false              # optional (enable if you need more smoothing)
+    spatial_filter.filter_magnitude: 2
+    spatial_filter.filter_smooth_alpha: 0.5
+    spatial_filter.filter_smooth_delta: 20
+    spatial_filter.holes_fill: 0
 
-    hole_filling_filter:
-      enable: false              # optional
+    hole_filling_filter.enable: false              # optional
 
     # ---- Exposure/Auto settings ----
     # Default auto exposure is usually fine. Tune only if needed for motion blur.

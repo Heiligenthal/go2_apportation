@@ -411,7 +411,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--base-frame", default="base_link")
     parser.add_argument("--camera-frame", default="camera_link")
-    parser.add_argument("--lidar-frame", default="utlidar_lidar")
+    parser.add_argument("--lidar-frame", default="lidar_frame")
     parser.add_argument("--output-dir", default=str(MANUAL_ROOT / time.strftime("%Y%m%d_%H%M%S")))
     parser.add_argument("--publish-rate", type=float, default=20.0)
     return parser.parse_args()
