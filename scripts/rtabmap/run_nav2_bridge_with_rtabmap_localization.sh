@@ -11,6 +11,7 @@ ALLOW_UNCALIBRATED_LIDAR=0
 PC_TOPIC=""
 SCAN_TOPIC="/scan"
 EXTRINSICS_ENV_PATH=""
+REALSENSE_D410_FALLBACK_MODE=0
 CAMERA_XYZ_ENV_SET="${CAMERA_XYZ+x}"
 CAMERA_RPY_ENV_SET="${CAMERA_RPY+x}"
 
@@ -37,6 +38,7 @@ Options:
   --privileged                   Start/restart runtime container with ENABLE_PRIVILEGED=1
   --allow-uncalibrated-lidar     Allow lidar_xyz/lidar_rpy both "0 0 0" (debug only)
   --extrinsics-env <path>        Explicit camera/lidar session env (default: latest manual calibration)
+  --d410-fallback-mode           NOTBETRIEBSMODUS: use infra1+depth topics instead of color+aligned_depth_to_color
   --pc-topic <topic>             PointCloud2 input (default: prefer /utlidar/cloud then /utlidar/cloud_base)
   --scan-topic <topic>           LaserScan output topic before restamp (default: /scan)
   -h, --help                     Show this help
@@ -45,6 +47,18 @@ After the stack is up, run:
   scripts/rtabmap/smoke_test_nav2_bridge_runtime.sh
 to validate bridge TF/topics/watchdog on the real productive path.
 USAGE
+}
+
+enable_realsense_d410_fallback_mode() {
+  RS_RGB_TOPIC="/camera/realsense2_camera/infra1/image_rect_raw"
+  RS_DEPTH_TOPIC="/camera/realsense2_camera/depth/image_rect_raw"
+  RS_CAMERA_INFO_TOPIC="/camera/realsense2_camera/infra1/camera_info"
+}
+
+realsense_launch_args() {
+  if [[ "${REALSENSE_D410_FALLBACK_MODE}" -eq 1 ]]; then
+    printf '%s' " realsense_params_file:=/workspace/repo/config/realsense_d410_fallback.yaml"
+  fi
 }
 
 latest_map_run_dir() {
@@ -325,6 +339,10 @@ while [[ $# -gt 0 ]]; do
       EXTRINSICS_ENV_PATH="$2"
       shift 2
       ;;
+    --d410-fallback-mode)
+      REALSENSE_D410_FALLBACK_MODE=1
+      shift
+      ;;
     --pc-topic)
       [[ $# -lt 2 ]] && { echo "ERROR: --pc-topic requires value" >&2; exit 2; }
       PC_TOPIC="$2"
@@ -347,6 +365,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ "${REALSENSE_D410_FALLBACK_MODE}" -eq 1 ]]; then
+  enable_realsense_d410_fallback_mode
+fi
+
 if ! command -v docker >/dev/null 2>&1; then
   echo "ERROR: docker CLI not found" >&2
   exit 1
@@ -357,6 +379,7 @@ RUN_DIR="${ROOT_DIR}/artifacts/nav2_bridge/${TIMESTAMP}"
 mkdir -p "${RUN_DIR}"
 SUMMARY_LOG="${RUN_DIR}/summary.log"
 INNER_SCRIPT_HOST="${RUN_DIR}/nav2_bridge_inner.sh"
+REALSENSE_LAUNCH_ARGS="$(realsense_launch_args)"
 
 log() {
   echo "[$(date +%H:%M:%S)] $*" | tee -a "${SUMMARY_LOG}"
@@ -473,6 +496,7 @@ RS_RGB_TOPIC="${12}"
 RS_DEPTH_TOPIC="${13}"
 RS_CAMERA_INFO_TOPIC="${14}"
 MAP_YAML_PATH="${15}"
+REALSENSE_LAUNCH_ARGS="${16}"
 ROOT_DIR="/workspace/repo"
 
 SCAN_FRESH_TOPIC="${SCAN_TOPIC%/}_fresh"
@@ -825,7 +849,7 @@ step_log "PASS board_description TF preflight."
 
 step_log "Starting realsense launch."
 REALSENSE_PID="$(start_bg \
-  "ros2 launch launch/realsense_board.launch.py" \
+  "ros2 launch launch/realsense_board.launch.py${REALSENSE_LAUNCH_ARGS}" \
   "${ARTIFACT_DIR}/02_realsense.out.log" \
   "${ARTIFACT_DIR}/02_realsense.err.log")"
 if wait_realsense_ready 60; then
@@ -905,11 +929,16 @@ chmod +x "${INNER_SCRIPT_HOST}"
 log "Run dir: ${RUN_DIR}"
 log "DB: ${host_db_path}"
 log "Map YAML: ${host_map_yaml_path}"
+if [[ "${REALSENSE_D410_FALLBACK_MODE}" -eq 1 ]]; then
+  log "RealSense NOTBETRIEBSMODUS active: rgb_topic=${RS_RGB_TOPIC} depth_topic=${RS_DEPTH_TOPIC} camera_info_topic=${RS_CAMERA_INFO_TOPIC}"
+else
+  log "RealSense standard RGB-D mode: rgb_topic=${RS_RGB_TOPIC} depth_topic=${RS_DEPTH_TOPIC} camera_info_topic=${RS_CAMERA_INFO_TOPIC}"
+fi
 log "Session extrinsics source active for this run. See summary entries above and 00_*_session_extrinsics.env in ${RUN_DIR}."
 
 set +e
 docker exec "${CONTAINER_NAME}" bash -lc \
-  "/workspace/repo/artifacts/nav2_bridge/${TIMESTAMP}/nav2_bridge_inner.sh /workspace/repo/artifacts/nav2_bridge/${TIMESTAMP} '${container_db_path}' '${PC_TOPIC}' '${SCAN_TOPIC}' '${ALLOW_UNCALIBRATED_LIDAR}' '${LIDAR_FRAME}' '${LIDAR_XYZ}' '${LIDAR_RPY}' '${CAMERA_FRAME}' '${CAMERA_XYZ}' '${CAMERA_RPY}' '${RS_RGB_TOPIC}' '${RS_DEPTH_TOPIC}' '${RS_CAMERA_INFO_TOPIC}' '${container_map_yaml_path}'" \
+  "/workspace/repo/artifacts/nav2_bridge/${TIMESTAMP}/nav2_bridge_inner.sh /workspace/repo/artifacts/nav2_bridge/${TIMESTAMP} '${container_db_path}' '${PC_TOPIC}' '${SCAN_TOPIC}' '${ALLOW_UNCALIBRATED_LIDAR}' '${LIDAR_FRAME}' '${LIDAR_XYZ}' '${LIDAR_RPY}' '${CAMERA_FRAME}' '${CAMERA_XYZ}' '${CAMERA_RPY}' '${RS_RGB_TOPIC}' '${RS_DEPTH_TOPIC}' '${RS_CAMERA_INFO_TOPIC}' '${container_map_yaml_path}' '${REALSENSE_LAUNCH_ARGS}'" \
   > >(tee "${RUN_DIR}/99_inner_wrapper.out.log") \
   2> >(tee "${RUN_DIR}/99_inner_wrapper.err.log" >&2)
 RC=$?

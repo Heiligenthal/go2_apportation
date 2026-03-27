@@ -1,5 +1,6 @@
 # file: realsense.yaml
-# Intel RealSense D415 baseline for RGB-D SLAM + perception (ROS2 Humble, realsense2_camera)
+# Intel RealSense D415 baseline for canonical RGB-D SLAM + perception.
+# The D410/infra1+depth NOTBETRIEBSMODUS uses config/realsense_d410_fallback.yaml instead.
 #
 # Goals:
 # - stable RGB + aligned depth

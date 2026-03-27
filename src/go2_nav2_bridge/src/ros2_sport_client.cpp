@@ -8,92 +8,105 @@
 namespace go2_nav2_bridge
 {
 
-void SportClient::BalanceStand(unitree_api::msg::Request & req)
+namespace
 {
+
+void prepareSportRequest(go2_interfaces::msg::WebRtcReq & req, int32_t api_id)
+{
+  req.id = 0;
+  req.topic = ROBOT_SPORT_REQUEST_TOPIC;
+  req.api_id = api_id;
+  req.priority = 0;
+}
+
+}  // namespace
+
+void SportClient::BalanceStand(go2_interfaces::msg::WebRtcReq & req)
+{
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_BALANCESTAND);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_BALANCESTAND;
   req_puber_->publish(req);
 }
 
-void SportClient::StopMove(unitree_api::msg::Request & req)
+void SportClient::StopMove(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_STOPMOVE);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_STOPMOVE;
   req_puber_->publish(req);
 }
 
-void SportClient::StandUp(unitree_api::msg::Request & req)
+void SportClient::StandUp(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_STANDUP);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_STANDUP;
   req_puber_->publish(req);
 }
 
-void SportClient::Euler(unitree_api::msg::Request & req, float roll, float pitch, float yaw)
+void SportClient::Euler(go2_interfaces::msg::WebRtcReq & req, float roll, float pitch, float yaw)
 {
   nlohmann::json js;
   js["x"] = roll;
   js["y"] = pitch;
   js["z"] = yaw;
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_EULER);
   req.parameter = js.dump();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_EULER;
   req_puber_->publish(req);
 }
 
-void SportClient::Move(unitree_api::msg::Request & req, float vx, float vy, float vyaw)
+void SportClient::Move(go2_interfaces::msg::WebRtcReq & req, float vx, float vy, float vyaw)
 {
   nlohmann::json js;
   js["x"] = vx;
   js["y"] = vy;
   js["z"] = vyaw;
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_MOVE);
   req.parameter = js.dump();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_MOVE;
   req_puber_->publish(req);
 }
 
-void SportClient::SwitchJoystick(unitree_api::msg::Request & req, bool flag)
+void SportClient::SwitchJoystick(go2_interfaces::msg::WebRtcReq & req, bool flag)
 {
   nlohmann::json js;
   js["data"] = flag;
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_SWITCHJOYSTICK);
   req.parameter = js.dump();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_SWITCHJOYSTICK;
   req_puber_->publish(req);
 }
 
-void SportClient::StaticWalk(unitree_api::msg::Request & req)
+void SportClient::StaticWalk(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_STATICWALK);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_STATICWALK;
   req_puber_->publish(req);
 }
 
-void SportClient::TrotRun(unitree_api::msg::Request & req)
+void SportClient::TrotRun(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_TROTRUN);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_TROTRUN;
   req_puber_->publish(req);
 }
 
-void SportClient::EconomicGait(unitree_api::msg::Request & req)
+void SportClient::EconomicGait(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_ECONOMICGAIT);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_ECONOMICGAIT;
   req_puber_->publish(req);
 }
 
-void SportClient::FreeWalk(unitree_api::msg::Request & req)
+void SportClient::FreeWalk(go2_interfaces::msg::WebRtcReq & req)
 {
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_FREEWALK);
   req.parameter.clear();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_FREEWALK;
   req_puber_->publish(req);
 }
 
-void SportClient::ClassicWalk(unitree_api::msg::Request & req, bool flag)
+void SportClient::ClassicWalk(go2_interfaces::msg::WebRtcReq & req, bool flag)
 {
   nlohmann::json js;
   js["data"] = flag;
+  prepareSportRequest(req, ROBOT_SPORT_API_ID_CLASSICWALK);
   req.parameter = js.dump();
-  req.header.identity.api_id = ROBOT_SPORT_API_ID_CLASSICWALK;
   req_puber_->publish(req);
 }
 

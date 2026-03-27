@@ -14,7 +14,7 @@
 #include "std_msgs/msg/string.hpp"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2_ros/transform_broadcaster.h"
-#include "unitree_go/msg/sport_mode_state.hpp"
+#include "go2_interfaces/msg/sport_mode_state.hpp"
 
 #include "go2_nav2_bridge/ros2_sport_client.h"
 
@@ -77,7 +77,7 @@ public:
       cmd_vel_topic_, qos,
       std::bind(&Go2Nav2Bridge::cmdVelCallback, this, std::placeholders::_1));
 
-    sport_state_sub_ = create_subscription<unitree_go::msg::SportModeState>(
+    sport_state_sub_ = create_subscription<go2_interfaces::msg::SportModeState>(
       sport_state_topic_, qos,
       std::bind(&Go2Nav2Bridge::sportStateCallback, this, std::placeholders::_1));
 
@@ -220,7 +220,7 @@ private:
     }
   }
 
-  void sportStateCallback(const unitree_go::msg::SportModeState::SharedPtr msg)
+  void sportStateCallback(const go2_interfaces::msg::SportModeState::SharedPtr msg)
   {
     last_state_ = *msg;
     state_received_ = true;
@@ -532,8 +532,8 @@ private:
   }
 
   SportClient sport_client_;
-  unitree_api::msg::Request req_;
-  unitree_go::msg::SportModeState last_state_{};
+  go2_interfaces::msg::WebRtcReq req_{};
+  go2_interfaces::msg::SportModeState last_state_{};
   geometry_msgs::msg::Twist latest_nav_cmd_{};
   bool state_received_{false};
   bool yaw_initialized_{false};
@@ -593,7 +593,7 @@ private:
   rclcpp::Time last_state_time_;
   rclcpp::Time start_time_;
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_sub_;
-  rclcpp::Subscription<unitree_go::msg::SportModeState>::SharedPtr sport_state_sub_;
+  rclcpp::Subscription<go2_interfaces::msg::SportModeState>::SharedPtr sport_state_sub_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr control_mode_sub_;
   rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr look_yaw_delta_sub_;
   rclcpp::Subscription<geometry_msgs::msg::Vector3>::SharedPtr balance_rpy_sub_;

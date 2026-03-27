@@ -12,8 +12,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
-find_package(unitree_api REQUIRED)
-find_package(unitree_go REQUIRED)
+find_package(go2_interfaces REQUIRED)
 
 add_executable(go2_nav2_bridge
   src/go2_nav2_bridge.cpp
@@ -31,8 +30,7 @@ ament_target_dependencies(go2_nav2_bridge
   std_msgs
   tf2
   tf2_ros
-  unitree_api
-  unitree_go
+  go2_interfaces
 )
 
 install(TARGETS

@@ -4,6 +4,36 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 TOPICS_FILE="${TOPICS_FILE:-${ROOT_DIR}/config/runtime_topics.yaml}"
 SUMMARY_PREFIX="[run_localization_board]"
+D410_FALLBACK_MODE=0
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  scripts/rtabmap/run_localization_board.sh [options]
+
+Options:
+  --d410-fallback-mode   NOTBETRIEBSMODUS: use infra1+depth topics instead of color+aligned_depth_to_color
+  -h, --help             Show this help
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --d410-fallback-mode)
+      D410_FALLBACK_MODE=1
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "${SUMMARY_PREFIX} ERROR: unknown argument '$1'" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
 
 if ! command -v ros2 >/dev/null 2>&1; then
   echo "[run_localization_board] ERROR: ros2 CLI not found in PATH." >&2
@@ -82,6 +112,12 @@ ODOM_FRAME="${ODOM_FRAME:-$(read_yaml_value odom_frame)}"
 MAP_FRAME="${MAP_FRAME:-$(read_yaml_value map_frame)}"
 DATABASE_PATH="${DATABASE_PATH:-$(read_yaml_value database_path)}"
 
+if [[ "${D410_FALLBACK_MODE}" -eq 1 ]]; then
+  RGB_TOPIC="/camera/realsense2_camera/infra1/image_rect_raw"
+  DEPTH_TOPIC="/camera/realsense2_camera/depth/image_rect_raw"
+  CAMERA_INFO_TOPIC="/camera/realsense2_camera/infra1/camera_info"
+fi
+
 if [[ -z "${DATABASE_PATH}" || "${DATABASE_PATH}" == "<"*">" ]]; then
   DATABASE_PATH="$(latest_map_db || true)"
 fi
@@ -99,6 +135,9 @@ echo "  rgb_topic=${RGB_TOPIC}"
 echo "  depth_topic=${DEPTH_TOPIC}"
 echo "  camera_info_topic=${CAMERA_INFO_TOPIC}"
 echo "  database_path=${DATABASE_PATH}"
+if [[ "${D410_FALLBACK_MODE}" -eq 1 ]]; then
+  echo "${SUMMARY_PREFIX} RealSense NOTBETRIEBSMODUS active (infra1+depth fallback)."
+fi
 if latest_manual_env="$(latest_manual_extrinsics || true)"; [[ -n "${latest_manual_env}" ]]; then
   echo "${SUMMARY_PREFIX} Preferred session extrinsics for the surrounding board_description path: ${latest_manual_env}"
 else

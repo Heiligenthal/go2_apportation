@@ -29,21 +29,6 @@ def generate_launch_description() -> LaunchDescription:
                     LaunchConfiguration("realsense_params_file"),
                     {
                         "use_sim_time": LaunchConfiguration("use_sim_time"),
-                        # Keep the productive board path on the project's canonical
-                        # RGB-D topics for RTAB-Map localization.
-                        "enable_color": True,
-                        "enable_depth": True,
-                        "enable_infra1": False,
-                        "enable_infra2": False,
-                        "enable_sync": True,
-                        "color_width": 640,
-                        "color_height": 480,
-                        "color_fps": 30,
-                        "depth_width": 640,
-                        "depth_height": 480,
-                        "depth_fps": 30,
-                        "align_depth.enable": True,
-                        "pointcloud.enable": True,
                         "publish_tf": True,
                     },
                 ],
